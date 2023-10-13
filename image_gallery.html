@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>propicgram Image</title>
+    <style>
+        @font-face {
+            font-family: 'LINESeedKR-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        *{
+            font-family: 'LINESeedKR-Bd', sans-serif;
+            user-select: none;
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .grid-container {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(150px, 1fr));
+            gap: 10px;
+            max-width: 1000px;
+            padding-top: 10px;
+            padding: 5px;
+        }
+
+        .main-area{
+            margin: 0 auto;
+            padding: 5px;
+            padding-top: 100px;
+            font-size: 23px;
+            max-width: 1000px;
+            text-align: left;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+        }
+
+        header {
+            font-size: 20px;
+            font-family: Cafe24ClassicType-Regular, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            background-color: rgb(255, 255, 255);
+        }
+
+        footer {
+            font-size: 15px;
+            background-color: rgb(27, 27, 27);
+            color: #fff;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            margin: 0 auto;
+            padding: 7px 0 7px 0;
+        }
+
+        .btn-custom {
+            background-color: #ffffff;
+            border: 3px solid #000000;
+            color: #000000;
+            padding: 10px 20px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: box-shadow 0.3s, transform 0.3s;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .btn-custom:hover {
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .loading-animation {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #000;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+            display: none;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .modal-btn {
+            background-color: #ffffff; /* 흰 배경 색상 */
+            border: 3px solid #000000; /* 검정색 테두리 */
+            color: #000000; /* 텍스트 색상 */
+            padding: 10px; /* 내부 여백 */
+            margin: 10px; /* 바깥 여백 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            text-decoration: none; /* 링크 스타일 제거 */
+            width: 200px;
+            display: inline-block;
+            font-size: 16px; /* 폰트 크기 */
+            cursor: pointer; /* 커서 스타일 변경 */
+            border-radius: 25px; /* 버튼 둥글게 만들기 */
+            transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+        }
+
+        .modal-btn:hover {
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4); /* 호버 시 그림자 효과 */
+            transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .modal {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            transition: opacity 0.3s ease; /* 이 줄을 추가하여 페이드 인 효과를 줍니다. */
+            opacity: 0; /* 초기 투명도를 0으로 설정합니다. */
+            pointer-events: none; /* 초기에는 포인터 이벤트를 비활성화합니다. */
+        }
+
+        .modal.show {
+            opacity: 1; /* 모달이 표시될 때 투명도를 1로 설정합니다. */
+            pointer-events: auto; /* 포인터 이벤트를 활성화합니다. */
+        }
+
+        .category-buttons {
+            padding: 5px;
+            display: flex;
+            justify-content: left;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .category-btn {
+            background-color: #ffffff; /* 흰 배경 색상 */
+            border: 3px solid #000000; /* 검정색 테두리 */
+            color: #000000; /* 텍스트 색상 */
+            padding: 10px; /* 내부 여백 */
+            padding-left: 15px;
+            padding-right: 15px;
+            margin: 10px 10px 10px 0;
+            text-align: center; /* 텍스트 가운데 정렬 */
+            text-decoration: none; /* 링크 스타일 제거 */
+            width: auto;
+            display: inline-block;
+            font-size: 14px; /* 폰트 크기 */
+            cursor: pointer; /* 커서 스타일 변경 */
+            border-radius: 25px; /* 버튼 둥글게 만들기 */
+            transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+        }
+
+        .category-btn:hover {
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4); /* 호버 시 그림자 효과 */
+            transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
+            background-color: #000000;
+            color: #fff;
+        }
+
+        .info {
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 15px;
+            max-width: 1000px;
+            padding: 25px 0 25px 0;
+        }
+
+
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media only screen and (max-width: 600px) {
+        /* Add your mobile-specific styles here */
+        header {
+            font-size: 18px;
+        }
+
+        .main-area {
+            text-align: center;
+            padding-top: 90px;
+            padding-left: 7px;
+            padding-right: 7px;
+            font-size: 13px;
+        }
+
+        .category-btn {
+            padding-left: 12px;
+            padding-right: 12px;
+            margin: 8px;
+            margin-right: 1px;
+            padding: 8px; /* 내부 여백 */
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+
+        .grid-container {
+            gap: 5px;
+            padding: 7px;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        .btn-custom {
+            font-size: 12px;
+            padding: 8px;
+        }
+
+        .loading-animation {
+            margin: 5px auto;
+        }
+
+        .modal {
+            max-width: 320px;
+        }
+
+        .footer{
+            font-size: 10px;
+        }
+
+    }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>propicgram</h1>
+    </header>
+
+    <div class="main-area">
+        propicgram is a free service providing SNS profile pictures for our users. All downloaded pictures are strictly intended for use as profile pictures on social media platforms. Elevate your various SNS activities with our diverse range of profile pictures!
+    </div>
+
+    <div class="category-buttons">
+        <button class="category-btn">#All</button>
+        <button class="category-btn">#Travel</button>
+        <button class="category-btn">Coming Soon</button>
+        <!-- <button class="category-btn">Coming Soon</button> -->
+    </div>
+
+    <div class="grid-container" id="gridContainer"></div>
+
+    <button class="btn-custom" onclick="loadMoreImages()">Load more work</button>
+    <div class="loading-animation" id="loadingAnimation"></div>
+
+    <div class="info">
+        Please be informed that the downloaded pictures are not permitted for commercial purposes.
+    </div>
+
+    <footer>
+        <p>propicgram does not collect personal information or generate revenue.</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <img id="modal-content" class="modal-content">
+    <div class="modal-buttons">
+        <button class="modal-btn" id="closeBtn">Close</button>
+        <a class="modal-btn" id="downloadBtn" download>Download</a>
+    </div>
+    </div>
+
+    
+      
+
+    <script>
+    function loadCategoryImages(category) {
+        var imageArray;
+        switch(category) {
+            case 1:
+                imageArray = imageArray1;
+                break;
+            case 2:
+                imageArray = imageArray2;
+                break;
+            case 3:
+                imageArray = imageArray3;
+                break;
+            case 4:
+                imageArray = imageArray4;
+                break;
+            default:
+                imageArray = [];
+        }
+
+        gridContainer.innerHTML = ''; // 기존 이미지 삭제
+
+        for (var i = 0; i < itemsToShow; i++) {
+            if (i >= imageArray.length) {
+                loadMoreButton.style.display = 'none';
+                break;
+            }
+
+            var imgTag = document.createElement('img');
+            imgTag.src = imageArray[i][1];
+            imgTag.alt = imageArray[i][0];
+
+            var gridItem = document.createElement('div');
+            gridItem.classList.add('grid-item');
+            gridItem.appendChild(imgTag);
+
+            gridContainer.appendChild(gridItem);
+        }
+
+        startIndex = itemsToShow; // 시작 인덱스 초기화
+        if (startIndex >= imageArray.length) {
+            loadMoreButton.style.display = 'none';
+        } else {
+            loadMoreButton.style.display = 'block';
+        }
+    }
+
+    var categoryButtons = document.querySelectorAll('.category-btn');
+    categoryButtons.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            loadCategoryImages(index + 1); // 카테고리는 1부터 시작하므로 index + 1
+        });
+    });
+
+
+
+        var imageArray = [
+        ['#travel#landscapephotography#scenery', './All/1.jpg'],
+        ['#travel#landscapephotography#scenery', './All/2.jpg'],
+        ['#travel#landscapephotography#scenery', './All/3.jpg'],
+        ['#travel#landscapephotography#scenery', './All/4.jpg'],
+        ['#travel#landscapephotography#scenery', './All/5.jpg'],
+        ['#travel#landscapephotography#scenery', './All/6.jpg'],
+        ['#travel#landscapephotography#scenery', './All/7.jpg'],
+        ['#travel#landscapephotography#scenery', './All/8.jpg'],
+        ['#travel#landscapephotography#scenery', './All/9.jpg'],
+        ['#travel#landscapephotography#scenery', './All/10.jpg'],
+        ['#travel#landscapephotography#scenery', './All/11.jpg'],
+        ['#travel#landscapephotography#scenery', './All/12.jpg'],
+        ['#travel#landscapephotography#scenery', './All/13.jpg'],
+        ['#travel#landscapephotography#scenery', './All/14.jpg'],
+        ['#travel#landscapephotography#scenery', './All/15.jpg'],
+        ['#travel#landscapephotography#scenery', './All/16.jpg'],
+        ['#travel#landscapephotography#scenery', './All/17.jpg'],
+        ['#travel#landscapephotography#scenery', './All/18.jpg'],
+        ['#travel#landscapephotography#scenery', './All/19.jpg'],
+        ['#travel#landscapephotography#scenery', './All/20.jpg'],
+        ['#travel#landscapephotography#scenery', './All/21.jpg'],
+        ['#travel#landscapephotography#scenery', './All/22.jpg'],
+        ['#travel#landscapephotography#scenery', './All/23.jpg'],
+        ['#travel#landscapephotography#scenery', './All/24.jpg'],
+        ['#travel#landscapephotography#scenery', './All/25.jpg'],
+        ['#travel#landscapephotography#scenery', './All/26.jpg'],
+        ['#travel#landscapephotography#scenery', './All/27.jpg'],
+        ['#travel#landscapephotography#scenery', './All/28.jpg'],
+        ['#travel#landscapephotography#scenery', './All/29.jpg'],
+        ['#travel#landscapephotography#scenery', './All/30.jpg'],
+        ['#travel#landscapephotography#scenery', './All/31.jpg'],
+        ['#travel#landscapephotography#scenery', './All/32.jpg'],
+        ['#travel#landscapephotography#scenery', './All/33.jpg'],
+        ['#travel#landscapephotography#scenery', './All/34.jpg'],
+        ['#travel#landscapephotography#scenery', './All/35.jpg'],
+        ['#travel#landscapephotography#scenery', './All/36.jpg'],
+        ['#travel#landscapephotography#scenery', './All/37.jpg'],
+        ['#travel#landscapephotography#scenery', './All/38.jpg'],
+        ['#travel#landscapephotography#scenery', './All/39.jpg'],
+        ['#travel#landscapephotography#scenery', './All/40.jpg'],
+        ['#travel#landscapephotography#scenery', './All/41.jpg'],
+        ['#travel#landscapephotography#scenery', './All/42.jpg'],
+        ['#travel#landscapephotography#scenery', './All/43.jpg']
+        ];
+        /* var imageArray1 = [ // All
+        ['#travel#landscapephotography#scenery', './All/1.jpg'],
+        ['#travel#landscapephotography#scenery', './All/2.jpg'],
+        ['#travel#landscapephotography#scenery', './All/3.jpg'],
+        ['#travel#landscapephotography#scenery', './All/4.jpg'],
+        ['#travel#landscapephotography#scenery', './All/5.jpg'],
+        ['#travel#landscapephotography#scenery', './All/6.jpg'],
+        ['#travel#landscapephotography#scenery', './All/7.jpg'],
+        ['#travel#landscapephotography#scenery', './All/8.jpg'],
+        ['#travel#landscapephotography#scenery', './All/9.jpg'],
+        ['#travel#landscapephotography#scenery', './All/10.jpg'],
+        ['#travel#landscapephotography#scenery', './All/11.jpg'],
+        ['#travel#landscapephotography#scenery', './All/12.jpg'],
+        ['#travel#landscapephotography#scenery', './All/13.jpg'],
+        ['#travel#landscapephotography#scenery', './All/14.jpg'],
+        ['#travel#landscapephotography#scenery', './All/15.jpg'],
+        ['#travel#landscapephotography#scenery', './All/16.jpg'],
+        ['#travel#landscapephotography#scenery', './All/17.jpg'],
+        ['#travel#landscapephotography#scenery', './All/18.jpg'],
+        ['#travel#landscapephotography#scenery', './All/19.jpg'],
+        ['#travel#landscapephotography#scenery', './All/20.jpg'],
+        ['#travel#landscapephotography#scenery', './All/21.jpg'],
+        ['#travel#landscapephotography#scenery', './All/22.jpg'],
+        ['#travel#landscapephotography#scenery', './All/23.jpg'],
+        ['#travel#landscapephotography#scenery', './All/24.jpg'],
+        ['#travel#landscapephotography#scenery', './All/25.jpg'],
+        ['#travel#landscapephotography#scenery', './All/26.jpg'],
+        ['#travel#landscapephotography#scenery', './All/27.jpg'],
+        ['#travel#landscapephotography#scenery', './All/28.jpg'],
+        ['#travel#landscapephotography#scenery', './All/29.jpg'],
+        ['#travel#landscapephotography#scenery', './All/30.jpg'],
+        ['#travel#landscapephotography#scenery', './All/31.jpg'],
+        ['#travel#landscapephotography#scenery', './All/32.jpg'],
+        ['#travel#landscapephotography#scenery', './All/33.jpg'],
+        ['#travel#landscapephotography#scenery', './All/34.jpg'],
+        ['#travel#landscapephotography#scenery', './All/35.jpg'],
+        ['#travel#landscapephotography#scenery', './All/36.jpg'],
+        ['#travel#landscapephotography#scenery', './All/37.jpg'],
+        ['#travel#landscapephotography#scenery', './All/38.jpg'],
+        ['#travel#landscapephotography#scenery', './All/39.jpg'],
+        ['#travel#landscapephotography#scenery', './All/40.jpg'],
+        ['#travel#landscapephotography#scenery', './All/41.jpg'],
+        ['#travel#landscapephotography#scenery', './All/42.jpg'],
+        ['#travel#landscapephotography#scenery', './All/43.jpg']
+        ]; */
+        /* var imageArray2 = [
+        ['#travel#landscapephotography#scenery', './All/1.jpg'],
+        ['#travel#landscapephotography#scenery', './All/2.jpg'],
+        ['#travel#landscapephotography#scenery', './All/3.jpg'],
+        ['#travel#landscapephotography#scenery', './All/4.jpg'],
+        ['#travel#landscapephotography#scenery', './All/5.jpg'],
+        ['#travel#landscapephotography#scenery', './All/6.jpg'],
+        ['#travel#landscapephotography#scenery', './All/7.jpg'],
+        ['#travel#landscapephotography#scenery', './All/8.jpg'],
+        ['#travel#landscapephotography#scenery', './All/9.jpg'],
+        ['#travel#landscapephotography#scenery', './All/10.jpg'],
+        ['#travel#landscapephotography#scenery', './All/11.jpg'],
+        ['#travel#landscapephotography#scenery', './All/12.jpg'],
+        ['#travel#landscapephotography#scenery', './All/13.jpg'],
+        ['#travel#landscapephotography#scenery', './All/14.jpg'],
+        ['#travel#landscapephotography#scenery', './All/15.jpg'],
+        ['#travel#landscapephotography#scenery', './All/16.jpg'],
+        ['#travel#landscapephotography#scenery', './All/17.jpg'],
+        ['#travel#landscapephotography#scenery', './All/18.jpg'],
+        ['#travel#landscapephotography#scenery', './All/19.jpg'],
+        ['#travel#landscapephotography#scenery', './All/20.jpg'],
+        ['#travel#landscapephotography#scenery', './All/21.jpg'],
+        ['#travel#landscapephotography#scenery', './All/22.jpg'],
+        ['#travel#landscapephotography#scenery', './All/23.jpg'],
+        ['#travel#landscapephotography#scenery', './All/24.jpg'],
+        ['#travel#landscapephotography#scenery', './All/25.jpg'],
+        ['#travel#landscapephotography#scenery', './All/26.jpg'],
+        ['#travel#landscapephotography#scenery', './All/27.jpg'],
+        ['#travel#landscapephotography#scenery', './All/28.jpg'],
+        ['#travel#landscapephotography#scenery', './All/29.jpg'],
+        ['#travel#landscapephotography#scenery', './All/30.jpg'],
+        ['#travel#landscapephotography#scenery', './All/31.jpg'],
+        ['#travel#landscapephotography#scenery', './All/32.jpg'],
+        ['#travel#landscapephotography#scenery', './All/33.jpg'],
+        ['#travel#landscapephotography#scenery', './All/34.jpg'],
+        ['#travel#landscapephotography#scenery', './All/35.jpg'],
+        ['#travel#landscapephotography#scenery', './All/36.jpg'],
+        ['#travel#landscapephotography#scenery', './All/37.jpg'],
+        ['#travel#landscapephotography#scenery', './All/38.jpg'],
+        ['#travel#landscapephotography#scenery', './All/39.jpg'],
+        ['#travel#landscapephotography#scenery', './All/40.jpg'],
+        ['#travel#landscapephotography#scenery', './All/41.jpg'],
+        ['#travel#landscapephotography#scenery', './All/42.jpg'],
+        ['#travel#landscapephotography#scenery', './All/43.jpg']
+        ];
+        var imageArray3 = [
+        ['#travel#landscapephotography#scenery', './All/1.jpg'],
+        ['#travel#landscapephotography#scenery', './All/2.jpg'],
+        ['#travel#landscapephotography#scenery', './All/3.jpg'],
+        ['#travel#landscapephotography#scenery', './All/4.jpg'],
+        ['#travel#landscapephotography#scenery', './All/5.jpg'],
+        ['#travel#landscapephotography#scenery', './All/6.jpg'],
+        ['#travel#landscapephotography#scenery', './All/7.jpg'],
+        ['#travel#landscapephotography#scenery', './All/8.jpg'],
+        ['#travel#landscapephotography#scenery', './All/9.jpg'],
+        ['#travel#landscapephotography#scenery', './All/10.jpg'],
+        ['#travel#landscapephotography#scenery', './All/11.jpg'],
+        ['#travel#landscapephotography#scenery', './All/12.jpg'],
+        ['#travel#landscapephotography#scenery', './All/13.jpg'],
+        ['#travel#landscapephotography#scenery', './All/14.jpg'],
+        ['#travel#landscapephotography#scenery', './All/15.jpg'],
+        ['#travel#landscapephotography#scenery', './All/16.jpg'],
+        ['#travel#landscapephotography#scenery', './All/17.jpg'],
+        ['#travel#landscapephotography#scenery', './All/18.jpg'],
+        ['#travel#landscapephotography#scenery', './All/19.jpg'],
+        ['#travel#landscapephotography#scenery', './All/20.jpg'],
+        ['#travel#landscapephotography#scenery', './All/21.jpg'],
+        ['#travel#landscapephotography#scenery', './All/22.jpg'],
+        ['#travel#landscapephotography#scenery', './All/23.jpg'],
+        ['#travel#landscapephotography#scenery', './All/24.jpg'],
+        ['#travel#landscapephotography#scenery', './All/25.jpg'],
+        ['#travel#landscapephotography#scenery', './All/26.jpg'],
+        ['#travel#landscapephotography#scenery', './All/27.jpg'],
+        ['#travel#landscapephotography#scenery', './All/28.jpg'],
+        ['#travel#landscapephotography#scenery', './All/29.jpg'],
+        ['#travel#landscapephotography#scenery', './All/30.jpg'],
+        ['#travel#landscapephotography#scenery', './All/31.jpg'],
+        ['#travel#landscapephotography#scenery', './All/32.jpg'],
+        ['#travel#landscapephotography#scenery', './All/33.jpg'],
+        ['#travel#landscapephotography#scenery', './All/34.jpg'],
+        ['#travel#landscapephotography#scenery', './All/35.jpg'],
+        ['#travel#landscapephotography#scenery', './All/36.jpg'],
+        ['#travel#landscapephotography#scenery', './All/37.jpg'],
+        ['#travel#landscapephotography#scenery', './All/38.jpg'],
+        ['#travel#landscapephotography#scenery', './All/39.jpg'],
+        ['#travel#landscapephotography#scenery', './All/40.jpg'],
+        ['#travel#landscapephotography#scenery', './All/41.jpg'],
+        ['#travel#landscapephotography#scenery', './All/42.jpg'],
+        ['#travel#landscapephotography#scenery', './All/43.jpg']
+        ];
+        var imageArray4 = [
+        ['#travel#landscapephotography#scenery', './All/1.jpg'],
+        ['#travel#landscapephotography#scenery', './All/2.jpg'],
+        ['#travel#landscapephotography#scenery', './All/3.jpg'],
+        ['#travel#landscapephotography#scenery', './All/4.jpg'],
+        ['#travel#landscapephotography#scenery', './All/5.jpg'],
+        ['#travel#landscapephotography#scenery', './All/6.jpg'],
+        ['#travel#landscapephotography#scenery', './All/7.jpg'],
+        ['#travel#landscapephotography#scenery', './All/8.jpg'],
+        ['#travel#landscapephotography#scenery', './All/9.jpg'],
+        ['#travel#landscapephotography#scenery', './All/10.jpg'],
+        ['#travel#landscapephotography#scenery', './All/11.jpg'],
+        ['#travel#landscapephotography#scenery', './All/12.jpg'],
+        ['#travel#landscapephotography#scenery', './All/13.jpg'],
+        ['#travel#landscapephotography#scenery', './All/14.jpg'],
+        ['#travel#landscapephotography#scenery', './All/15.jpg'],
+        ['#travel#landscapephotography#scenery', './All/16.jpg'],
+        ['#travel#landscapephotography#scenery', './All/17.jpg'],
+        ['#travel#landscapephotography#scenery', './All/18.jpg'],
+        ['#travel#landscapephotography#scenery', './All/19.jpg'],
+        ['#travel#landscapephotography#scenery', './All/20.jpg'],
+        ['#travel#landscapephotography#scenery', './All/21.jpg'],
+        ['#travel#landscapephotography#scenery', './All/22.jpg'],
+        ['#travel#landscapephotography#scenery', './All/23.jpg'],
+        ['#travel#landscapephotography#scenery', './All/24.jpg'],
+        ['#travel#landscapephotography#scenery', './All/25.jpg'],
+        ['#travel#landscapephotography#scenery', './All/26.jpg'],
+        ['#travel#landscapephotography#scenery', './All/27.jpg'],
+        ['#travel#landscapephotography#scenery', './All/28.jpg'],
+        ['#travel#landscapephotography#scenery', './All/29.jpg'],
+        ['#travel#landscapephotography#scenery', './All/30.jpg'],
+        ['#travel#landscapephotography#scenery', './All/31.jpg'],
+        ['#travel#landscapephotography#scenery', './All/32.jpg'],
+        ['#travel#landscapephotography#scenery', './All/33.jpg'],
+        ['#travel#landscapephotography#scenery', './All/34.jpg'],
+        ['#travel#landscapephotography#scenery', './All/35.jpg'],
+        ['#travel#landscapephotography#scenery', './All/36.jpg'],
+        ['#travel#landscapephotography#scenery', './All/37.jpg'],
+        ['#travel#landscapephotography#scenery', './All/38.jpg'],
+        ['#travel#landscapephotography#scenery', './All/39.jpg'],
+        ['#travel#landscapephotography#scenery', './All/40.jpg'],
+        ['#travel#landscapephotography#scenery', './All/41.jpg'],
+        ['#travel#landscapephotography#scenery', './All/42.jpg'],
+        ['#travel#landscapephotography#scenery', './All/43.jpg']
+        ]; */
+
+        var closeBtn = document.getElementById('closeBtn');
+        var downloadBtn = document.getElementById('downloadBtn');
+        var modal = document.getElementById('modal');
+        var modalImg = document.getElementById('modal-content');
+
+        function closeModal() {
+        modal.style.display = 'none';
+        }
+
+        function openModal(src, alt) {
+        modal.style.display = 'block';
+        modalImg.src = src;
+        modalImg.alt = alt;
+        }
+
+        document.addEventListener('click', function(e) {
+        if (e.target && e.target.nodeName == "IMG") {
+            var src = e.target.src;
+            var alt = e.target.alt;
+            openModal(src, alt);
+        }
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+
+        downloadBtn.addEventListener('click', function() {
+        var a = document.createElement('a');
+        a.href = modalImg.src;
+        a.download = modalImg.alt;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        });
+
+
+
+        var gridContainer = document.getElementById('gridContainer');
+        var loadMoreButton = document.querySelector('.btn-custom');
+        var startIndex = 0;
+        var itemsToShow = 8;
+
+        function loadMoreImages() {
+            var loadingAnimation = document.getElementById('loadingAnimation');
+            loadingAnimation.style.display = 'block';
+
+            setTimeout(function() {
+                for (var i = startIndex; i < startIndex + itemsToShow; i++) {
+                    if (i >= imageArray.length) {
+                        loadMoreButton.style.display = 'none';
+                        break;
+                    }
+
+                    var imgTag = document.createElement('img');
+                    imgTag.src = imageArray[i][1];
+                    imgTag.alt = imageArray[i][0];
+
+                    var gridItem = document.createElement('div');
+                    gridItem.classList.add('grid-item');
+                    gridItem.appendChild(imgTag);
+
+                    gridContainer.appendChild(gridItem);
+                }
+
+                startIndex += itemsToShow;
+
+                if (startIndex >= imageArray.length) {
+                    loadMoreButton.style.display = 'none';
+                }
+
+                loadingAnimation.style.display = 'none';
+            }, 700);
+        }
+
+        // 페이지 로딩시 처음 8개 이미지만 로드
+        window.addEventListener('load', loadMoreImages);
+
+        function openModal(src, alt) {
+    modal.style.display = 'block';
+    modal.classList.add('show'); // 'show' 클래스를 추가하여 모달이 나타날 때 트랜지션 효과가 발생합니다.
+    modalImg.src = src;
+    modalImg.alt = alt;
+}
+
+function closeModal() {
+    modal.classList.remove('show'); // 'show' 클래스를 제거하여 모달이 사라질 때 트랜지션 효과가 발생합니다.
+    setTimeout(function() {
+        modal.style.display = 'none';
+    }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
+}
+
+
+    </script>
+</body>
+
+</html>
