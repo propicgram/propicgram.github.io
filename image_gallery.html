@@ -204,6 +204,21 @@
             padding: 25px 0 25px 0;
         }
 
+        #loading-screen img {
+            vertical-align: middle;
+        }
+
+        #loading-screen h1 {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+
+                #loading-screen {
+            transition: opacity 1s; /* 투명도 변화를 1초 동안 부드럽게 만듭니다. */
+        }
+
 
 
         @keyframes spin {
@@ -269,6 +284,12 @@
 </head>
 
 <body>
+
+    <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background-color: #000; color: #fff; text-align: center; display: flex; justify-content: center; align-items: center; z-index: 9999;">
+        <img src="./IndexImage/logo.png" alt="logo" style="width: 65px; height: auto; margin-right: 0px;">
+        <h1>propicgram</h1>
+    </div>
+
     <header>
         <h1>propicgram</h1>
     </header>
@@ -365,229 +386,91 @@
 
 
         var imageArray = [
-        ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ['#travel#landscapephotography#scenery', './All/2.jpg'],
-        ['#travel#landscapephotography#scenery', './All/3.jpg'],
-        ['#travel#landscapephotography#scenery', './All/4.jpg'],
-        ['#travel#landscapephotography#scenery', './All/5.jpg'],
-        ['#travel#landscapephotography#scenery', './All/6.jpg'],
-        ['#travel#landscapephotography#scenery', './All/7.jpg'],
-        ['#travel#landscapephotography#scenery', './All/8.jpg'],
-        ['#travel#landscapephotography#scenery', './All/9.jpg'],
-        ['#travel#landscapephotography#scenery', './All/10.jpg'],
-        ['#travel#landscapephotography#scenery', './All/11.jpg'],
-        ['#travel#landscapephotography#scenery', './All/12.jpg'],
-        ['#travel#landscapephotography#scenery', './All/13.jpg'],
-        ['#travel#landscapephotography#scenery', './All/14.jpg'],
-        ['#travel#landscapephotography#scenery', './All/15.jpg'],
-        ['#travel#landscapephotography#scenery', './All/16.jpg'],
-        ['#travel#landscapephotography#scenery', './All/17.jpg'],
-        ['#travel#landscapephotography#scenery', './All/18.jpg'],
-        ['#travel#landscapephotography#scenery', './All/19.jpg'],
-        ['#travel#landscapephotography#scenery', './All/20.jpg'],
-        ['#travel#landscapephotography#scenery', './All/21.jpg'],
-        ['#travel#landscapephotography#scenery', './All/22.jpg'],
-        ['#travel#landscapephotography#scenery', './All/23.jpg'],
-        ['#travel#landscapephotography#scenery', './All/24.jpg'],
-        ['#travel#landscapephotography#scenery', './All/25.jpg'],
-        ['#travel#landscapephotography#scenery', './All/26.jpg'],
-        ['#travel#landscapephotography#scenery', './All/27.jpg'],
-        ['#travel#landscapephotography#scenery', './All/28.jpg'],
-        ['#travel#landscapephotography#scenery', './All/29.jpg'],
-        ['#travel#landscapephotography#scenery', './All/30.jpg'],
-        ['#travel#landscapephotography#scenery', './All/31.jpg'],
-        ['#travel#landscapephotography#scenery', './All/32.jpg'],
-        ['#travel#landscapephotography#scenery', './All/33.jpg'],
-        ['#travel#landscapephotography#scenery', './All/34.jpg'],
-        ['#travel#landscapephotography#scenery', './All/35.jpg'],
-        ['#travel#landscapephotography#scenery', './All/36.jpg'],
-        ['#travel#landscapephotography#scenery', './All/37.jpg'],
-        ['#travel#landscapephotography#scenery', './All/38.jpg'],
-        ['#travel#landscapephotography#scenery', './All/39.jpg'],
-        ['#travel#landscapephotography#scenery', './All/40.jpg'],
-        ['#travel#landscapephotography#scenery', './All/41.jpg'],
-        ['#travel#landscapephotography#scenery', './All/42.jpg'],
-        ['#travel#landscapephotography#scenery', './All/43.jpg']
+            ['#travel', './All/1.jpg'],
+            ['#travel', './All/2.jpg'],
+            ['#travel', './All/3.jpg'],
+            ['#travel', './All/4.jpg'],
+            ['#travel', './All/5.jpg'],
+            ['#travel', './All/6.jpg'],
+            ['#travel', './All/7.jpg'],
+            ['#travel', './All/8.jpg'],
+            ['#travel', './All/9.jpg'],
+            ['#travel', './All/10.jpg'],
+            ['#travel', './All/11.jpg'],
+            ['#travel', './All/12.jpg'],
+            ['#travel', './All/13.jpg'],
+            ['#travel', './All/14.jpg'],
+            ['#travel', './All/15.jpg'],
+            ['#travel', './All/16.jpg'],
+            ['#travel', './All/17.jpg'],
+            ['#travel', './All/18.jpg'],
+            ['#travel', './All/19.jpg'],
+            ['#travel', './All/20.jpg'],
+            ['#travel', './All/21.jpg'],
+            ['#travel', './All/22.jpg'],
+            ['#travel', './All/23.jpg'],
+            ['#travel', './All/24.jpg'],
+            ['#travel', './All/25.jpg'],
+            ['#travel', './All/26.jpg'],
+            ['#travel', './All/27.jpg'],
+            ['#travel', './All/28.jpg'],
+            ['#travel', './All/29.jpg'],
+            ['#travel', './All/30.jpg'],
+            ['#travel', './All/31.jpg'],
+            ['#travel', './All/32.jpg'],
+            ['#travel', './All/33.jpg'],
+            ['#travel', './All/34.jpg'],
+            ['#travel', './All/35.jpg'],
+            ['#travel', './All/36.jpg'],
+            ['#travel', './All/37.jpg'],
+            ['#travel', './All/38.jpg'],
+            ['#travel', './All/39.jpg'],
+            ['#travel', './All/40.jpg'],
+            ['#travel', './All/41.jpg'],
+            ['#travel', './All/42.jpg'],
+            ['#travel', './All/43.jpg'],
+            ['#travel', './All/44.jpg'],
+            ['#travel', './All/45.jpg'],
+            ['#travel', './All/46.jpg'],
+            ['#travel', './All/47.jpg'],
+            ['#travel', './All/48.jpg'],
+            ['#travel', './All/49.jpg'],
+            ['#travel', './All/50.jpg'],
+            ['#travel', './All/51.jpg'],
+            ['#travel', './All/52.jpg'],
+            ['#travel', './All/53.jpg'],
+            ['#travel', './All/54.jpg'],
+            ['#travel', './All/55.jpg'],
+            ['#travel', './All/56.jpg'],
+            ['#travel', './All/57.jpg'],
+            ['#travel', './All/58.jpg'],
+            ['#travel', './All/59.jpg'],
+            ['#travel', './All/60.jpg'],
+            ['#travel', './All/61.jpg'],
+            ['#travel', './All/62.jpg'],
+            ['#travel', './All/63.jpg'],
+            ['#travel', './All/64.jpg'],
+            ['#travel', './All/65.jpg'],
+            ['#travel', './All/66.jpg'],
+            ['#travel', './All/67.jpg'],
+            ['#travel', './All/68.jpg'],
+            ['#travel', './All/69.jpg'],
+            ['#travel', './All/70.jpg'],
+            ['#travel', './All/71.jpg'],
+            ['#travel', './All/72.jpg'],
+            ['#travel', './All/73.jpg']
         ];
         /* var imageArray1 = [ // All
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ['#travel#landscapephotography#scenery', './All/2.jpg'],
-        ['#travel#landscapephotography#scenery', './All/3.jpg'],
-        ['#travel#landscapephotography#scenery', './All/4.jpg'],
-        ['#travel#landscapephotography#scenery', './All/5.jpg'],
-        ['#travel#landscapephotography#scenery', './All/6.jpg'],
-        ['#travel#landscapephotography#scenery', './All/7.jpg'],
-        ['#travel#landscapephotography#scenery', './All/8.jpg'],
-        ['#travel#landscapephotography#scenery', './All/9.jpg'],
-        ['#travel#landscapephotography#scenery', './All/10.jpg'],
-        ['#travel#landscapephotography#scenery', './All/11.jpg'],
-        ['#travel#landscapephotography#scenery', './All/12.jpg'],
-        ['#travel#landscapephotography#scenery', './All/13.jpg'],
-        ['#travel#landscapephotography#scenery', './All/14.jpg'],
-        ['#travel#landscapephotography#scenery', './All/15.jpg'],
-        ['#travel#landscapephotography#scenery', './All/16.jpg'],
-        ['#travel#landscapephotography#scenery', './All/17.jpg'],
-        ['#travel#landscapephotography#scenery', './All/18.jpg'],
-        ['#travel#landscapephotography#scenery', './All/19.jpg'],
-        ['#travel#landscapephotography#scenery', './All/20.jpg'],
-        ['#travel#landscapephotography#scenery', './All/21.jpg'],
-        ['#travel#landscapephotography#scenery', './All/22.jpg'],
-        ['#travel#landscapephotography#scenery', './All/23.jpg'],
-        ['#travel#landscapephotography#scenery', './All/24.jpg'],
-        ['#travel#landscapephotography#scenery', './All/25.jpg'],
-        ['#travel#landscapephotography#scenery', './All/26.jpg'],
-        ['#travel#landscapephotography#scenery', './All/27.jpg'],
-        ['#travel#landscapephotography#scenery', './All/28.jpg'],
-        ['#travel#landscapephotography#scenery', './All/29.jpg'],
-        ['#travel#landscapephotography#scenery', './All/30.jpg'],
-        ['#travel#landscapephotography#scenery', './All/31.jpg'],
-        ['#travel#landscapephotography#scenery', './All/32.jpg'],
-        ['#travel#landscapephotography#scenery', './All/33.jpg'],
-        ['#travel#landscapephotography#scenery', './All/34.jpg'],
-        ['#travel#landscapephotography#scenery', './All/35.jpg'],
-        ['#travel#landscapephotography#scenery', './All/36.jpg'],
-        ['#travel#landscapephotography#scenery', './All/37.jpg'],
-        ['#travel#landscapephotography#scenery', './All/38.jpg'],
-        ['#travel#landscapephotography#scenery', './All/39.jpg'],
-        ['#travel#landscapephotography#scenery', './All/40.jpg'],
-        ['#travel#landscapephotography#scenery', './All/41.jpg'],
-        ['#travel#landscapephotography#scenery', './All/42.jpg'],
-        ['#travel#landscapephotography#scenery', './All/43.jpg']
         ]; */
         /* var imageArray2 = [
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ['#travel#landscapephotography#scenery', './All/2.jpg'],
-        ['#travel#landscapephotography#scenery', './All/3.jpg'],
-        ['#travel#landscapephotography#scenery', './All/4.jpg'],
-        ['#travel#landscapephotography#scenery', './All/5.jpg'],
-        ['#travel#landscapephotography#scenery', './All/6.jpg'],
-        ['#travel#landscapephotography#scenery', './All/7.jpg'],
-        ['#travel#landscapephotography#scenery', './All/8.jpg'],
-        ['#travel#landscapephotography#scenery', './All/9.jpg'],
-        ['#travel#landscapephotography#scenery', './All/10.jpg'],
-        ['#travel#landscapephotography#scenery', './All/11.jpg'],
-        ['#travel#landscapephotography#scenery', './All/12.jpg'],
-        ['#travel#landscapephotography#scenery', './All/13.jpg'],
-        ['#travel#landscapephotography#scenery', './All/14.jpg'],
-        ['#travel#landscapephotography#scenery', './All/15.jpg'],
-        ['#travel#landscapephotography#scenery', './All/16.jpg'],
-        ['#travel#landscapephotography#scenery', './All/17.jpg'],
-        ['#travel#landscapephotography#scenery', './All/18.jpg'],
-        ['#travel#landscapephotography#scenery', './All/19.jpg'],
-        ['#travel#landscapephotography#scenery', './All/20.jpg'],
-        ['#travel#landscapephotography#scenery', './All/21.jpg'],
-        ['#travel#landscapephotography#scenery', './All/22.jpg'],
-        ['#travel#landscapephotography#scenery', './All/23.jpg'],
-        ['#travel#landscapephotography#scenery', './All/24.jpg'],
-        ['#travel#landscapephotography#scenery', './All/25.jpg'],
-        ['#travel#landscapephotography#scenery', './All/26.jpg'],
-        ['#travel#landscapephotography#scenery', './All/27.jpg'],
-        ['#travel#landscapephotography#scenery', './All/28.jpg'],
-        ['#travel#landscapephotography#scenery', './All/29.jpg'],
-        ['#travel#landscapephotography#scenery', './All/30.jpg'],
-        ['#travel#landscapephotography#scenery', './All/31.jpg'],
-        ['#travel#landscapephotography#scenery', './All/32.jpg'],
-        ['#travel#landscapephotography#scenery', './All/33.jpg'],
-        ['#travel#landscapephotography#scenery', './All/34.jpg'],
-        ['#travel#landscapephotography#scenery', './All/35.jpg'],
-        ['#travel#landscapephotography#scenery', './All/36.jpg'],
-        ['#travel#landscapephotography#scenery', './All/37.jpg'],
-        ['#travel#landscapephotography#scenery', './All/38.jpg'],
-        ['#travel#landscapephotography#scenery', './All/39.jpg'],
-        ['#travel#landscapephotography#scenery', './All/40.jpg'],
-        ['#travel#landscapephotography#scenery', './All/41.jpg'],
-        ['#travel#landscapephotography#scenery', './All/42.jpg'],
-        ['#travel#landscapephotography#scenery', './All/43.jpg']
         ];
         var imageArray3 = [
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ['#travel#landscapephotography#scenery', './All/2.jpg'],
-        ['#travel#landscapephotography#scenery', './All/3.jpg'],
-        ['#travel#landscapephotography#scenery', './All/4.jpg'],
-        ['#travel#landscapephotography#scenery', './All/5.jpg'],
-        ['#travel#landscapephotography#scenery', './All/6.jpg'],
-        ['#travel#landscapephotography#scenery', './All/7.jpg'],
-        ['#travel#landscapephotography#scenery', './All/8.jpg'],
-        ['#travel#landscapephotography#scenery', './All/9.jpg'],
-        ['#travel#landscapephotography#scenery', './All/10.jpg'],
-        ['#travel#landscapephotography#scenery', './All/11.jpg'],
-        ['#travel#landscapephotography#scenery', './All/12.jpg'],
-        ['#travel#landscapephotography#scenery', './All/13.jpg'],
-        ['#travel#landscapephotography#scenery', './All/14.jpg'],
-        ['#travel#landscapephotography#scenery', './All/15.jpg'],
-        ['#travel#landscapephotography#scenery', './All/16.jpg'],
-        ['#travel#landscapephotography#scenery', './All/17.jpg'],
-        ['#travel#landscapephotography#scenery', './All/18.jpg'],
-        ['#travel#landscapephotography#scenery', './All/19.jpg'],
-        ['#travel#landscapephotography#scenery', './All/20.jpg'],
-        ['#travel#landscapephotography#scenery', './All/21.jpg'],
-        ['#travel#landscapephotography#scenery', './All/22.jpg'],
-        ['#travel#landscapephotography#scenery', './All/23.jpg'],
-        ['#travel#landscapephotography#scenery', './All/24.jpg'],
-        ['#travel#landscapephotography#scenery', './All/25.jpg'],
-        ['#travel#landscapephotography#scenery', './All/26.jpg'],
-        ['#travel#landscapephotography#scenery', './All/27.jpg'],
-        ['#travel#landscapephotography#scenery', './All/28.jpg'],
-        ['#travel#landscapephotography#scenery', './All/29.jpg'],
-        ['#travel#landscapephotography#scenery', './All/30.jpg'],
-        ['#travel#landscapephotography#scenery', './All/31.jpg'],
-        ['#travel#landscapephotography#scenery', './All/32.jpg'],
-        ['#travel#landscapephotography#scenery', './All/33.jpg'],
-        ['#travel#landscapephotography#scenery', './All/34.jpg'],
-        ['#travel#landscapephotography#scenery', './All/35.jpg'],
-        ['#travel#landscapephotography#scenery', './All/36.jpg'],
-        ['#travel#landscapephotography#scenery', './All/37.jpg'],
-        ['#travel#landscapephotography#scenery', './All/38.jpg'],
-        ['#travel#landscapephotography#scenery', './All/39.jpg'],
-        ['#travel#landscapephotography#scenery', './All/40.jpg'],
-        ['#travel#landscapephotography#scenery', './All/41.jpg'],
-        ['#travel#landscapephotography#scenery', './All/42.jpg'],
-        ['#travel#landscapephotography#scenery', './All/43.jpg']
         ];
         var imageArray4 = [
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ['#travel#landscapephotography#scenery', './All/2.jpg'],
-        ['#travel#landscapephotography#scenery', './All/3.jpg'],
-        ['#travel#landscapephotography#scenery', './All/4.jpg'],
-        ['#travel#landscapephotography#scenery', './All/5.jpg'],
-        ['#travel#landscapephotography#scenery', './All/6.jpg'],
-        ['#travel#landscapephotography#scenery', './All/7.jpg'],
-        ['#travel#landscapephotography#scenery', './All/8.jpg'],
-        ['#travel#landscapephotography#scenery', './All/9.jpg'],
-        ['#travel#landscapephotography#scenery', './All/10.jpg'],
-        ['#travel#landscapephotography#scenery', './All/11.jpg'],
-        ['#travel#landscapephotography#scenery', './All/12.jpg'],
-        ['#travel#landscapephotography#scenery', './All/13.jpg'],
-        ['#travel#landscapephotography#scenery', './All/14.jpg'],
-        ['#travel#landscapephotography#scenery', './All/15.jpg'],
-        ['#travel#landscapephotography#scenery', './All/16.jpg'],
-        ['#travel#landscapephotography#scenery', './All/17.jpg'],
-        ['#travel#landscapephotography#scenery', './All/18.jpg'],
-        ['#travel#landscapephotography#scenery', './All/19.jpg'],
-        ['#travel#landscapephotography#scenery', './All/20.jpg'],
-        ['#travel#landscapephotography#scenery', './All/21.jpg'],
-        ['#travel#landscapephotography#scenery', './All/22.jpg'],
-        ['#travel#landscapephotography#scenery', './All/23.jpg'],
-        ['#travel#landscapephotography#scenery', './All/24.jpg'],
-        ['#travel#landscapephotography#scenery', './All/25.jpg'],
-        ['#travel#landscapephotography#scenery', './All/26.jpg'],
-        ['#travel#landscapephotography#scenery', './All/27.jpg'],
-        ['#travel#landscapephotography#scenery', './All/28.jpg'],
-        ['#travel#landscapephotography#scenery', './All/29.jpg'],
-        ['#travel#landscapephotography#scenery', './All/30.jpg'],
-        ['#travel#landscapephotography#scenery', './All/31.jpg'],
-        ['#travel#landscapephotography#scenery', './All/32.jpg'],
-        ['#travel#landscapephotography#scenery', './All/33.jpg'],
-        ['#travel#landscapephotography#scenery', './All/34.jpg'],
-        ['#travel#landscapephotography#scenery', './All/35.jpg'],
-        ['#travel#landscapephotography#scenery', './All/36.jpg'],
-        ['#travel#landscapephotography#scenery', './All/37.jpg'],
-        ['#travel#landscapephotography#scenery', './All/38.jpg'],
-        ['#travel#landscapephotography#scenery', './All/39.jpg'],
-        ['#travel#landscapephotography#scenery', './All/40.jpg'],
-        ['#travel#landscapephotography#scenery', './All/41.jpg'],
-        ['#travel#landscapephotography#scenery', './All/42.jpg'],
-        ['#travel#landscapephotography#scenery', './All/43.jpg']
         ]; */
 
         var closeBtn = document.getElementById('closeBtn');
@@ -667,18 +550,31 @@
         window.addEventListener('load', loadMoreImages);
 
         function openModal(src, alt) {
-    modal.style.display = 'block';
-    modal.classList.add('show'); // 'show' 클래스를 추가하여 모달이 나타날 때 트랜지션 효과가 발생합니다.
-    modalImg.src = src;
-    modalImg.alt = alt;
-}
+            modal.style.display = 'block';
+            modal.classList.add('show'); // 'show' 클래스를 추가하여 모달이 나타날 때 트랜지션 효과가 발생합니다.
+            modalImg.src = src;
+            modalImg.alt = alt;
+        }
 
-function closeModal() {
-    modal.classList.remove('show'); // 'show' 클래스를 제거하여 모달이 사라질 때 트랜지션 효과가 발생합니다.
-    setTimeout(function() {
-        modal.style.display = 'none';
-    }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
-}
+        function closeModal() {
+            modal.classList.remove('show'); // 'show' 클래스를 제거하여 모달이 사라질 때 트랜지션 효과가 발생합니다.
+            setTimeout(function() {
+                modal.style.display = 'none';
+            }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
+        }
+
+                // loading
+        function hideLoadingScreen() {
+            var loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.opacity = '0'; // 투명도를 0으로 설정합니다.
+            setTimeout(function() {
+                loadingScreen.style.display = 'none';
+            }, 1000); // 1초 후에 화면을 숨깁니다.
+        }
+
+        window.onload = function() {
+            setTimeout(hideLoadingScreen, 1500);
+        };
 
 
     </script>
