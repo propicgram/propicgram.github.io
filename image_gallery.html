@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>propicgram Image</title>
+    <title>propicgram gallery</title>
     <style>
         @font-face {
             font-family: 'LINESeedKR-Bd';
@@ -52,7 +52,7 @@
             font-size: 20px;
             font-family: Cafe24ClassicType-Regular, sans-serif;
             background-color: #ffffff;
-            color: #333;
+            color: #000e17;
             text-align: center;
             width: 100%;
             display: flex;
@@ -291,6 +291,7 @@
     </div>
 
     <header>
+        <img src="./IndexImage/logo.png" alt="logo" style="width: 65px; height: auto; margin-right: 0px;">
         <h1>propicgram</h1>
     </header>
 
@@ -489,12 +490,13 @@
         }
 
         document.addEventListener('click', function(e) {
-        if (e.target && e.target.nodeName == "IMG") {
-            var src = e.target.src;
-            var alt = e.target.alt;
-            openModal(src, alt);
-        }
+            if (e.target && e.target.nodeName == "IMG" && e.target.parentElement !== document.querySelector('header')) {
+                var src = e.target.src;
+                var alt = e.target.alt;
+                openModal(src, alt);
+            }
         });
+
 
         closeBtn.addEventListener('click', closeModal);
 
