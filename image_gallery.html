@@ -1,470 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>propicgram gallery</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>propicgram</title>
     <style>
-        @font-face {
-            font-family: 'LINESeedKR-Bd';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
+      @font-face {
+        font-family: "LINESeedKR-Bd";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+          format("woff2");
+        font-weight: 700;
+        font-style: normal;
+      }
 
-        *{
-            font-family: 'LINESeedKR-Bd', sans-serif;
-            user-select: none;
-        }
+      * {
+        font-family: "LINESeedKR-Bd", sans-serif;
+        user-select: none;
+      }
 
-        body{
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-        .grid-container {
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(150px, 1fr));
-            gap: 10px;
-            max-width: 1000px;
-            padding-top: 10px;
-            padding: 5px;
-        }
+      .grid-container {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        gap: 10px;
+        max-width: 1000px;
+        padding-top: 10px;
+        padding: 5px;
+      }
 
-        .main-area{
-            margin: 0 auto;
-            padding: 5px;
-            padding-top: 100px;
-            font-size: 23px;
-            max-width: 1000px;
-            text-align: left;
-        }
+      .main-area {
+        margin: 0 auto;
+        padding: 5px;
+        padding-top: 100px;
+        font-size: 23px;
+        max-width: 1000px;
+        text-align: left;
+      }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 15px;
-        }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 15px;
+      }
 
-        header {
-            font-size: 20px;
-            font-family: Cafe24ClassicType-Regular, sans-serif;
-            background-color: #ffffff;
-            color: #000e17;
-            text-align: center;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80px;
+      header {
+        font-size: 20px;
+        font-family: Cafe24ClassicType-Regular, sans-serif;
+        background-color: #ffffff;
+        color: #000e17;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+      }
+
+      footer {
+        font-size: 15px;
+        background-color: rgb(27, 27, 27);
+        color: #fff;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        margin: 0 auto;
+        padding: 7px 0 7px 0;
+      }
+
+      .btn-custom {
+        background-color: #ffffff;
+        border: 3px solid #000000;
+        color: #000000;
+        padding: 10px 20px;
+        margin: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 25px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        margin: 10px auto;
+        display: block;
+      }
+
+      .btn-custom:hover {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+        transform: translateY(-3px);
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .loading-animation {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 4px solid #000;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 10px auto;
+        display: none;
+      }
+
+      .modal-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .modal-btn {
+        background-color: #ffffff; /* 흰 배경 색상 */
+        border: 3px solid #000000; /* 검정색 테두리 */
+        color: #000000; /* 텍스트 색상 */
+        padding: 10px; /* 내부 여백 */
+        margin: 10px; /* 바깥 여백 */
+        text-align: center; /* 텍스트 가운데 정렬 */
+        text-decoration: none; /* 링크 스타일 제거 */
+        width: 200px;
+        display: inline-block;
+        font-size: 16px; /* 폰트 크기 */
+        cursor: pointer; /* 커서 스타일 변경 */
+        border-radius: 25px; /* 버튼 둥글게 만들기 */
+        transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+      }
+
+      .modal-btn:hover {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); /* 호버 시 그림자 효과 */
+        transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .modal {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 600px;
+        transition: opacity 0.3s ease; /* 이 줄을 추가하여 페이드 인 효과를 줍니다. */
+        opacity: 0; /* 초기 투명도를 0으로 설정합니다. */
+        pointer-events: none; /* 초기에는 포인터 이벤트를 비활성화합니다. */
+      }
+
+      .modal.show {
+        opacity: 1; /* 모달이 표시될 때 투명도를 1로 설정합니다. */
+        pointer-events: auto; /* 포인터 이벤트를 활성화합니다. */
+      }
+
+      .category-buttons {
+        padding: 5px;
+        display: flex;
+        justify-content: left;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .category-btn {
+        background-color: #ffffff; /* 흰 배경 색상 */
+        border: 3px solid #000000; /* 검정색 테두리 */
+        color: #000000; /* 텍스트 색상 */
+        padding: 10px; /* 내부 여백 */
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 10px 10px 10px 0;
+        text-align: center; /* 텍스트 가운데 정렬 */
+        text-decoration: none; /* 링크 스타일 제거 */
+        width: auto;
+        display: inline-block;
+        font-size: 14px; /* 폰트 크기 */
+        cursor: pointer; /* 커서 스타일 변경 */
+        border-radius: 25px; /* 버튼 둥글게 만들기 */
+        transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+      }
+
+      .category-btn:hover {
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); /* 호버 시 그림자 효과 */
+        transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
+        background-color: #000000;
+        color: #fff;
+      }
+
+      .info {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0;
+        font-size: 15px;
+        max-width: 1000px;
+        padding: 25px 0 25px 0;
+      }
+
+      #loading-screen img {
+        vertical-align: middle;
+      }
+
+      #loading-screen h1 {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+      }
+
+      #loading-screen {
+        transition: opacity 1s; /* 투명도 변화를 1초 동안 부드럽게 만듭니다. */
+      }
+
+      .scroll-to-top-btn {
             position: fixed;
-            background-color: rgb(255, 255, 255);
-        }
-
-        footer {
-            font-size: 15px;
-            background-color: rgb(27, 27, 27);
-            color: #fff;
-            text-align: center;
-            bottom: 0;
-            width: 100%;
-            margin: 0 auto;
-            padding: 7px 0 7px 0;
-        }
-
-        .btn-custom {
+            bottom: 20px;
+            right: 20px;
             background-color: #ffffff;
             border: 3px solid #000000;
             color: #000000;
-            padding: 10px 20px;
-            margin: 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
+            padding: 0px 5px 0px 5px;
             font-size: 16px;
             cursor: pointer;
-            border-radius: 25px;
+            border-radius: 75px;
             transition: box-shadow 0.3s, transform 0.3s;
-            margin: 10px auto;
-            display: block;
         }
 
-        .btn-custom:hover {
+        .scroll-to-top-btn::after {
+        content: "▲"; /* 화살표 아이콘 */
+        font-size: 25px;
+        display: inline-block;
+        }
+
+        .scroll-to-top-btn:hover {
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
             transform: translateY(-3px);
             background-color: #000000;
             color: #fff;
         }
 
-        .loading-animation {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid #000;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 10px auto;
-            display: none;
+        .scroll-to-top-btn img {
+            width: 25px; /* 이미지의 너비 설정 */
+            display: block;
+            margin: auto;
         }
 
-        .modal-buttons {
+        .announcement {
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            padding: 20px 50px 20px 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 25px; 
+            margin-bottom: 40px;
+        }
+
+        .announcement-content {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            margin-top: 10px;
         }
 
-        .modal-btn {
-            background-color: #ffffff; /* 흰 배경 색상 */
-            border: 3px solid #000000; /* 검정색 테두리 */
-            color: #000000; /* 텍스트 색상 */
-            padding: 10px; /* 내부 여백 */
-            margin: 10px; /* 바깥 여백 */
-            text-align: center; /* 텍스트 가운데 정렬 */
-            text-decoration: none; /* 링크 스타일 제거 */
+        .announcement-text {
+            max-width: 60%;
+        }
+
+        .announcement-text p {
+            margin: 5px 0px 5px 0px;
+        }
+
+        .announcement-heading {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .announcement-image img {
             width: 200px;
-            display: inline-block;
-            font-size: 16px; /* 폰트 크기 */
-            cursor: pointer; /* 커서 스타일 변경 */
-            border-radius: 25px; /* 버튼 둥글게 만들기 */
-            transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+            height: auto;
         }
 
-        .modal-btn:hover {
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4); /* 호버 시 그림자 효과 */
-            transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
-            background-color: #000000;
-            color: #fff;
-        }
-
-        .modal {
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            max-width: 600px;
-            transition: opacity 0.3s ease; /* 이 줄을 추가하여 페이드 인 효과를 줍니다. */
-            opacity: 0; /* 초기 투명도를 0으로 설정합니다. */
-            pointer-events: none; /* 초기에는 포인터 이벤트를 비활성화합니다. */
-        }
-
-        .modal.show {
-            opacity: 1; /* 모달이 표시될 때 투명도를 1로 설정합니다. */
-            pointer-events: auto; /* 포인터 이벤트를 활성화합니다. */
-        }
-
-        .category-buttons {
-            padding: 5px;
-            display: flex;
-            justify-content: left;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .category-btn {
-            background-color: #ffffff; /* 흰 배경 색상 */
-            border: 3px solid #000000; /* 검정색 테두리 */
-            color: #000000; /* 텍스트 색상 */
-            padding: 10px; /* 내부 여백 */
-            padding-left: 15px;
-            padding-right: 15px;
+        .btn {
+            background-color: #ffffff; 
+            border: 3px solid #000000; 
+            color: #000000;
+            padding: 10px 20px;
             margin: 10px 10px 10px 0;
-            text-align: center; /* 텍스트 가운데 정렬 */
-            text-decoration: none; /* 링크 스타일 제거 */
-            width: auto;
+            text-align: center;
+            text-decoration: none;
             display: inline-block;
-            font-size: 14px; /* 폰트 크기 */
-            cursor: pointer; /* 커서 스타일 변경 */
-            border-radius: 25px; /* 버튼 둥글게 만들기 */
-            transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 25px; 
+            transition: box-shadow 0.3s, transform 0.3s;
         }
 
-        .category-btn:hover {
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4); /* 호버 시 그림자 효과 */
-            transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
+        .btn:hover {
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+            transform: translateY(-3px);
             background-color: #000000;
             color: #fff;
         }
 
-        .info {
-            text-align: center;
-            width: 100%;
-            margin: 0 auto;
-            padding: 0;
-            font-size: 15px;
-            max-width: 1000px;
-            padding: 25px 0 25px 0;
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
         }
-
-        #loading-screen img {
-            vertical-align: middle;
+        100% {
+          transform: rotate(360deg);
         }
+      }
 
-        #loading-screen h1 {
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0;
-        }
-
-
-                #loading-screen {
-            transition: opacity 1s; /* 투명도 변화를 1초 동안 부드럽게 만듭니다. */
-        }
-
-
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 600px) {
         /* Add your mobile-specific styles here */
         header {
-            font-size: 18px;
+          font-size: 18px;
         }
 
         .main-area {
-            text-align: center;
-            padding-top: 90px;
-            padding-left: 7px;
-            padding-right: 7px;
-            font-size: 13px;
+          text-align: center;
+          padding-top: 90px;
+          padding-left: 7px;
+          padding-right: 7px;
+          font-size: 13px;
         }
 
         .category-btn {
-            padding-left: 12px;
-            padding-right: 12px;
-            margin: 8px;
-            margin-right: 1px;
-            padding: 8px; /* 내부 여백 */
-            padding-left: 12px;
-            padding-right: 12px;
+          padding-left: 12px;
+          padding-right: 12px;
+          margin: 8px;
+          margin-right: 1px;
+          padding: 8px; /* 내부 여백 */
+          padding-left: 12px;
+          padding-right: 12px;
         }
 
-
         .grid-container {
-            gap: 5px;
-            padding: 7px;
+          gap: 5px;
+          padding: 7px;
         }
 
         img {
-            border-radius: 10px;
+          border-radius: 10px;
         }
 
         .btn-custom {
-            font-size: 12px;
-            padding: 8px;
+          font-size: 12px;
+          padding: 8px;
         }
 
         .loading-animation {
-            margin: 5px auto;
+          margin: 5px auto;
         }
 
         .modal {
-            max-width: 320px;
+          max-width: 320px;
         }
 
-        .footer{
-            font-size: 10px;
+        .footer {
+          font-size: 10px;
         }
 
-    }
+        .btn {
+                margin: 0 auto;
+                margin-top: 20px;
+            }
 
-        
+        .announcement {
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .announcement-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .announcement-text {
+            font-size: 12px;
+            max-width: 60%;
+        }
+
+        .announcement-heading {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .announcement-image img {
+            width: 100px;
+            height: auto;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-    <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background-color: #000; color: #fff; text-align: center; display: flex; justify-content: center; align-items: center; z-index: 9999;">
-        <img src="./IndexImage/logo.png" alt="logo" style="width: 65px; height: auto; margin-right: 0px;">
-        <h1>propicgram</h1>
+  <body>
+    <div
+      id="loading-screen"
+      style="
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      "
+    >
+      <img
+        src="./IndexImage/logo.png"
+        alt="logo"
+        style="width: 65px; height: auto; margin-right: 0px"
+      />
+      <h1>propicgram</h1>
     </div>
 
     <header>
-        <img src="./IndexImage/logo.png" alt="logo" style="width: 65px; height: auto; margin-right: 0px;">
-        <h1>propicgram</h1>
+      <img
+        src="./IndexImage/logo.png"
+        alt="logo"
+        style="width: 65px; height: auto; margin-right: 0px"
+      />
+      <h1>propicgram</h1>
     </header>
 
     <div class="main-area">
-        propicgram is a free service providing SNS profile pictures for our users. All downloaded pictures are strictly intended for use as profile pictures on social media platforms. Elevate your various SNS activities with our diverse range of profile pictures!
+      propicgram is a free service providing SNS profile pictures for our users.
+      All downloaded pictures are strictly intended for use as profile pictures
+      on social media platforms. Elevate your various SNS activities with our
+      diverse range of profile pictures!
     </div>
 
     <div class="category-buttons">
-        <button class="category-btn">#All</button>
-        <button class="category-btn">#Travel</button>
-        <button class="category-btn">Coming Soon</button>
-        <!-- <button class="category-btn">Coming Soon</button> -->
+      <button class="category-btn">#All</button>
+      <button class="category-btn">#Travel</button>
+      <button class="category-btn">Coming Soon</button>
+      <!-- <button class="category-btn">Coming Soon</button> -->
     </div>
 
     <div class="grid-container" id="gridContainer"></div>
 
-    <button class="btn-custom" onclick="loadMoreImages()">Load more work</button>
+    <button class="btn-custom" onclick="loadMoreImages()">
+      Load more work
+    </button>
     <div class="loading-animation" id="loadingAnimation"></div>
 
     <div class="info">
-        Please be informed that the downloaded pictures are not permitted for commercial purposes.
+      Please be informed that the downloaded pictures are not permitted for
+      commercial purposes.
+    </div>
+
+    <div class="announcement">
+        <div class="announcement-content">
+            <div class="announcement-text">
+                <h2 class="announcement-heading">propicgram Now Available on Android!</h2>
+                <p>We're thrilled to share the exciting news that propicgram is officially live on the Android platform! Elevate your profile picture game with our brand new app, meticulously crafted to provide you with the most exceptional profile picture experience.</p>
+                <button class="btn" onclick="redirectToDownload()">Download Now</button>
+            </div>
+            <div class="announcement-image">
+                <img src="./IndexImage/applogo.png" alt="propicgram Logo">
+            </div>
+        </div>
     </div>
 
     <footer>
-        <p>propicgram does not collect personal information or generate revenue.</p>
+      <p>
+        propicgram does not collect personal information or generate revenue.
+      </p>
     </footer>
 
     <div id="modal" class="modal">
-        <img id="modal-content" class="modal-content">
-    <div class="modal-buttons">
+      <img id="modal-content" class="modal-content" />
+      <div class="modal-buttons">
         <button class="modal-btn" id="closeBtn">Close</button>
         <a class="modal-btn" id="downloadBtn" download>Download</a>
+      </div>
     </div>
-    </div>
+
+    <button class="scroll-to-top-btn"></button>
 
     
-      
 
     <script>
-    function loadCategoryImages(category) {
+      function loadCategoryImages(category) {
         var imageArray;
-        switch(category) {
-            case 1:
-                imageArray = imageArray1;
-                break;
-            case 2:
-                imageArray = imageArray2;
-                break;
-            case 3:
-                imageArray = imageArray3;
-                break;
-            case 4:
-                imageArray = imageArray4;
-                break;
-            default:
-                imageArray = [];
+        switch (category) {
+          case 1:
+            imageArray = imageArray1;
+            break;
+          case 2:
+            imageArray = imageArray2;
+            break;
+          case 3:
+            imageArray = imageArray3;
+            break;
+          case 4:
+            imageArray = imageArray4;
+            break;
+          default:
+            imageArray = [];
         }
 
-        gridContainer.innerHTML = ''; // 기존 이미지 삭제
+        gridContainer.innerHTML = ""; // 기존 이미지 삭제
 
         for (var i = 0; i < itemsToShow; i++) {
-            if (i >= imageArray.length) {
-                loadMoreButton.style.display = 'none';
-                break;
-            }
+          if (i >= imageArray.length) {
+            loadMoreButton.style.display = "none";
+            break;
+          }
 
-            var imgTag = document.createElement('img');
-            imgTag.src = imageArray[i][1];
-            imgTag.alt = imageArray[i][0];
+          var imgTag = document.createElement("img");
+          imgTag.src = imageArray[i][1];
+          imgTag.alt = imageArray[i][0];
 
-            var gridItem = document.createElement('div');
-            gridItem.classList.add('grid-item');
-            gridItem.appendChild(imgTag);
+          var gridItem = document.createElement("div");
+          gridItem.classList.add("grid-item");
+          gridItem.appendChild(imgTag);
 
-            gridContainer.appendChild(gridItem);
+          gridContainer.appendChild(gridItem);
         }
 
         startIndex = itemsToShow; // 시작 인덱스 초기화
         if (startIndex >= imageArray.length) {
-            loadMoreButton.style.display = 'none';
+          loadMoreButton.style.display = "none";
         } else {
-            loadMoreButton.style.display = 'block';
+          loadMoreButton.style.display = "block";
         }
-    }
+      }
 
-    var categoryButtons = document.querySelectorAll('.category-btn');
-    categoryButtons.forEach(function(button, index) {
-        button.addEventListener('click', function() {
-            loadCategoryImages(index + 1); // 카테고리는 1부터 시작하므로 index + 1
+      var categoryButtons = document.querySelectorAll(".category-btn");
+      categoryButtons.forEach(function (button, index) {
+        button.addEventListener("click", function () {
+          loadCategoryImages(index + 1); // 카테고리는 1부터 시작하므로 index + 1
         });
-    });
+      });
 
-
-
-        var imageArray = [
-            ['#travel', './All/1.jpg'],
-            ['#travel', './All/2.jpg'],
-            ['#travel', './All/3.jpg'],
-            ['#travel', './All/4.jpg'],
-            ['#travel', './All/5.jpg'],
-            ['#travel', './All/6.jpg'],
-            ['#travel', './All/7.jpg'],
-            ['#travel', './All/8.jpg'],
-            ['#travel', './All/9.jpg'],
-            ['#travel', './All/10.jpg'],
-            ['#travel', './All/11.jpg'],
-            ['#travel', './All/12.jpg'],
-            ['#travel', './All/13.jpg'],
-            ['#travel', './All/14.jpg'],
-            ['#travel', './All/15.jpg'],
-            ['#travel', './All/16.jpg'],
-            ['#travel', './All/17.jpg'],
-            ['#travel', './All/18.jpg'],
-            ['#travel', './All/19.jpg'],
-            ['#travel', './All/20.jpg'],
-            ['#travel', './All/21.jpg'],
-            ['#travel', './All/22.jpg'],
-            ['#travel', './All/23.jpg'],
-            ['#travel', './All/24.jpg'],
-            ['#travel', './All/25.jpg'],
-            ['#travel', './All/26.jpg'],
-            ['#travel', './All/27.jpg'],
-            ['#travel', './All/28.jpg'],
-            ['#travel', './All/29.jpg'],
-            ['#travel', './All/30.jpg'],
-            ['#travel', './All/31.jpg'],
-            ['#travel', './All/32.jpg'],
-            ['#travel', './All/33.jpg'],
-            ['#travel', './All/34.jpg'],
-            ['#travel', './All/35.jpg'],
-            ['#travel', './All/36.jpg'],
-            ['#travel', './All/37.jpg'],
-            ['#travel', './All/38.jpg'],
-            ['#travel', './All/39.jpg'],
-            ['#travel', './All/40.jpg'],
-            ['#travel', './All/41.jpg'],
-            ['#travel', './All/42.jpg'],
-            ['#travel', './All/43.jpg'],
-            ['#travel', './All/44.jpg'],
-            ['#travel', './All/45.jpg'],
-            ['#travel', './All/46.jpg'],
-            ['#travel', './All/47.jpg'],
-            ['#travel', './All/48.jpg'],
-            ['#travel', './All/49.jpg'],
-            ['#travel', './All/50.jpg'],
-            ['#travel', './All/51.jpg'],
-            ['#travel', './All/52.jpg'],
-            ['#travel', './All/53.jpg'],
-            ['#travel', './All/54.jpg'],
-            ['#travel', './All/55.jpg'],
-            ['#travel', './All/56.jpg'],
-            ['#travel', './All/57.jpg'],
-            ['#travel', './All/58.jpg'],
-            ['#travel', './All/59.jpg'],
-            ['#travel', './All/60.jpg'],
-            ['#travel', './All/61.jpg'],
-            ['#travel', './All/62.jpg'],
-            ['#travel', './All/63.jpg'],
-            ['#travel', './All/64.jpg'],
-            ['#travel', './All/65.jpg'],
-            ['#travel', './All/66.jpg'],
-            ['#travel', './All/67.jpg'],
-            ['#travel', './All/68.jpg'],
-            ['#travel', './All/69.jpg'],
-            ['#travel', './All/70.jpg'],
-            ['#travel', './All/71.jpg'],
-            ['#travel', './All/72.jpg'],
-            ['#travel', './All/73.jpg']
-        ];
-        /* var imageArray1 = [ // All
+      var imageArray = [
+        ["#travel", "./All/1.jpg"],
+        ["#travel", "./All/2.jpg"],
+        ["#travel", "./All/3.jpg"],
+        ["#travel", "./All/4.jpg"],
+        ["#travel", "./All/5.jpg"],
+        ["#travel", "./All/6.jpg"],
+        ["#travel", "./All/7.jpg"],
+        ["#travel", "./All/8.jpg"],
+        ["#travel", "./All/9.jpg"],
+        ["#travel", "./All/10.jpg"],
+        ["#travel", "./All/11.jpg"],
+        ["#travel", "./All/12.jpg"],
+        ["#travel", "./All/13.jpg"],
+        ["#travel", "./All/14.jpg"],
+        ["#travel", "./All/15.jpg"],
+        ["#travel", "./All/16.jpg"],
+        ["#travel", "./All/17.jpg"],
+        ["#travel", "./All/18.jpg"],
+        ["#travel", "./All/19.jpg"],
+        ["#travel", "./All/20.jpg"],
+        ["#travel", "./All/21.jpg"],
+        ["#travel", "./All/22.jpg"],
+        ["#travel", "./All/23.jpg"],
+        ["#travel", "./All/24.jpg"],
+        ["#travel", "./All/25.jpg"],
+        ["#travel", "./All/26.jpg"],
+        ["#travel", "./All/27.jpg"],
+        ["#travel", "./All/28.jpg"],
+        ["#travel", "./All/29.jpg"],
+        ["#travel", "./All/30.jpg"],
+        ["#travel", "./All/31.jpg"],
+        ["#travel", "./All/32.jpg"],
+        ["#travel", "./All/33.jpg"],
+        ["#travel", "./All/34.jpg"],
+        ["#travel", "./All/35.jpg"],
+        ["#travel", "./All/36.jpg"],
+        ["#travel", "./All/37.jpg"],
+        ["#travel", "./All/38.jpg"],
+        ["#travel", "./All/39.jpg"],
+        ["#travel", "./All/40.jpg"],
+        ["#travel", "./All/41.jpg"],
+        ["#travel", "./All/42.jpg"],
+        ["#travel", "./All/43.jpg"],
+        ["#travel", "./All/44.jpg"],
+        ["#travel", "./All/45.jpg"],
+        ["#travel", "./All/46.jpg"],
+        ["#travel", "./All/47.jpg"],
+        ["#travel", "./All/48.jpg"],
+        ["#travel", "./All/49.jpg"],
+        ["#travel", "./All/50.jpg"],
+        ["#travel", "./All/51.jpg"],
+        ["#travel", "./All/52.jpg"],
+        ["#travel", "./All/53.jpg"],
+        ["#travel", "./All/54.jpg"],
+        ["#travel", "./All/55.jpg"],
+        ["#travel", "./All/56.jpg"],
+        ["#travel", "./All/57.jpg"],
+        ["#travel", "./All/58.jpg"],
+        ["#travel", "./All/59.jpg"],
+        ["#travel", "./All/60.jpg"],
+        ["#travel", "./All/61.jpg"],
+        ["#travel", "./All/62.jpg"],
+        ["#travel", "./All/63.jpg"],
+        ["#travel", "./All/64.jpg"],
+        ["#travel", "./All/65.jpg"],
+        ["#travel", "./All/66.jpg"],
+        ["#travel", "./All/67.jpg"],
+        ["#travel", "./All/68.jpg"],
+        ["#travel", "./All/69.jpg"],
+        ["#travel", "./All/70.jpg"],
+        ["#travel", "./All/71.jpg"],
+        ["#travel", "./All/72.jpg"],
+        ["#travel", "./All/73.jpg"],
+      ];
+      /* var imageArray1 = [ // All
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
         ]; */
-        /* var imageArray2 = [
+      /* var imageArray2 = [
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
         ];
         var imageArray3 = [
@@ -474,112 +635,131 @@
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
         ]; */
 
-        var closeBtn = document.getElementById('closeBtn');
-        var downloadBtn = document.getElementById('downloadBtn');
-        var modal = document.getElementById('modal');
-        var modalImg = document.getElementById('modal-content');
+      var closeBtn = document.getElementById("closeBtn");
+      var downloadBtn = document.getElementById("downloadBtn");
+      var modal = document.getElementById("modal");
+      var modalImg = document.getElementById("modal-content");
 
-        function closeModal() {
-        modal.style.display = 'none';
-        }
+      function closeModal() {
+        modal.style.display = "none";
+      }
 
-        function openModal(src, alt) {
-        modal.style.display = 'block';
+      function openModal(src, alt) {
+        modal.style.display = "block";
         modalImg.src = src;
         modalImg.alt = alt;
-        }
+      }
 
-        document.addEventListener('click', function(e) {
-            if (e.target && e.target.nodeName == "IMG" && e.target.parentElement !== document.querySelector('header')) {
-                var src = e.target.src;
-                var alt = e.target.alt;
-                openModal(src, alt);
-            }
+      document.addEventListener("click", function (e) {
+        if (
+            e.target &&
+            e.target.nodeName == "IMG" &&
+            e.target.parentElement !== document.querySelector("header") &&
+            !e.target.classList.contains("scroll-to-top-btn") // Check if clicked element is not the scroll-to-top button
+        ) {
+            var src = e.target.src;
+            var alt = e.target.alt;
+            openModal(src, alt);
+        }
         });
 
 
-        closeBtn.addEventListener('click', closeModal);
+      closeBtn.addEventListener("click", closeModal);
 
-        downloadBtn.addEventListener('click', function() {
-        var a = document.createElement('a');
+      downloadBtn.addEventListener("click", function () {
+        var a = document.createElement("a");
         a.href = modalImg.src;
         a.download = modalImg.alt;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+      });
+
+      var gridContainer = document.getElementById("gridContainer");
+      var loadMoreButton = document.querySelector(".btn-custom");
+      var startIndex = 0;
+      var itemsToShow = 8;
+
+      function loadMoreImages() {
+        var loadingAnimation = document.getElementById("loadingAnimation");
+        loadingAnimation.style.display = "block";
+
+        setTimeout(function () {
+          for (var i = startIndex; i < startIndex + itemsToShow; i++) {
+            if (i >= imageArray.length) {
+              loadMoreButton.style.display = "none";
+              break;
+            }
+
+            var imgTag = document.createElement("img");
+            imgTag.src = imageArray[i][1];
+            imgTag.alt = imageArray[i][0];
+
+            var gridItem = document.createElement("div");
+            gridItem.classList.add("grid-item");
+            gridItem.appendChild(imgTag);
+
+            gridContainer.appendChild(gridItem);
+          }
+
+          startIndex += itemsToShow;
+
+          if (startIndex >= imageArray.length) {
+            loadMoreButton.style.display = "none";
+          }
+
+          loadingAnimation.style.display = "none";
+        }, 700);
+      }
+
+      // 페이지 로딩시 처음 8개 이미지만 로드
+      window.addEventListener("load", loadMoreImages);
+
+      function openModal(src, alt) {
+        modal.style.display = "block";
+        modal.classList.add("show"); // 'show' 클래스를 추가하여 모달이 나타날 때 트랜지션 효과가 발생합니다.
+        modalImg.src = src;
+        modalImg.alt = alt;
+      }
+
+      function closeModal() {
+        modal.classList.remove("show"); // 'show' 클래스를 제거하여 모달이 사라질 때 트랜지션 효과가 발생합니다.
+        setTimeout(function () {
+          modal.style.display = "none";
+        }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
+      }
+
+      // loading
+      function hideLoadingScreen() {
+        var loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.style.opacity = "0"; // 투명도를 0으로 설정합니다.
+        setTimeout(function () {
+          loadingScreen.style.display = "none";
+        }, 1000); // 1초 후에 화면을 숨깁니다.
+      }
+
+      window.onload = function () {
+        setTimeout(hideLoadingScreen, 1500);
+      };
+
+      function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
+    }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        var scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
 
-
-        var gridContainer = document.getElementById('gridContainer');
-        var loadMoreButton = document.querySelector('.btn-custom');
-        var startIndex = 0;
-        var itemsToShow = 8;
-
-        function loadMoreImages() {
-            var loadingAnimation = document.getElementById('loadingAnimation');
-            loadingAnimation.style.display = 'block';
-
-            setTimeout(function() {
-                for (var i = startIndex; i < startIndex + itemsToShow; i++) {
-                    if (i >= imageArray.length) {
-                        loadMoreButton.style.display = 'none';
-                        break;
-                    }
-
-                    var imgTag = document.createElement('img');
-                    imgTag.src = imageArray[i][1];
-                    imgTag.alt = imageArray[i][0];
-
-                    var gridItem = document.createElement('div');
-                    gridItem.classList.add('grid-item');
-                    gridItem.appendChild(imgTag);
-
-                    gridContainer.appendChild(gridItem);
-                }
-
-                startIndex += itemsToShow;
-
-                if (startIndex >= imageArray.length) {
-                    loadMoreButton.style.display = 'none';
-                }
-
-                loadingAnimation.style.display = 'none';
-            }, 700);
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', scrollToTop);
         }
+    });
 
-        // 페이지 로딩시 처음 8개 이미지만 로드
-        window.addEventListener('load', loadMoreImages);
-
-        function openModal(src, alt) {
-            modal.style.display = 'block';
-            modal.classList.add('show'); // 'show' 클래스를 추가하여 모달이 나타날 때 트랜지션 효과가 발생합니다.
-            modalImg.src = src;
-            modalImg.alt = alt;
-        }
-
-        function closeModal() {
-            modal.classList.remove('show'); // 'show' 클래스를 제거하여 모달이 사라질 때 트랜지션 효과가 발생합니다.
-            setTimeout(function() {
-                modal.style.display = 'none';
-            }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
-        }
-
-                // loading
-        function hideLoadingScreen() {
-            var loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.style.opacity = '0'; // 투명도를 0으로 설정합니다.
-            setTimeout(function() {
-                loadingScreen.style.display = 'none';
-            }, 1000); // 1초 후에 화면을 숨깁니다.
-        }
-
-        window.onload = function() {
-            setTimeout(hideLoadingScreen, 1500);
-        };
-
-
+    function redirectToDownload() {
+        window.location.href = "http://propicgram.com"; // 여기에 실제 다운로드 링크를 넣어주세요.
+    }
     </script>
-</body>
-
+  </body>
 </html>
