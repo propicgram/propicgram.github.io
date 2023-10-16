@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>propicgram</title>
+    <link rel="icon" href="./IndexImage/favicon.png" type="image/x-icon">
     <style>
       @font-face {
         font-family: "LINESeedKR-Bd";
@@ -258,7 +259,7 @@
             max-width: 900px;
             margin: 0 auto;
             border-radius: 25px; 
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .announcement-content {
@@ -305,6 +306,30 @@
             transform: translateY(-3px);
             background-color: #000000;
             color: #fff;
+        }
+
+        .language-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .language-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            color: #000;
+        }
+
+        .language-buttons button:last-child {
+            margin-right: 0;
+        }
+
+        .language-buttons button:hover {
+            color: chartreuse;
         }
 
       @keyframes spin {
@@ -436,11 +461,9 @@
       <h1>propicgram</h1>
     </header>
 
-    <div class="main-area">
-      propicgram is a free service providing SNS profile pictures for our users.
-      All downloaded pictures are strictly intended for use as profile pictures
-      on social media platforms. Elevate your various SNS activities with our
-      diverse range of profile pictures!
+    <div class="main-area" data-lang='{"en": "propicgram is a free service providing SNS profile pictures for our users. All downloaded pictures are strictly intended for use as profile pictureson social media platforms. Elevate your various SNS activities with our diverse range of profile pictures!",
+    "ko": "propicgram은 사용자들을 위해 SNS 프로필 사진을 무료로 제공하는 서비스입니다. 다운로드한 사진은 엄격히 소셜 미디어 플랫폼에서 프로필 사진으로만 사용되기를 목적으로 합니다. 다양한 프로필 사진으로 여러 SNS 활동을 더욱 높여보세요!",
+    "ja": "propicgramは、ユーザー向けにSNSプロフィール写真を無料で提供するサービスです。ダウンロードした写真は厳密にSNSプラットフォームでのプロフィール写真として使用することを目的としています。多様なプロフィール写真でさまざまなSNS活動を向上させましょう！"}'>
     </div>
 
     <div class="category-buttons">
@@ -452,40 +475,56 @@
 
     <div class="grid-container" id="gridContainer"></div>
 
-    <button class="btn-custom" onclick="loadMoreImages()">
-      Load more work
+    <button class="btn-custom" onclick="loadMoreImages()" data-lang='{"en": "Load more work",
+    "ko": "더 불러오기",
+    "ja": "もっと表示"}'>
     </button>
     <div class="loading-animation" id="loadingAnimation"></div>
 
-    <div class="info">
-      Please be informed that the downloaded pictures are not permitted for
-      commercial purposes.
+    <div class="info" data-lang='{"en": "Please be informed that the downloaded pictures are not permitted for commercial purposes.",
+    "ko": "다운로드한 사진은 상업적인 용도로 사용이 허가되지 않습니다.",
+    "ja": "ダウンロードした写真は商業目的での使用は許可されていません。"}'>
     </div>
 
     <div class="announcement">
-        <div class="announcement-content">
-            <div class="announcement-text">
-                <h2 class="announcement-heading">propicgram Now Available on Android!</h2>
-                <p>We're thrilled to share the exciting news that propicgram is officially live on the Android platform! Elevate your profile picture game with our brand new app, meticulously crafted to provide you with the most exceptional profile picture experience.</p>
-                <button class="btn" onclick="redirectToDownload()">Download Now</button>
-            </div>
-            <div class="announcement-image">
-                <img src="./IndexImage/applogo.png" alt="propicgram Logo">
-            </div>
-        </div>
+      <div class="announcement-content">
+          <div class="announcement-text">
+              <h2 class="announcement-heading" data-lang='{"en": "propicgram Now Available on Android!",
+              "ko": "「propicgram」 이제 안드로이드에서 이용 가능합니다!",
+              "ja": "「propicgram」がAndroidで利用可能になりました！"}'></h2>
+              
+              <p data-lang='{"en": "We are thrilled to share the exciting news that propicgram is officially live on the Android platform! Elevate your profile picture game with our brand new app, meticulously crafted to provide you with the most exceptional profile picture experience",
+              "ko": "「propicgram」이 공식적으로 안드로이드 플랫폼에서 사용 가능하다는 흥분되는 소식을 전해드립니다! 우리의 새로운 앱으로 프로필 사진을 한 단계 높여보세요. 이 앱은 가장 우수한 프로필 사진 경험을 제공하기 위해 세심하게 제작되었습니다.",
+              "ja": "「propicgram」が正式にAndroidプラットフォームで利用可能となったことをお知らせいたします！私たちの新しいアプリを使ってプロフィール写真をグレードアップしましょう。このアプリは、最高のプロフィール写真体験を提供するために細心の注意を払って作成されました。"}'></p>
+              <button class="btn" onclick="redirectToDownload()">Download Now</button>
+          </div>
+          <div class="announcement-image">
+              <img src="./IndexImage/applogo.png" alt="propicgram Logo">
+          </div>
+      </div>
+  </div>
+
+    <div class="language-buttons">
+      <button onclick="changeLanguageAndShowLoading('en')">EN</button>
+      <button onclick="changeLanguageAndShowLoading('ko')">KR</button>
+      <button onclick="changeLanguageAndShowLoading('ja')">JP</button>
     </div>
 
     <footer>
-      <p>
-        propicgram does not collect personal information or generate revenue.
-      </p>
+      <p class="footer-text" data-lang='{"en": "propicgram does not collect personal information or generate revenue.",
+                                        "ko": "propicgram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
+                                        "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p>
     </footer>
 
     <div id="modal" class="modal">
       <img id="modal-content" class="modal-content" />
       <div class="modal-buttons">
-        <button class="modal-btn" id="closeBtn">Close</button>
-        <a class="modal-btn" id="downloadBtn" download>Download</a>
+        <button class="modal-btn" id="closeBtn" data-lang='{"en": "Close",
+        "ko": "닫기",
+        "ja": "閉じる"}'></button>
+        <a class="modal-btn" id="downloadBtn" download data-lang='{"en": "Download",
+        "ko": "다운로드",
+        "ja": "ダウンロード"}'></a>
       </div>
     </div>
 
@@ -621,6 +660,72 @@
         ["#travel", "./All/71.jpg"],
         ["#travel", "./All/72.jpg"],
         ["#travel", "./All/73.jpg"],
+        ["#travel", "./All/74.jpg"],
+        ["#travel", "./All/75.jpg"],
+        ["#travel", "./All/76.jpg"],
+        ["#travel", "./All/77.jpg"],
+        ["#travel", "./All/78.jpg"],
+        ["#travel", "./All/79.jpg"],
+        ["#travel", "./All/80.jpg"],
+        ["#travel", "./All/81.jpg"],
+        ["#travel", "./All/82.jpg"],
+        ["#travel", "./All/83.jpg"],
+        ["#travel", "./All/84.jpg"],
+        ["#travel", "./All/85.jpg"],
+        ["#travel", "./All/86.jpg"],
+        ["#travel", "./All/87.jpg"],
+        ["#travel", "./All/88.jpg"],
+        ["#travel", "./All/89.jpg"],
+        ["#travel", "./All/90.jpg"],
+        ["#travel", "./All/91.jpg"],
+        ["#travel", "./All/92.jpg"],
+        ["#travel", "./All/93.jpg"],
+        ["#travel", "./All/94.jpg"],
+        ["#travel", "./All/95.jpg"],
+        ["#travel", "./All/96.jpg"],
+        ["#travel", "./All/97.jpg"],
+        ["#travel", "./All/98.jpg"],
+        ["#travel", "./All/99.jpg"],
+        ["#travel", "./All/100.jpg"],
+        ["#travel", "./All/101.jpg"],
+        ["#travel", "./All/102.jpg"],
+        ["#travel", "./All/103.jpg"],
+        ["#travel", "./All/104.jpg"],
+        ["#travel", "./All/105.jpg"],
+        ["#travel", "./All/106.jpg"],
+        ["#travel", "./All/107.jpg"],
+        ["#travel", "./All/108.jpg"],
+        ["#travel", "./All/109.jpg"],
+        ["#travel", "./All/110.jpg"],
+        ["#travel", "./All/111.jpg"],
+        ["#travel", "./All/112.jpg"],
+        ["#travel", "./All/113.jpg"],
+        ["#travel", "./All/114.jpg"],
+        ["#travel", "./All/115.jpg"],
+        ["#travel", "./All/116.jpg"],
+        ["#travel", "./All/117.jpg"],
+        ["#travel", "./All/118.jpg"],
+        ["#travel", "./All/119.jpg"],
+        ["#travel", "./All/120.jpg"],
+        ["#travel", "./All/121.jpg"],
+        ["#travel", "./All/122.jpg"],
+        ["#travel", "./All/123.jpg"],
+        ["#travel", "./All/124.jpg"],
+        ["#travel", "./All/125.jpg"],
+        ["#travel", "./All/126.jpg"],
+        ["#travel", "./All/127.jpg"],
+        ["#travel", "./All/128.jpg"],
+        ["#travel", "./All/129.jpg"],
+        ["#travel", "./All/130.jpg"],
+        ["#travel", "./All/131.jpg"],
+        ["#travel", "./All/132.jpg"],
+        ["#travel", "./All/133.jpg"],
+        ["#travel", "./All/134.jpg"],
+        ["#travel", "./All/135.jpg"],
+        ["#travel", "./All/136.jpg"],
+        ["#travel", "./All/137.jpg"],
+        ["#travel", "./All/138.jpg"],
+        ["#travel", "./All/139.jpg"]
       ];
       /* var imageArray1 = [ // All
         ['#travel#landscapephotography#scenery', './All/1.jpg'],
@@ -729,6 +834,12 @@
         }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
       }
 
+      function showLoadingScreen() {
+          var loadingScreen = document.getElementById('loading-screen');
+          loadingScreen.style.display = 'flex';
+          loadingScreen.style.opacity = '1';
+      }
+
       // loading
       function hideLoadingScreen() {
         var loadingScreen = document.getElementById("loading-screen");
@@ -756,10 +867,39 @@
             scrollToTopBtn.addEventListener('click', scrollToTop);
         }
     });
+    
+    function changeLanguageAndShowLoading(language) {
+            showLoadingScreen();
 
-    function redirectToDownload() {
-        window.location.href = "http://propicgram.com"; // 여기에 실제 다운로드 링크를 넣어주세요.
-    }
+            setTimeout(function() {
+                changeLanguage(language);
+                hideLoadingScreen();
+            }, 1000);
+        }
+
+        function redirectToImage() {
+            changeLanguageAndShowLoading('en'); // 예시로 'en'을 전달합니다. 실제로는 해당 언어 코드를 전달해야 합니다.
+            window.location.href = "./image_gallery.html";
+        }
+
+        function redirectToDownload() {
+            changeLanguageAndShowLoading('en'); // 예시로 'en'을 전달합니다. 실제로는 해당 언어 코드를 전달해야 합니다.
+            window.location.href = "http://propicgram.com";
+        }
+
+        function changeLanguage(language) {
+            var elementsToTranslate = document.querySelectorAll('[data-lang]');
+
+            elementsToTranslate.forEach(function(element) {
+                var translations = JSON.parse(element.dataset.lang);
+                element.textContent = translations[language];
+            });
+        }
+
+        window.onload = function() {
+            setTimeout(hideLoadingScreen, 2000);
+            changeLanguage('en'); // Set default language (English)
+        };
     </script>
   </body>
 </html>
