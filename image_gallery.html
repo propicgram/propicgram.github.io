@@ -809,16 +809,16 @@
 
       function openModal(src, alt) {
         modal.style.display = "block";
-        modal.classList.add("show"); // 'show' 클래스를 추가하여 모달이 나타날 때 트랜지션 효과가 발생합니다.
+        modal.classList.add("show");
         modalImg.src = src;
         modalImg.alt = alt;
       }
 
       function closeModal() {
-        modal.classList.remove("show"); // 'show' 클래스를 제거하여 모달이 사라질 때 트랜지션 효과가 발생합니다.
+        modal.classList.remove("show");
         setTimeout(function () {
           modal.style.display = "none";
-        }, 300); // 트랜지션이 완료되기를 기다려 모달을 숨깁니다.
+        }, 300);
       }
 
       function showLoadingScreen() {
@@ -830,10 +830,10 @@
       // loading
       function hideLoadingScreen() {
         var loadingScreen = document.getElementById("loading-screen");
-        loadingScreen.style.opacity = "0"; // 투명도를 0으로 설정합니다.
+        loadingScreen.style.opacity = "0";
         setTimeout(function () {
           loadingScreen.style.display = "none";
-        }, 1000); // 1초 후에 화면을 숨깁니다.
+        }, 1000);
       }
 
       window.onload = function () {
@@ -850,13 +850,13 @@
         }
 
         function redirectToImage() {
-            changeLanguageAndShowLoading('en'); // 예시로 'en'을 전달합니다. 실제로는 해당 언어 코드를 전달해야 합니다.
+            changeLanguageAndShowLoading('en');
             window.location.href = "./image_gallery.html";
         }
 
         function redirectToDownload() {
-            changeLanguageAndShowLoading('en'); // 예시로 'en'을 전달합니다. 실제로는 해당 언어 코드를 전달해야 합니다.
-            window.location.href = "http://propicgram.com";
+            changeLanguageAndShowLoading('en');
+            window.location.href = "https://play.google.com/store/apps/details?id=com.propicgram&pcampaignid=web_share";
         }
 
         function changeLanguage(language) {

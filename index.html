@@ -14,21 +14,21 @@
     <meta property="og:description" content="Your Ultimate Source for SNS Profile Pictures!">
 
     <style>
-        @font-face { /* 한국어폰트 */
+        @font-face {
             font-family: 'LINESeedKR-Bd';
             src: url('./LINESeedKR-Bd.woff2') format('woff2');
             font-weight: 700;
             font-style: normal;
         }
 
-        @font-face { /* 일본어폰트 */
+        @font-face {
             font-family: 'LINESeedJP_OTF_Bd';
             src: url('./LINESeedJP_OTF_Bd.woff2') format('woff2');
             font-weight: 700;
             font-style: normal;
         }
 
-        @font-face { /* 영어폰트 */
+        @font-face {
             font-family: 'LINESeedSans_W_Bd';
             src: url('./LINESeedSans_W_Bd.woff2') format('woff2');
             font-weight: 700;
@@ -409,13 +409,13 @@
         }
 
         function redirectToImage() {
-            changeLanguageAndShowLoading('en'); // 예시로 'en'을 전달합니다. 실제로는 해당 언어 코드를 전달해야 합니다.
+            changeLanguageAndShowLoading('en');
             window.location.href = "./image_gallery.html";
         }
 
         function redirectToDownload() {
-            changeLanguageAndShowLoading('en'); // 예시로 'en'을 전달합니다. 실제로는 해당 언어 코드를 전달해야 합니다.
-            window.location.href = "http://propicgram.com";
+            changeLanguageAndShowLoading('en');
+            window.location.href = "https://play.google.com/store/apps/details?id=com.propicgram&pcampaignid=web_share";
         }
 
         function changeLanguage(language) {
@@ -429,7 +429,7 @@
 
         window.onload = function() {
             setTimeout(hideLoadingScreen, 2000);
-            changeLanguage('en'); // Set default language (English)
+            changeLanguage('en');
         };
 
         function changeFont(fontFamily) {
