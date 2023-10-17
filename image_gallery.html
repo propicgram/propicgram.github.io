@@ -6,17 +6,30 @@
     <title>propicgram</title>
     <link rel="icon" href="./IndexImage/favicon.png" type="image/x-icon">
     <style>
-      @font-face {
-        font-family: "LINESeedKR-Bd";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
-          format("woff2");
-        font-weight: 700;
-        font-style: normal;
+      @font-face { /* 한국어폰트 */
+          font-family: 'LINESeedKR-Bd';
+          src: url('./LINESeedKR-Bd.woff2') format('woff2');
+          font-weight: 700;
+          font-style: normal;
       }
 
-      * {
-        font-family: "LINESeedKR-Bd", sans-serif;
-        user-select: none;
+      @font-face { /* 일본어폰트 */
+          font-family: 'LINESeedJP_OTF_Bd';
+          src: url('./LINESeedJP_OTF_Bd.woff2') format('woff2');
+          font-weight: 700;
+          font-style: normal;
+      }
+
+      @font-face { /* 영어폰트 */
+          font-family: 'LINESeedSans_W_Bd';
+          src: url('./LINESeedSans_W_Bd.woff2') format('woff2');
+          font-weight: 700;
+          font-style: normal;
+      }
+
+      *{
+          font-family: 'LINESeedSans_W_Bd', sans-serif;
+          user-select: none;
       }
 
       body {
@@ -65,14 +78,19 @@
       }
 
       footer {
-        font-size: 15px;
-        background-color: rgb(27, 27, 27);
-        color: #fff;
-        text-align: center;
-        bottom: 0;
-        width: 100%;
-        margin: 0 auto;
-        padding: 7px 0 7px 0;
+            font-size: 15px;
+            color: rgb(26, 26, 26);
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            margin: 0 auto;
+            padding: 7px 0 7px 0;
+        }
+
+      .footer-text {
+          display: inline-block;
+          padding: 0px;
+          margin: 5px;
       }
 
       .btn-custom {
@@ -219,39 +237,6 @@
         transition: opacity 1s; /* 투명도 변화를 1초 동안 부드럽게 만듭니다. */
       }
 
-      .scroll-to-top-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #ffffff;
-            border: 3px solid #000000;
-            color: #000000;
-            padding: 0px 5px 0px 5px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 75px;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        .scroll-to-top-btn::after {
-        content: "▲"; /* 화살표 아이콘 */
-        font-size: 25px;
-        display: inline-block;
-        }
-
-        .scroll-to-top-btn:hover {
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-            transform: translateY(-3px);
-            background-color: #000000;
-            color: #fff;
-        }
-
-        .scroll-to-top-btn img {
-            width: 25px; /* 이미지의 너비 설정 */
-            display: block;
-            margin: auto;
-        }
-
         .announcement {
             background-color: #f7f7f7;
             border: 1px solid #ccc;
@@ -387,7 +372,7 @@
           max-width: 320px;
         }
 
-        .footer {
+        footer {
           font-size: 10px;
         }
 
@@ -504,17 +489,20 @@
       </div>
   </div>
 
-    <div class="language-buttons">
-      <button onclick="changeLanguageAndShowLoading('en')">EN</button>
-      <button onclick="changeLanguageAndShowLoading('ko')">KR</button>
-      <button onclick="changeLanguageAndShowLoading('ja')">JP</button>
-    </div>
+  <div class="language-buttons">
+      <button onclick="changeLanguageAndShowLoading('en'), changeFont('LINESeedSans_W_Bd')">EN</button>
+      <button onclick="changeLanguageAndShowLoading('ko'), changeFont('LINESeedKR-Bd')">KR</button>
+      <button onclick="changeLanguageAndShowLoading('ja'), changeFont('LINESeedJP_OTF_Bd')">JP</button>
+  </div>
 
-    <footer>
+  <footer>
       <p class="footer-text" data-lang='{"en": "propicgram does not collect personal information or generate revenue.",
                                         "ko": "propicgram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
-                                        "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p>
-    </footer>
+                                        "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p><br>
+                                        © 2023 propicgram / propicgram@gmail.com
+      
+      </p>
+  </footer>
 
     <div id="modal" class="modal">
       <img id="modal-content" class="modal-content" />
@@ -527,8 +515,6 @@
         "ja": "ダウンロード"}'></a>
       </div>
     </div>
-
-    <button class="scroll-to-top-btn"></button>
 
     
 
@@ -760,7 +746,8 @@
             e.target &&
             e.target.nodeName == "IMG" &&
             e.target.parentElement !== document.querySelector("header") &&
-            !e.target.classList.contains("scroll-to-top-btn") // Check if clicked element is not the scroll-to-top button
+            e.target.parentElement !== document.querySelector(".announcement-image") &&
+            e.target.parentElement !== document.getElementById("loading-screen")
         ) {
             var src = e.target.src;
             var alt = e.target.alt;
@@ -852,21 +839,6 @@
       window.onload = function () {
         setTimeout(hideLoadingScreen, 1500);
       };
-
-      function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        var scrollToTopBtn = document.querySelector('.scroll-to-top-btn');
-
-        if (scrollToTopBtn) {
-            scrollToTopBtn.addEventListener('click', scrollToTop);
-        }
-    });
     
     function changeLanguageAndShowLoading(language) {
             showLoadingScreen();
@@ -900,6 +872,14 @@
             setTimeout(hideLoadingScreen, 2000);
             changeLanguage('en'); // Set default language (English)
         };
+
+        function changeFont(fontFamily) {
+            var elementsToChangeFont = document.querySelectorAll('*');
+            
+            elementsToChangeFont.forEach(function(element) {
+                element.style.fontFamily = fontFamily;
+            });
+        }
     </script>
   </body>
 </html>

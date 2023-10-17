@@ -10,24 +10,39 @@
     <meta property="og:title" content="propicgram" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://propicgram.com/" />
-    <!-- <meta property="og:image" content="" /> -->
+    <meta property="og:image" content="https://github.com/propicgram/propicgram.github.io/blob/main/IndexImage/OpenGraph_img.png" />
     <meta property="og:description" content="Your Ultimate Source for SNS Profile Pictures!">
 
     <style>
-        @font-face {
+        @font-face { /* 한국어폰트 */
             font-family: 'LINESeedKR-Bd';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+            src: url('./LINESeedKR-Bd.woff2') format('woff2');
             font-weight: 700;
             font-style: normal;
         }
 
+        @font-face { /* 일본어폰트 */
+            font-family: 'LINESeedJP_OTF_Bd';
+            src: url('./LINESeedJP_OTF_Bd.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face { /* 영어폰트 */
+            font-family: 'LINESeedSans_W_Bd';
+            src: url('./LINESeedSans_W_Bd.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        
+
         *{
-            font-family: 'LINESeedKR-Bd', sans-serif;
+            font-family: 'LINESeedSans_W_Bd', sans-serif;
             user-select: none;
         }
 
         body {
-            font-family: 'LINESeedKR-Bd', sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -119,13 +134,13 @@
 
         .footer-text {
             display: inline-block;
-            margin-left: 10px;
+            padding: 0px;
+            margin: 5px;
         }
 
         footer {
             font-size: 15px;
-            background-color: rgb(27, 27, 27);
-            color: #fff;
+            color: rgb(26, 26, 26);
             text-align: center;
             bottom: 0;
             width: 100%;
@@ -184,6 +199,7 @@
         .language-buttons {
             display: flex;
             justify-content: center;
+            margin-bottom: 20px;
             margin-bottom: 20px;
         }
 
@@ -351,16 +367,19 @@
     </div>
     
     <div class="language-buttons">
-        <button onclick="changeLanguageAndShowLoading('en')">EN</button>
-        <button onclick="changeLanguageAndShowLoading('ko')">KR</button>
-        <button onclick="changeLanguageAndShowLoading('ja')">JP</button>
+        <button onclick="changeLanguageAndShowLoading('en'), changeFont('LINESeedSans_W_Bd')">EN</button>
+        <button onclick="changeLanguageAndShowLoading('ko'), changeFont('LINESeedKR-Bd')">KR</button>
+        <button onclick="changeLanguageAndShowLoading('ja'), changeFont('LINESeedJP_OTF_Bd')">JP</button>
     </div>
     
 
     <footer>
         <p class="footer-text" data-lang='{"en": "propicgram does not collect personal information or generate revenue.",
                                           "ko": "propicgram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
-                                          "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p>
+                                          "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p><br>
+                                          © 2023 propicgram / propicgram@gmail.com
+        
+        </p>
     </footer>
     
     
@@ -412,6 +431,14 @@
             setTimeout(hideLoadingScreen, 2000);
             changeLanguage('en'); // Set default language (English)
         };
+
+        function changeFont(fontFamily) {
+            var elementsToChangeFont = document.querySelectorAll('*');
+            
+            elementsToChangeFont.forEach(function(element) {
+                element.style.fontFamily = fontFamily;
+            });
+        }
     </script>
 </body>
 </html>

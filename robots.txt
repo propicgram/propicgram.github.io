@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /IndexImage/
+Disallow: /All/
+Allow: /index.html/
+Disallow: /image_gallery.html/
