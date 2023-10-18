@@ -33,6 +33,7 @@
       }
 
       body {
+        background: linear-gradient(to bottom, #0a0613, #120f39, #241a4d, #12062a);
         margin: 0;
         padding: 0;
       }
@@ -44,16 +45,21 @@
         gap: 10px;
         max-width: 1000px;
         padding-top: 10px;
-        padding: 5px;
+        padding: 50px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        border-radius: 30px; 
       }
 
       .main-area {
+        color: rgb(221, 221, 221);
         margin: 0 auto;
-        padding: 5px;
-        padding-top: 100px;
         font-size: 23px;
         max-width: 1000px;
         text-align: left;
+        border-radius: 30px; 
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        padding: 50px;
+        padding-top: 5px;
       }
 
       img {
@@ -63,29 +69,29 @@
       }
 
       header {
-        font-size: 20px;
-        font-family: Cafe24ClassicType-Regular, sans-serif;
-        background-color: #ffffff;
-        color: #000e17;
-        text-align: center;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 80px;
-        position: fixed;
-        background-color: rgb(255, 255, 255);
-      }
+            font-size: 20px;
+            color: #000e17;
+            padding: 10px 20px 20px 10px;
+            text-align: center;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
       footer {
             font-size: 15px;
-            color: rgb(26, 26, 26);
+            color: rgb(167, 167, 167);
             text-align: center;
             bottom: 0;
             width: 100%;
             margin: 0 auto;
             padding: 7px 0 7px 0;
-        }
+      }
+
+      .element {
+            background-color: rgba(43, 39, 102, 0.2);
+      }
 
       .footer-text {
           display: inline-block;
@@ -94,9 +100,9 @@
       }
 
       .btn-custom {
-        background-color: #ffffff;
-        border: 3px solid #000000;
-        color: #000000;
+        background-color: rgba(43, 39, 102, 0.2);
+        border: 1px solid #a47dfb; 
+        color: #cecece;
         padding: 10px 20px;
         margin: 10px;
         text-align: center;
@@ -104,8 +110,8 @@
         display: inline-block;
         font-size: 16px;
         cursor: pointer;
-        border-radius: 25px;
-        transition: box-shadow 0.3s, transform 0.3s;
+        border-radius: 25px; 
+        transition: background-color 0.3s, color 0.3s;
         margin: 10px auto;
         display: block;
       }
@@ -113,8 +119,8 @@
       .btn-custom:hover {
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
         transform: translateY(-3px);
-        background-color: #000000;
-        color: #fff;
+        background-color:#a47dfb; 
+        color: rgb(255, 255, 255);
       }
 
       .loading-animation {
@@ -189,9 +195,9 @@
       }
 
       .category-btn {
-        background-color: #ffffff; /* 흰 배경 색상 */
-        border: 3px solid #000000; /* 검정색 테두리 */
-        color: #000000; /* 텍스트 색상 */
+        background-color: rgba(43, 39, 102, 0.2);
+        border: 1px solid #a47dfb; 
+        color: #cecece;
         padding: 10px; /* 내부 여백 */
         padding-left: 15px;
         padding-right: 15px;
@@ -202,25 +208,13 @@
         display: inline-block;
         font-size: 14px; /* 폰트 크기 */
         cursor: pointer; /* 커서 스타일 변경 */
-        border-radius: 25px; /* 버튼 둥글게 만들기 */
-        transition: box-shadow 0.3s, transform 0.3s; /* 트랜지션 속성 추가 */
+        border-radius: 25px; 
+        transition: background-color 0.3s, color 0.3s;
       }
 
       .category-btn:hover {
-        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4); /* 호버 시 그림자 효과 */
-        transform: translateY(-3px); /* 호버 시 버튼 조금 올리기 */
-        background-color: #000000;
-        color: #fff;
-      }
-
-      .info {
-        text-align: center;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0;
-        font-size: 15px;
-        max-width: 1000px;
-        padding: 25px 0 25px 0;
+        background-color:#a47dfb; 
+        color: rgb(255, 255, 255);
       }
 
       #loading-screen img {
@@ -235,46 +229,51 @@
 
       #loading-screen {
         transition: opacity 1s; /* 투명도 변화를 1초 동안 부드럽게 만듭니다. */
+        z-index: 9999;
       }
 
-        .announcement {
-            background-color: #f7f7f7;
-            border: 1px solid #ccc;
-            padding: 20px 50px 20px 50px;
-            max-width: 900px;
-            margin: 0 auto;
-            border-radius: 25px; 
-            margin-bottom: 20px;
-        }
+      .announcement {
+          padding: 50px;
+          max-width: 1000px;
+          margin: 0 auto;
+          border-radius: 30px; 
+          margin-bottom: 20px;
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      }
 
-        .announcement-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+      .announcement-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
 
-        .announcement-text {
-            max-width: 60%;
-        }
+      .announcement-text {
+          max-width: 60%;
+      }
 
-        .announcement-text p {
-            margin: 5px 0px 5px 0px;
-        }
+      .announcement h2 {
+          margin: 5px 0px 5px 0px;
+      }
 
-        .announcement-heading {
-            font-size: 1.5em;
-            color: #333;
-        }
+      .announcement-text p {
+          color: rgb(172, 172, 172);
+          margin: 5px 0px 5px 0px;
+      }
 
-        .announcement-image img {
-            width: 200px;
-            height: auto;
-        }
+      .announcement-heading {
+          font-size: 1.5em;
+          color: #333;
+      }
+
+      .announcement-image img {
+          width: 200px;
+          height: auto;
+      }
 
         .btn {
-            background-color: #ffffff; 
-            border: 3px solid #000000; 
-            color: #000000;
+            background-color: rgba(43, 39, 102, 0.2);
+            border: 1px solid #a47dfb; 
+            color: #cecece;
             padding: 10px 20px;
             margin: 10px 10px 10px 0;
             text-align: center;
@@ -283,20 +282,18 @@
             font-size: 18px;
             cursor: pointer;
             border-radius: 25px; 
-            transition: box-shadow 0.3s, transform 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .btn:hover {
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-            transform: translateY(-3px);
-            background-color: #000000;
-            color: #fff;
+              background-color:#a47dfb; 
+              color: rgb(255, 255, 255);
         }
 
         .language-buttons {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .language-buttons button {
@@ -306,7 +303,7 @@
             cursor: pointer;
             border: none;
             background-color: transparent;
-            color: #000;
+            color: rgb(172, 172, 172);
         }
 
         .language-buttons button:last-child {
@@ -314,7 +311,15 @@
         }
 
         .language-buttons button:hover {
-            color: chartreuse;
+            color: rgb(83, 83, 83);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #a47dfb, #c19af4, #e6cbfc, #f9eac6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 48px; /* 글자 크기 설정 */
         }
 
       @keyframes spin {
@@ -329,14 +334,14 @@
       @media only screen and (max-width: 600px) {
         /* Add your mobile-specific styles here */
         header {
-          font-size: 18px;
+            padding: 5px;
+            margin-bottom: 0px;
+            font-size: 18px;
         }
 
         .main-area {
+          padding: 5px;
           text-align: center;
-          padding-top: 90px;
-          padding-left: 7px;
-          padding-right: 7px;
           font-size: 13px;
         }
 
@@ -382,8 +387,6 @@
             }
 
         .announcement {
-            background-color: #f7f7f7;
-            border: 1px solid #ccc;
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
@@ -402,11 +405,19 @@
 
         .announcement-heading {
             font-size: 24px;
-            color: #333;
         }
 
         .announcement-image img {
             width: 100px;
+            height: auto;
+        }
+
+        .hd h1{
+            font-size: 30px;
+        }
+
+        .hd img {
+            width: 10px;
             height: auto;
         }
       }
@@ -414,37 +425,15 @@
   </head>
 
   <body>
-    <div
-      id="loading-screen"
-      style="
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        color: #fff;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-      "
-    >
-      <img
-        src="./IndexImage/logo.png"
-        alt="logo"
-        style="width: 65px; height: auto; margin-right: 0px"
-      />
-      <h1>propicgram</h1>
-    </div>
+    <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background-color: #000; color: #fff; text-align: center; display: flex; justify-content: center; align-items: center; z-index: 9999;">
+      <img src="./IndexImage/logo.png" alt="logo" style="width: 50px; height: auto; margin-right: 7px;">
+      <h1>PropicGram</h1>
+  </div>
 
-    <header>
-      <img
-        src="./IndexImage/logo.png"
-        alt="logo"
-        style="width: 65px; height: auto; margin-right: 0px"
-      />
-      <h1>propicgram</h1>
-    </header>
+  <header class="hd">
+    <img src="./IndexImage/logo.png" alt="logo" style="width: 55px; height: auto; margin-right: 7px;">
+    <h1 class="gradient-text">PropicGram</h1>
+  </header>
 
     <div class="main-area" data-lang='{"en": "propicgram is a free service providing SNS profile pictures for our users. All downloaded pictures are strictly intended for use as profile pictureson social media platforms. Elevate your various SNS activities with our diverse range of profile pictures!",
     "ko": "propicgram은 사용자들을 위해 SNS 프로필 사진을 무료로 제공하는 서비스입니다. 다운로드한 사진은 엄격히 소셜 미디어 플랫폼에서 프로필 사진으로만 사용되기를 목적으로 합니다. 다양한 프로필 사진으로 여러 SNS 활동을 더욱 높여보세요!",
@@ -458,7 +447,7 @@
       <!-- <button class="category-btn">Coming Soon</button> -->
     </div>
 
-    <div class="grid-container" id="gridContainer"></div>
+    <div class="grid-container element" id="gridContainer"></div>
 
     <button class="btn-custom" onclick="loadMoreImages()" data-lang='{"en": "Load more work",
     "ko": "더 불러오기",
@@ -466,15 +455,11 @@
     </button>
     <div class="loading-animation" id="loadingAnimation"></div>
 
-    <div class="info" data-lang='{"en": "Please be informed that the downloaded pictures are not permitted for commercial purposes.",
-    "ko": "다운로드한 사진은 상업적인 용도로 사용이 허가되지 않습니다.",
-    "ja": "ダウンロードした写真は商業目的での使用は許可されていません。"}'>
-    </div>
-
-    <div class="announcement">
+    
+    <div class="announcement element">
       <div class="announcement-content">
-          <div class="announcement-text">
-              <h2 class="announcement-heading" data-lang='{"en": "propicgram Now Available on Android!",
+        <div class="announcement-text">
+          <h2 class="announcement-heading gradient-text" data-lang='{"en": "propicgram Now Available on Android!",
               "ko": "「propicgram」 이제 안드로이드에서 이용 가능합니다!",
               "ja": "「propicgram」がAndroidで利用可能になりました！"}'></h2>
               
@@ -482,11 +467,11 @@
               "ko": "「propicgram」이 공식적으로 안드로이드 플랫폼에서 사용 가능하다는 흥분되는 소식을 전해드립니다! 우리의 새로운 앱으로 프로필 사진을 한 단계 높여보세요. 이 앱은 가장 우수한 프로필 사진 경험을 제공하기 위해 세심하게 제작되었습니다.",
               "ja": "「propicgram」が正式にAndroidプラットフォームで利用可能となったことをお知らせいたします！私たちの新しいアプリを使ってプロフィール写真をグレードアップしましょう。このアプリは、最高のプロフィール写真体験を提供するために細心の注意を払って作成されました。"}'></p>
               <button class="btn" onclick="redirectToDownload()">Download Now</button>
-          </div>
+            </div>
           <div class="announcement-image">
               <img src="./IndexImage/applogo.png" alt="propicgram Logo">
+            </div>
           </div>
-      </div>
   </div>
 
   <div class="language-buttons">
@@ -494,14 +479,14 @@
       <button onclick="changeLanguageAndShowLoading('ko'), changeFont('LINESeedKR-Bd')">KR</button>
       <button onclick="changeLanguageAndShowLoading('ja'), changeFont('LINESeedJP_OTF_Bd')">JP</button>
   </div>
-
+  
   <footer>
       <p class="footer-text" data-lang='{"en": "propicgram does not collect personal information or generate revenue.",
-                                        "ko": "propicgram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
+      "ko": "propicgram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
                                         "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p><br>
                                         © 2023 propicgram / propicgram@gmail.com
       
-      </p>
+                                      </p>
   </footer>
 
     <div id="modal" class="modal">
