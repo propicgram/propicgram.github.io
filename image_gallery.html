@@ -442,7 +442,8 @@
 
     <div class="category-buttons">
       <button class="category-btn">#Travel</button>
-      <button class="category-btn">#character</button>
+      <button class="category-btn">#Character</button>
+      <button class="category-btn">#Aesthetic</button>
       <button class="category-btn">Coming Soon</button>
       <!-- <button class="category-btn">Coming Soon</button> -->
     </div>
@@ -505,7 +506,6 @@
 
     <script>
       function loadCategoryImages(category) {
-        var imageArray;
         switch (category) {
           case 1:
             imageArray = imageArray1;
@@ -557,218 +557,30 @@
         });
       });
 
-      var imageArray = [
-      ["#character", "./character_image/1.jpg"],
-      ["#character", "./character_image/2.jpg"],
-      ["#character", "./character_image/3.jpg"],
-      ["#character", "./character_image/4.jpg"],
-      ["#character", "./character_image/5.jpg"],
-      ["#character", "./character_image/6.jpg"],
-      ["#character", "./character_image/7.jpg"],
-      ["#character", "./character_image/8.jpg"],
-      ["#character", "./character_image/9.jpg"],
-      ["#character", "./character_image/10.jpg"],
-      ["#character", "./character_image/11.jpg"],
-      ["#character", "./character_image/12.jpg"],
-      ["#character", "./character_image/13.jpg"],
-      ["#character", "./character_image/14.jpg"],
-      ["#character", "./character_image/15.jpg"],
-      ["#character", "./character_image/16.jpg"],
-      ["#character", "./character_image/17.jpg"],
-      ["#character", "./character_image/18.jpg"],
-      ["#character", "./character_image/19.jpg"],
-      ["#character", "./character_image/20.jpg"],
-      ["#character", "./character_image/21.jpg"],
-      ["#character", "./character_image/22.jpg"],
-      ["#character", "./character_image/23.jpg"],
-      ["#character", "./character_image/24.jpg"],
-      ["#character", "./character_image/25.jpg"],
-      ["#character", "./character_image/26.jpg"],
-      ["#character", "./character_image/27.jpg"],
-      ["#character", "./character_image/28.jpg"],
-      ["#character", "./character_image/29.jpg"],
-      ["#character", "./character_image/30.jpg"]
-      ];
-      var imageArray1 = [ // All
-        ["#travel", "./All/1.jpg"],
-        ["#travel", "./All/2.jpg"],
-        ["#travel", "./All/3.jpg"],
-        ["#travel", "./All/4.jpg"],
-        ["#travel", "./All/5.jpg"],
-        ["#travel", "./All/6.jpg"],
-        ["#travel", "./All/7.jpg"],
-        ["#travel", "./All/8.jpg"],
-        ["#travel", "./All/9.jpg"],
-        ["#travel", "./All/10.jpg"],
-        ["#travel", "./All/11.jpg"],
-        ["#travel", "./All/12.jpg"],
-        ["#travel", "./All/13.jpg"],
-        ["#travel", "./All/14.jpg"],
-        ["#travel", "./All/15.jpg"],
-        ["#travel", "./All/16.jpg"],
-        ["#travel", "./All/17.jpg"],
-        ["#travel", "./All/18.jpg"],
-        ["#travel", "./All/19.jpg"],
-        ["#travel", "./All/20.jpg"],
-        ["#travel", "./All/21.jpg"],
-        ["#travel", "./All/22.jpg"],
-        ["#travel", "./All/23.jpg"],
-        ["#travel", "./All/24.jpg"],
-        ["#travel", "./All/25.jpg"],
-        ["#travel", "./All/26.jpg"],
-        ["#travel", "./All/27.jpg"],
-        ["#travel", "./All/28.jpg"],
-        ["#travel", "./All/29.jpg"],
-        ["#travel", "./All/30.jpg"],
-        ["#travel", "./All/31.jpg"],
-        ["#travel", "./All/32.jpg"],
-        ["#travel", "./All/33.jpg"],
-        ["#travel", "./All/34.jpg"],
-        ["#travel", "./All/35.jpg"],
-        ["#travel", "./All/36.jpg"],
-        ["#travel", "./All/37.jpg"],
-        ["#travel", "./All/38.jpg"],
-        ["#travel", "./All/39.jpg"],
-        ["#travel", "./All/40.jpg"],
-        ["#travel", "./All/41.jpg"],
-        ["#travel", "./All/42.jpg"],
-        ["#travel", "./All/43.jpg"],
-        ["#travel", "./All/44.jpg"],
-        ["#travel", "./All/45.jpg"],
-        ["#travel", "./All/46.jpg"],
-        ["#travel", "./All/47.jpg"],
-        ["#travel", "./All/48.jpg"],
-        ["#travel", "./All/49.jpg"],
-        ["#travel", "./All/50.jpg"],
-        ["#travel", "./All/51.jpg"],
-        ["#travel", "./All/52.jpg"],
-        ["#travel", "./All/53.jpg"],
-        ["#travel", "./All/54.jpg"],
-        ["#travel", "./All/55.jpg"],
-        ["#travel", "./All/56.jpg"],
-        ["#travel", "./All/57.jpg"],
-        ["#travel", "./All/58.jpg"],
-        ["#travel", "./All/59.jpg"],
-        ["#travel", "./All/60.jpg"],
-        ["#travel", "./All/61.jpg"],
-        ["#travel", "./All/62.jpg"],
-        ["#travel", "./All/63.jpg"],
-        ["#travel", "./All/64.jpg"],
-        ["#travel", "./All/65.jpg"],
-        ["#travel", "./All/66.jpg"],
-        ["#travel", "./All/67.jpg"],
-        ["#travel", "./All/68.jpg"],
-        ["#travel", "./All/69.jpg"],
-        ["#travel", "./All/70.jpg"],
-        ["#travel", "./All/71.jpg"],
-        ["#travel", "./All/72.jpg"],
-        ["#travel", "./All/73.jpg"],
-        ["#travel", "./All/74.jpg"],
-        ["#travel", "./All/75.jpg"],
-        ["#travel", "./All/76.jpg"],
-        ["#travel", "./All/77.jpg"],
-        ["#travel", "./All/78.jpg"],
-        ["#travel", "./All/79.jpg"],
-        ["#travel", "./All/80.jpg"],
-        ["#travel", "./All/81.jpg"],
-        ["#travel", "./All/82.jpg"],
-        ["#travel", "./All/83.jpg"],
-        ["#travel", "./All/84.jpg"],
-        ["#travel", "./All/85.jpg"],
-        ["#travel", "./All/86.jpg"],
-        ["#travel", "./All/87.jpg"],
-        ["#travel", "./All/88.jpg"],
-        ["#travel", "./All/89.jpg"],
-        ["#travel", "./All/90.jpg"],
-        ["#travel", "./All/91.jpg"],
-        ["#travel", "./All/92.jpg"],
-        ["#travel", "./All/93.jpg"],
-        ["#travel", "./All/94.jpg"],
-        ["#travel", "./All/95.jpg"],
-        ["#travel", "./All/96.jpg"],
-        ["#travel", "./All/97.jpg"],
-        ["#travel", "./All/98.jpg"],
-        ["#travel", "./All/99.jpg"],
-        ["#travel", "./All/100.jpg"],
-        ["#travel", "./All/101.jpg"],
-        ["#travel", "./All/102.jpg"],
-        ["#travel", "./All/103.jpg"],
-        ["#travel", "./All/104.jpg"],
-        ["#travel", "./All/105.jpg"],
-        ["#travel", "./All/106.jpg"],
-        ["#travel", "./All/107.jpg"],
-        ["#travel", "./All/108.jpg"],
-        ["#travel", "./All/109.jpg"],
-        ["#travel", "./All/110.jpg"],
-        ["#travel", "./All/111.jpg"],
-        ["#travel", "./All/112.jpg"],
-        ["#travel", "./All/113.jpg"],
-        ["#travel", "./All/114.jpg"],
-        ["#travel", "./All/115.jpg"],
-        ["#travel", "./All/116.jpg"],
-        ["#travel", "./All/117.jpg"],
-        ["#travel", "./All/118.jpg"],
-        ["#travel", "./All/119.jpg"],
-        ["#travel", "./All/120.jpg"],
-        ["#travel", "./All/121.jpg"],
-        ["#travel", "./All/122.jpg"],
-        ["#travel", "./All/123.jpg"],
-        ["#travel", "./All/124.jpg"],
-        ["#travel", "./All/125.jpg"],
-        ["#travel", "./All/126.jpg"],
-        ["#travel", "./All/127.jpg"],
-        ["#travel", "./All/128.jpg"],
-        ["#travel", "./All/129.jpg"],
-        ["#travel", "./All/130.jpg"],
-        ["#travel", "./All/131.jpg"],
-        ["#travel", "./All/132.jpg"],
-        ["#travel", "./All/133.jpg"],
-        ["#travel", "./All/134.jpg"],
-        ["#travel", "./All/135.jpg"],
-        ["#travel", "./All/136.jpg"],
-        ["#travel", "./All/137.jpg"],
-        ["#travel", "./All/138.jpg"],
-        ["#travel", "./All/139.jpg"]
-      ];
-      var imageArray2 = [
-      ["#character", "./character_image/1.jpg"],
-      ["#character", "./character_image/2.jpg"],
-      ["#character", "./character_image/3.jpg"],
-      ["#character", "./character_image/4.jpg"],
-      ["#character", "./character_image/5.jpg"],
-      ["#character", "./character_image/6.jpg"],
-      ["#character", "./character_image/7.jpg"],
-      ["#character", "./character_image/8.jpg"],
-      ["#character", "./character_image/9.jpg"],
-      ["#character", "./character_image/10.jpg"],
-      ["#character", "./character_image/11.jpg"],
-      ["#character", "./character_image/12.jpg"],
-      ["#character", "./character_image/13.jpg"],
-      ["#character", "./character_image/14.jpg"],
-      ["#character", "./character_image/15.jpg"],
-      ["#character", "./character_image/16.jpg"],
-      ["#character", "./character_image/17.jpg"],
-      ["#character", "./character_image/18.jpg"],
-      ["#character", "./character_image/19.jpg"],
-      ["#character", "./character_image/20.jpg"],
-      ["#character", "./character_image/21.jpg"],
-      ["#character", "./character_image/22.jpg"],
-      ["#character", "./character_image/23.jpg"],
-      ["#character", "./character_image/24.jpg"],
-      ["#character", "./character_image/25.jpg"],
-      ["#character", "./character_image/26.jpg"],
-      ["#character", "./character_image/27.jpg"],
-      ["#character", "./character_image/28.jpg"],
-      ["#character", "./character_image/29.jpg"],
-      ["#character", "./character_image/30.jpg"]
-      ];
+      // image arrays
+      var imageArray = [];
+      for (var i = 1; i <= 42; i++) {
+        imageArray.push(["#aesthetic", `./aesthetic_image/${i}.jpg`]);
+      }
 
-/*         var imageArray3 = [
-        ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ];
-        var imageArray4 = [
-        ['#travel#landscapephotography#scenery', './All/1.jpg'],
-        ]; */
+      var imageArray1 = [];
+      for (var i = 1; i <= 139; i++) {
+        imageArray1.push(["#travel", `./All/${i}.jpg`]);
+      }
+
+      var imageArray2 = [];
+      for (var i = 1; i <= 30; i++) {
+        imageArray2.push(["#character", `./character_image/${i}.jpg`]);
+      }
+
+      var imageArray3 = [];
+      for (var i = 1; i <= 42; i++) {
+        imageArray3.push(["#aesthetic", `./aesthetic_image/${i}.jpg`]);
+      }
+
+      /* var imageArray4 = [
+      ['#travel#landscapephotography#scenery', './All/1.jpg'],
+      ]; */
 
       var closeBtn = document.getElementById("closeBtn");
       var downloadBtn = document.getElementById("downloadBtn");
