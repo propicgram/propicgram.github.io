@@ -124,7 +124,7 @@
         }
 
         .image-box img {
-            border-radius: 15px;
+            border-radius: 5px;
             width: 100%;
             height: auto;
         }
@@ -297,6 +297,7 @@
             }
 
             .image-container {
+                border-radius: 0px;
                 grid-template-columns: repeat(2, 1fr);
                 grid-gap: 10px;
                 padding: 10px;
@@ -316,6 +317,7 @@
                 padding: 20px;
                 max-width: 900px;
                 margin: 0 auto;
+                margin-bottom: 20px;
             }
 
             .announcement-content {
@@ -389,15 +391,6 @@
 
     <div class="image-container element">
         <div class="image-box" style="grid-row: span 2;">
-            <img src="./IndexImage/5.jpg" alt="image">
-        </div>
-        <div class="image-box">
-            <img src="./IndexImage/1.jpg" alt="image">
-        </div>
-        <div class="image-box">
-            <img src="./IndexImage/2.jpg" alt="image">
-        </div>
-        <div class="image-box" style="grid-row: span 2;">
             <img src="./IndexImage/4.jpg" alt="image">
         </div>
         <div class="image-box">
@@ -405,6 +398,15 @@
         </div>
         <div class="image-box">
             <img src="./IndexImage/3.jpg" alt="image">
+        </div>
+        <div class="image-box" style="grid-row: span 2;">
+            <img src="./IndexImage/5.jpg" alt="image">
+        </div>
+        <div class="image-box">
+            <img src="./IndexImage/1.jpg" alt="image">
+        </div>
+        <div class="image-box">
+            <img src="./IndexImage/2.jpg" alt="image">
         </div>
     </div>
 
@@ -422,6 +424,46 @@
             </div>
             <div class="announcement-image">
                 <img src="./IndexImage/applogo.png" alt="PropicGram Logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="announcement element">
+        <div class="announcement-content">
+            <div class="announcement-text">
+                <h2 class="announcement-heading gradient-text" data-lang='{"en": "Discover PropicGram on Instagram now!",
+                "ko": "Instagram에서 PropicGram을 만나보세요!",
+                "ja": "InstagramでPropicGramを見つけてください！"}'></h2>
+                
+                <p data-lang='{"en": "Stay tuned with PropicGram on Instagram for the freshest updates and be the first to see our breathtaking new images! Stay ahead of the curve with the latest profile picture trends. 🔥📸",
+                "ko": "PropicGram의 인스타그램을 팔로우하고 새로운 이미지들을 가장 먼저 만나보세요! 프로필 사진 트렌드를 놓치지 마세요. 🔥📸",
+                "ja": "PropicGramのInstagramをフォローして最新情報をチェックし、驚くべき新しい画像を最初に見逃さないでください！プロフィール写真の最新トレンドを見逃さないでください。🔥📸"}'></p>
+
+
+                <button class="btn" onclick="redirectToInstagram()">Follow Now</button>
+            </div>
+            <div class="announcement-image">
+                <img src="./IndexImage/Instagram_Glyph_Gradient.png" alt="PropicGram Logo">
+            </div>
+        </div>
+    </div>
+
+    <div class="announcement element">
+        <div class="announcement-content">
+            <div class="announcement-text">
+                <h2 class="announcement-heading gradient-text" data-lang='{"en": "Discover PropicGram on X now!",
+                "ko": "지금 X에서 PropicGram을 발견하세요!",
+                "ja": "XでPropicGramを発見しましょう！"}'></h2>
+                
+                <p data-lang='{"en": "Stay updated with PropicGram on X for the latest news and be the first to see our stunning new images! 🔥📸",
+                "ko": "최신 소식을 계속해서 확인하고 PropicGram의 새로운 이미지를 가장 먼저 만나보세요! 🔥📸",
+                "ja": "最新情報をいち早くチェックし、驚くべき新しい画像を最初に見てください！🔥📸"}'></p>
+
+
+                <button class="btn" onclick="redirectToX()">Follow Now</button>
+            </div>
+            <div class="announcement-image">
+                <img src="./IndexImage/logo-white.png" alt="PropicGram Logo">
             </div>
         </div>
     </div>
@@ -476,6 +518,16 @@
         function redirectToDownload() {
             changeLanguageAndShowLoading('en');
             window.location.href = "https://play.google.com/store/apps/details?id=com.propicgram&pcampaignid=web_share";
+        }
+
+        function redirectToInstagram() {
+            changeLanguageAndShowLoading('en');
+            window.location.href = "https://www.instagram.com/propicgram/";
+        }
+
+        function redirectToX() {
+            changeLanguageAndShowLoading('en');
+            window.location.href = "https://twitter.com/propicgram";
         }
 
         function changeLanguage(language) {

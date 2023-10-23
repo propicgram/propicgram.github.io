@@ -56,16 +56,16 @@
         font-size: 23px;
         max-width: 1000px;
         text-align: left;
-        border-radius: 30px; 
+        border-radius: 5px; 
         box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-        padding: 50px;
+        padding: 20px;
         padding-top: 5px;
       }
 
       img {
         max-width: 100%;
         max-height: 100%;
-        border-radius: 15px;
+        border-radius: 2px;
       }
 
       header {
@@ -164,6 +164,7 @@
       }
 
       .modal {
+        border: solid 0.5px #868e96;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         display: none;
         position: fixed;
@@ -174,11 +175,14 @@
         text-align: center;
         background-color: white;
         padding: 20px;
-        border-radius: 15px;
         max-width: 600px;
         transition: opacity 0.3s ease; /* 이 줄을 추가하여 페이드 인 효과를 줍니다. */
         opacity: 0; /* 초기 투명도를 0으로 설정합니다. */
         pointer-events: none; /* 초기에는 포인터 이벤트를 비활성화합니다. */
+      }
+
+      .modal img{
+        border-radius: 0px;
       }
 
       .modal.show {
@@ -187,7 +191,7 @@
       }
 
       .category-buttons {
-        padding: 5px;
+        padding: 10px;
         display: flex;
         justify-content: left;
         max-width: 1000px;
@@ -322,6 +326,24 @@
             font-size: 48px; /* 글자 크기 설정 */
         }
 
+        .grid-item:hover img {
+          cursor: pointer;
+          opacity: 0.7; /* 호버 시 이미지 불투명도 조절 */
+        }
+
+        .grid-item:hover .overlay {
+          opacity: 1; /* 호버 시 오버레이 불투명도 조절 */
+        }
+        .overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.3s; /* 투명도 변화를 0.3초 동안 부드럽게 만듭니다. */
+        }
+
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -345,23 +367,25 @@
           font-size: 13px;
         }
 
+        .category-buttons {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
         .category-btn {
-          padding-left: 12px;
-          padding-right: 12px;
-          margin: 8px;
-          margin-right: 1px;
-          padding: 8px; /* 내부 여백 */
-          padding-left: 12px;
-          padding-right: 12px;
+          margin: 5px;
+          font-size: 12px;
+          padding: 8px 15px;
         }
 
         .grid-container {
           gap: 5px;
           padding: 7px;
+          border-radius: 0px;
         }
 
         img {
-          border-radius: 10px;
+          border-radius: 2px;
         }
 
         .btn-custom {
@@ -374,7 +398,7 @@
         }
 
         .modal {
-          max-width: 320px;
+          max-width: 80%;
         }
 
         footer {
@@ -444,7 +468,11 @@
       <button class="category-btn">#Travel</button>
       <button class="category-btn">#Character</button>
       <button class="category-btn">#Aesthetic</button>
-      <button class="category-btn">Coming Soon</button>
+      <button class="category-btn">#Food</button>
+      <button class="category-btn">#Art</button>
+      <button class="category-btn">#Animal</button>
+      <button class="category-btn">#Fashion</button>
+
       <!-- <button class="category-btn">Coming Soon</button> -->
     </div>
 
@@ -459,20 +487,60 @@
     
     <div class="announcement element">
       <div class="announcement-content">
-        <div class="announcement-text">
-          <h2 class="announcement-heading gradient-text" data-lang='{"en": "propicgram Now Available on Android!",
-              "ko": "「propicgram」 이제 안드로이드에서 이용 가능합니다!",
-              "ja": "「propicgram」がAndroidで利用可能になりました！"}'></h2>
+          <div class="announcement-text">
+              <h2 class="announcement-heading gradient-text" data-lang='{"en": "PropicGram Now Available on Android!",
+              "ko": "「PropicGram」 이제 안드로이드에서 이용 가능합니다!",
+              "ja": "「PropicGram」がAndroidで利用可能になりました！"}'></h2>
               
-              <p data-lang='{"en": "We are thrilled to share the exciting news that propicgram is officially live on the Android platform! Elevate your profile picture game with our brand new app, meticulously crafted to provide you with the most exceptional profile picture experience",
-              "ko": "「propicgram」이 공식적으로 안드로이드 플랫폼에서 사용 가능하다는 흥분되는 소식을 전해드립니다! 우리의 새로운 앱으로 프로필 사진을 한 단계 높여보세요. 이 앱은 가장 우수한 프로필 사진 경험을 제공하기 위해 세심하게 제작되었습니다.",
-              "ja": "「propicgram」が正式にAndroidプラットフォームで利用可能となったことをお知らせいたします！私たちの新しいアプリを使ってプロフィール写真をグレードアップしましょう。このアプリは、最高のプロフィール写真体験を提供するために細心の注意を払って作成されました。"}'></p>
+              <p data-lang='{"en": "We are thrilled to share the exciting news that PropicGram is officially live on the Android platform! Elevate your profile picture game with our brand new app, meticulously crafted to provide you with the most exceptional profile picture experience",
+              "ko": "「PropicGram」이 공식적으로 안드로이드 플랫폼에서 사용 가능하다는 흥분되는 소식을 전해드립니다! 우리의 새로운 앱으로 프로필 사진을 한 단계 높여보세요. 이 앱은 가장 우수한 프로필 사진 경험을 제공하기 위해 세심하게 제작되었습니다.",
+              "ja": "「PropicGram」が正式にAndroidプラットフォームで利用可能となったことをお知らせいたします！私たちの新しいアプリを使ってプロフィール写真をグレードアップしましょう。このアプリは、最高のプロフィール写真体験を提供するために細心の注意を払って作成されました。"}'></p>
               <button class="btn" onclick="redirectToDownload()">Download Now</button>
-            </div>
-          <div class="announcement-image">
-              <img src="./IndexImage/applogo.png" alt="propicgram Logo">
-            </div>
           </div>
+          <div class="announcement-image">
+              <img src="./IndexImage/applogo.png" alt="PropicGram Logo">
+          </div>
+      </div>
+  </div>
+
+  <div class="announcement element">
+      <div class="announcement-content">
+          <div class="announcement-text">
+              <h2 class="announcement-heading gradient-text" data-lang='{"en": "Discover PropicGram on Instagram now!",
+              "ko": "Instagram에서 PropicGram을 만나보세요!",
+              "ja": "InstagramでPropicGramを見つけてください！"}'></h2>
+              
+              <p data-lang='{"en": "Stay tuned with PropicGram on Instagram for the freshest updates and be the first to see our breathtaking new images! Stay ahead of the curve with the latest profile picture trends. 🔥📸",
+              "ko": "PropicGram의 인스타그램을 팔로우하고 새로운 이미지들을 가장 먼저 만나보세요! 프로필 사진 트렌드를 놓치지 마세요. 🔥📸",
+              "ja": "PropicGramのInstagramをフォローして最新情報をチェックし、驚くべき新しい画像を最初に見逃さないでください！プロフィール写真の最新トレンドを見逃さないでください。🔥📸"}'></p>
+
+
+              <button class="btn" onclick="redirectToInstagram()">Follow Now</button>
+          </div>
+          <div class="announcement-image">
+              <img src="./IndexImage/Instagram_Glyph_Gradient.png" alt="PropicGram Logo">
+          </div>
+      </div>
+  </div>
+
+  <div class="announcement element">
+      <div class="announcement-content">
+          <div class="announcement-text">
+              <h2 class="announcement-heading gradient-text" data-lang='{"en": "Discover PropicGram on X now!",
+              "ko": "지금 X에서 PropicGram을 발견하세요!",
+              "ja": "XでPropicGramを発見しましょう！"}'></h2>
+              
+              <p data-lang='{"en": "Stay updated with PropicGram on X for the latest news and be the first to see our stunning new images! 🔥📸",
+              "ko": "최신 소식을 계속해서 확인하고 PropicGram의 새로운 이미지를 가장 먼저 만나보세요! 🔥📸",
+              "ja": "最新情報をいち早くチェックし、驚くべき新しい画像を最初に見てください！🔥📸"}'></p>
+
+
+              <button class="btn" onclick="redirectToX()">Follow Now</button>
+          </div>
+          <div class="announcement-image">
+              <img src="./IndexImage/logo-white.png" alt="PropicGram Logo">
+          </div>
+      </div>
   </div>
 
   <div class="language-buttons">
@@ -484,10 +552,10 @@
   <footer>
       <p class="footer-text" data-lang='{"en": "propicgram does not collect personal information or generate revenue.",
       "ko": "propicgram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
-                                        "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p><br>
-                                        © 2023 propicgram / propicgram@gmail.com
-      
-                                      </p>
+      "ja": "propicgramは個人情報を収集せず、収益を上げません。"}'></p><br>
+      © 2023 propicgram / propicgram@gmail.com
+
+    </p>
   </footer>
 
     <div id="modal" class="modal">
@@ -577,10 +645,14 @@
       for (var i = 1; i <= 42; i++) {
         imageArray3.push(["#aesthetic", `./aesthetic_image/${i}.jpg`]);
       }
+      var imageArray4 = [];
 
-      /* var imageArray4 = [
-      ['#travel#landscapephotography#scenery', './All/1.jpg'],
-      ]; */
+      var imageArray5 = [];
+
+      var imageArray6 = [];
+
+      var imageArray7 = [];
+
 
       var closeBtn = document.getElementById("closeBtn");
       var downloadBtn = document.getElementById("downloadBtn");
@@ -709,10 +781,20 @@
             changeLanguageAndShowLoading('en');
             window.location.href = "./image_gallery.html";
         }
-
+        
         function redirectToDownload() {
             changeLanguageAndShowLoading('en');
             window.location.href = "https://play.google.com/store/apps/details?id=com.propicgram&pcampaignid=web_share";
+        }
+
+        function redirectToInstagram() {
+            changeLanguageAndShowLoading('en');
+            window.location.href = "https://www.instagram.com/propicgram/";
+        }
+
+        function redirectToX() {
+            changeLanguageAndShowLoading('en');
+            window.location.href = "https://twitter.com/propicgram";
         }
 
         function changeLanguage(language) {
