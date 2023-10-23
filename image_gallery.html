@@ -118,7 +118,6 @@
 
       .btn-custom:hover {
         box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
-        transform: translateY(-3px);
         background-color:#a47dfb; 
         color: rgb(255, 255, 255);
       }
@@ -344,6 +343,77 @@
           transition: opacity 0.3s; /* 투명도 변화를 0.3초 동안 부드럽게 만듭니다. */
         }
 
+        .dark-mode {
+            background-color: #000a16;
+            color: #fff;
+        }
+
+        .dark-mode .btn {
+            background-color: #000a16;
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .dark-mode .btn:hover {
+            background-color: #fff;
+            color: #000a16;
+        }
+
+        .dark-mode .image-box {
+            background-color: #000a16;
+        }
+
+        .dark-mode .announcement {
+            background-color: #000a16;
+            border-color: #ccc;
+            color: #fff;
+        }
+
+        .dark-mode .announcement-heading {
+            color: #fff;
+        }
+
+        .dark-mode .intro {
+            background-color: #000a16;
+            color: #fff;
+        }
+         
+        .dark-mode .hd {
+            background-color: #000a16;
+            color: #fff;
+        }
+
+        .dark-mode .image-container{
+            background-color: #000a16;
+        }
+
+        .dark-mode .gradient-text{
+          background-color: #000a16;
+          color: #fff;
+        }
+
+        .dark-mode .category-btn {
+          background-color: #000a16;
+          color: #fff;
+          border-color: #fff
+        }
+
+        .dark-mode .category-btn:hover {
+            background-color: #fff;
+            color: #000a16;
+        }
+
+        .dark-mode .btn-custom {
+          background-color: #000a16;
+          color: #fff;
+          border-color: #fff
+        }
+
+        .dark-mode .btn-custom:hover {
+          background-color: #fff;
+          color: #000a16;
+        }
+
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -406,14 +476,16 @@
         }
 
         .btn {
-                margin: 0 auto;
-                margin-top: 20px;
-            }
+            font-size: 13px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
 
         .announcement {
             padding: 20px;
             max-width: 900px;
             margin: 0 auto;
+            margin-bottom: 20px;
         }
 
         .announcement-content {
@@ -517,7 +589,7 @@
 
               <button class="btn" onclick="redirectToInstagram()">Follow Now</button>
           </div>
-          <div class="announcement-image">
+          <div class="announcement-image sns1">
               <img src="./IndexImage/Instagram_Glyph_Gradient.png" alt="PropicGram Logo">
           </div>
       </div>
@@ -537,7 +609,7 @@
 
               <button class="btn" onclick="redirectToX()">Follow Now</button>
           </div>
-          <div class="announcement-image">
+          <div class="announcement-image sns2">
               <img src="./IndexImage/logo-white.png" alt="PropicGram Logo">
           </div>
       </div>
@@ -547,6 +619,7 @@
       <button onclick="changeLanguageAndShowLoading('en'), changeFont('LINESeedSans_W_Bd')">EN</button>
       <button onclick="changeLanguageAndShowLoading('ko'), changeFont('LINESeedKR-Bd')">KR</button>
       <button onclick="changeLanguageAndShowLoading('ja'), changeFont('LINESeedJP_OTF_Bd')">JP</button>
+      <button onclick="toggleDarkMode()">Dark Mode</button>
   </div>
   
   <footer>
@@ -675,6 +748,8 @@
             e.target.nodeName == "IMG" &&
             e.target.parentElement !== document.querySelector("header") &&
             e.target.parentElement !== document.querySelector(".announcement-image") &&
+            e.target.parentElement !== document.querySelector(".sns1") &&
+            e.target.parentElement !== document.querySelector(".sns2") &&
             e.target.parentElement !== document.getElementById("loading-screen")
         ) {
             var src = e.target.src;
@@ -817,6 +892,19 @@
             elementsToChangeFont.forEach(function(element) {
                 element.style.fontFamily = fontFamily;
             });
+        }
+
+        function toggleDarkMode() {
+            var body = document.body;
+            document.body.style.background = "initial";
+            document.body.style.backgroundColor = "#000a16";
+
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                document.body.style.background = "linear-gradient(to bottom, #0a0613, #120f39, #241a4d, #12062a)";
+            } else {
+                body.classList.add('dark-mode');
+            }
         }
     </script>
   </body>
