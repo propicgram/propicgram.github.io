@@ -343,6 +343,15 @@
           transition: opacity 0.3s; /* 투명도 변화를 0.3초 동안 부드럽게 만듭니다. */
         }
 
+        .tagName {
+          color: #ffffff;
+          margin: 0 auto;
+          font-size: 28px;
+          text-align: center;
+          margin-top: 10px;
+          margin-bottom: 5px;
+        }
+
         .dark-mode {
             background-color: #000a16;
             color: #fff;
@@ -536,6 +545,8 @@
     "ja": "propicgramは、ユーザー向けにSNSプロフィール写真を無料で提供するサービスです。ダウンロードした写真は厳密にSNSプラットフォームでのプロフィール写真として使用することを目的としています。多様なプロフィール写真でさまざまなSNS活動を向上させましょう！"}'>
     </div>
 
+    <div class="tagName">#All</div>
+    
     <div class="category-buttons">
       <button class="category-btn">#Travel</button>
       <button class="category-btn">#Character</button>
@@ -544,10 +555,10 @@
       <button class="category-btn">#Art</button>
       <button class="category-btn">#Animal</button>
       <button class="category-btn">#Fashion</button>
-
       <!-- <button class="category-btn">Coming Soon</button> -->
     </div>
 
+    
     <div class="grid-container element" id="gridContainer"></div>
 
     <button class="btn-custom" onclick="loadMoreImages()" data-lang='{"en": "Load more work",
@@ -843,10 +854,11 @@
         setTimeout(hideLoadingScreen, 1500);
       };
     
-    function changeLanguageAndShowLoading(language) {
+        function changeLanguageAndShowLoading(language) {
             showLoadingScreen();
 
             setTimeout(function() {
+                window.scrollTo(0, 0);
                 changeLanguage(language);
                 hideLoadingScreen();
             }, 1000);
@@ -906,6 +918,19 @@
                 body.classList.add('dark-mode');
             }
         }
+
+        // HTML 요소들을 가져옵니다.
+        var categoryButtons = document.querySelectorAll('.category-btn');
+        var tagName = document.querySelector('.tagName');
+
+        // 각 카테고리 버튼에 이벤트 리스너를 추가합니다.
+        categoryButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            // tagName의 텍스트를 클릭된 버튼의 텍스트로 변경합니다.
+            tagName.textContent = button.textContent;
+          });
+        });
+
     </script>
   </body>
 </html>
