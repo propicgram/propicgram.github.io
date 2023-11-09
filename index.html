@@ -6,28 +6,13 @@
     <title>PropicGram</title>
     <link rel="icon" href="./IndexImage/favicon.png" type="image/x-icon">
     <meta name="description" content="Your Ultimate Source for SNS Profile Pictures">
-    <meta name="keywords" content="PropicGram, profile, Pictures, sns, profilepic">
+    <meta name="keywords" content="PropicGram, propicgram, profile, Pictures, sns, profilepic">
     <meta property="og:title" content="PropicGram" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://PropicGram.com/" />
     <meta property="og:image" content="https://github.com/PropicGram/PropicGram.github.io/blob/main/IndexImage/OpenGraph_img.png" />
     <meta property="og:description" content="Your Ultimate Source for SNS Profile Pictures!">
-
     <style>
-        @font-face {
-            font-family: 'LINESeedKR-Bd';
-            src: url('./LINESeedKR-Bd.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'LINESeedJP_OTF_Bd';
-            src: url('./LINESeedJP_OTF_Bd.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
-
         @font-face {
             font-family: 'LINESeedSans_W_Bd';
             src: url('./LINESeedSans_W_Bd.woff2') format('woff2');
@@ -35,65 +20,169 @@
             font-style: normal;
         }
 
-        
-
         *{
             font-family: 'LINESeedSans_W_Bd', sans-serif;
             user-select: none;
         }
 
         body {
-            background: linear-gradient(to bottom, #0a0613, #120f39, #241a4d, #12062a);
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
-        header {
-            font-size: 20px;
-            color: #000e17;
-            padding: 10px 20px 20px 10px;
+        .area1 {
+            position: relative;
+        }
+
+        .main-area {
+            position: relative;
+        }
+
+        .background_image1 {
+            background-image: url('./IndexImage/sample1.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
             text-align: center;
-            margin-bottom: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
+            height: 110vh;
         }
 
-        .element {
-            background-color: rgba(43, 39, 102, 0.2);
+        .main_title_1{
+            font-size: 75px;
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+
+        .sub_title_1{
+            font-size: 20px;
+            max-width: 55%;
+            margin-bottom: 30px;
+        }
+
+        .background_image2 {
+            background-image: url('./IndexImage/sample2.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            height: 110vh;
         }
         
-        .intro {
-            font-weight: bold;
-            font-size: 42px;
-            padding: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: column;
-            text-align: center;
-            height: 280px;
+        .main_title_2{
+            text-align: left;
+            font-size: 50px;
             max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 30px; 
-            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+            margin-left: 60px;
         }
 
-        #main-text {
-            font-size: 57px;
+        .sub_title_2{
             text-align: left;
+            font-size: 20px;
+            max-width: 1000px;
+            margin-bottom: 80px;
+            margin-left: 60px;
         }
 
-        #sub-text {
-            font-size: 28px;
-            color: rgb(202, 202, 202);
-            text-align: left;
+        .background_image3 {
+            background-image: url('./IndexImage/sample3.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            height: 110vh;
         }
+        
+        .main_title_3{
+            text-align: left;
+            font-size: 50px;
+            max-width: 1000px;
+            margin-left: 60px;
+        }
+
+        .sub_title_3{
+            text-align: left;
+            font-size: 20px;
+            max-width: 1000px;
+            margin-bottom: 80px;
+            margin-left: 60px;
+        }
+
+        .background_image4 {
+            background-image: url('./IndexImage/sample4.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+            height: 110vh;
+        }
+        
+        .main_title_4{
+            text-align: left;
+            font-size: 50px;
+            max-width: 1000px;
+            margin-left: 60px;
+        }
+
+        .sub_title_4{
+            text-align: left;
+            font-size: 20px;
+            max-width: 1000px;
+            margin-bottom: 80px;
+            margin-left: 60px;
+        }
+
+        .propicgram {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            font-size: 27px;
+        }
+
+        .black_section{
+            display: flex;
+        }
+
+
+        .main-area {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
+            height: 200px;
+        }
+        
+        .column {
+            color: #ececec;
+            width: 25%;
+            box-sizing: border-box;
+            margin: 0;
+            background-color: rgb(12, 12, 12);
+            transition: background-color 0.3s;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .column:hover {
+            background-color: rgb(85, 85, 85);
+        }
+
 
         .btn {
-            background-color: rgba(43, 39, 102, 0.2);
-            border: 1px solid #a47dfb; 
-            color: #cecece;
+            background-color: rgba(43, 39, 102, 0.1);
+            border: 4px solid #ffffff; 
+            color: #ffffff;
             padding: 10px 20px;
             margin: 10px 10px 10px 0;
             text-align: center;
@@ -103,84 +192,53 @@
             cursor: pointer;
             border-radius: 25px; 
             transition: background-color 0.3s, color 0.3s;
+            width: 160px;
+            margin-bottom: 40px;
         }
 
         .btn:hover {
-            background-color:#a47dfb; 
-            color: rgb(255, 255, 255);
-        }
-
-        .image-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 50px;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            border-radius: 30px;
-            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-        }
-
-        .image-box img {
-            border-radius: 5px;
-            width: 100%;
-            height: auto;
-        }
-
-        .footer-text {
-            display: inline-block;
-            padding: 0px;
-            margin: 5px;
+            background-color:#ffffff; 
+            color: rgb(0, 90, 117);
         }
 
         footer {
-            font-size: 15px;
-            color: rgb(167, 167, 167);
             text-align: center;
+            font-size: 15px;
+            background-color: rgb(12, 12, 12);
+            color: #ffffff;
             bottom: 0;
             width: 100%;
             margin: 0 auto;
             padding: 7px 0 7px 0;
         }
 
-        .announcement {
-            padding: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-            border-radius: 30px; 
-            margin-bottom: 20px;
-            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-        }
-
-        .announcement-content {
+        .footer-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            padding: 10px;
         }
 
-        .announcement-text {
-            max-width: 60%;
+        .text-section {
+            font-size: 15px;
+            color: #ffffff;
+        }
+        
+        .social-section{
+            text-align: center;
+            padding: 10px 20px 0px 20px;
+            background-color: rgb(12, 12, 12);
         }
 
-        .announcement h2 {
-            margin: 5px 0px 5px 0px;
+        .social-icon {
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px;
         }
 
-        .announcement-text p {
-            color: rgb(172, 172, 172);
-            margin: 5px 0px 5px 0px;
-        }
-
-        .announcement-heading {
-            font-size: 1.5em;
-            color: #333;
-        }
-
-        .announcement-image img {
-            width: 200px;
-            height: auto;
+        .social-icon img {
+            width: 30px; /* 이미지의 크기를 조절할 수 있습니다. */
+            height: 30px; /* 이미지의 크기를 조절할 수 있습니다. */
         }
 
         #loading-screen img {
@@ -197,171 +255,96 @@
             transition: opacity 1s;
         }
 
-        .language-buttons {
-            display: flex;
-            justify-content: center;
+
+        @media (max-width: 1100px) {
+            .main_title_1{
+                font-size: 50px;
+                margin-bottom: 10px;
+                max-width: 90%;
+            }
+            .sub_title_1{
+                font-size: 16px;
+                max-width: 90%;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 700px) {
+        .main_title_1{
+            font-size: 25px;
+            margin-bottom: 10px;
+            max-width: 90%;
+        }
+        .sub_title_1{
+            font-size: 16px;
+            max-width: 90%;
             margin-bottom: 10px;
         }
-
-        .language-buttons button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-right: 10px;
-            cursor: pointer;
-            border: none;
-            background-color: transparent;
-            color: rgb(172, 172, 172);
+        .main_title_2{
+            font-size: 25px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            margin-left: 20px;
+        }
+        .sub_title_2{
+            font-size: 14px;
+            max-width: 90%;
+            margin-bottom: 30px;
+            margin-left: 20px;
+        }
+        .sub_title_3{
+            font-size: 14px;
+            max-width: 90%;
+            margin-bottom: 30px;
+            margin-left: 20px;
+        }
+        .main_title_3{
+            font-size: 25px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            margin-left: 20px;
+        }
+        .main_title_4{
+            font-size: 25px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            margin-left: 20px;
+        }
+        .sub_title_4 {
+            font-size: 14px;
+            max-width: 90%;
+            margin-bottom: 30px;
+            margin-left: 20px;
         }
 
-        .language-buttons button:last-child {
-            margin-right: 0;
+        .background_image1, .background_image2, .background_image3 {
+            height: 100vh;
         }
 
-        .language-buttons button:hover {
-            color: rgb(83, 83, 83);
+        .propicgram {
+            top: 15px;
+            left: 15px;
+            font-size: 20px;
         }
 
-        .dark-mode {
-            background-color: #000a16;
-            color: #fff;
+        .btn {
+            font-size: 14px;
+            width: 120px;
+            margin-bottom: 20px;
         }
 
-        .dark-mode .btn {
-            background-color: #000a16;
-            border-color: #fff;
-            color: #fff;
+        .column {
+            width: 100%;
         }
 
-        .dark-mode .btn:hover {
-            background-color: #fff;
-            color: #000a16;
+        .main-area {
+            height: auto;
         }
 
-        .dark-mode .image-box {
-            background-color: #000a16;
+        footer {
+            font-size: 12px;
         }
-
-        .dark-mode .announcement {
-            background-color: #000a16;
-            border-color: #ccc;
-            color: #fff;
-        }
-
-        .dark-mode .announcement-heading {
-            color: #fff;
-        }
-
-        .dark-mode .intro {
-            background-color: #000a16;
-            color: #fff;
-        }
-         
-        .dark-mode .hd {
-            background-color: #000a16;
-            color: #fff;
-        }
-
-        .dark-mode .image-container{
-            background-color: #000a16;
-        }
-
-        .dark-mode .gradient-text{
-            color: #fff;
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #a47dfb, #c19af4, #e6cbfc, #f9eac6);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 48px; /* 글자 크기 설정 */
-        }
-
-
-
-        @media (max-width: 768px) {
-            .intro {
-                align-items: center;
-                height: auto; 
-                padding: 20px;
-            }
-
-            #main-text {
-                font-size: 26px;
-                text-align: center;
-            }
-
-            #sub-text {
-                font-size: 15px; 
-                text-align: center; 
-            }
-
-            .image-container {
-                border-radius: 0px;
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 10px;
-                padding: 10px;
-                margin-bottom: 50px;
-            }
-
-            .image-box {
-                grid-row: auto;
-            }
-
-            .btn {
-                font-size: 13px;
-                margin: 0 auto;
-                margin-top: 20px;
-            }
-
-
-            .announcement {
-                padding: 20px;
-                max-width: 900px;
-                margin: 0 auto;
-                margin-bottom: 20px;
-            }
-
-            .announcement-content {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-            .announcement-text {
-                font-size: 12px;
-                max-width: 60%;
-            }
-
-            .announcement-heading {
-                font-size: 24px;
-            }
-
-            .announcement-image img {
-                width: 100px;
-                height: auto;
-            }
-
-            header {
-                padding: 5px;
-                margin-bottom: 0px;
-                font-size: 18px;
-            }
-
-            footer{
-                margin-top: 20px;
-                font-size: 10px;
-            }
-
-            .hd h1{
-                font-size: 30px;
-            }
-
-            .hd img {
-                width: 10px;
-                height: auto;
-            }
-        }
+    }
 
     </style>
 </head>
@@ -369,125 +352,81 @@
     <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background-color: #000; color: #fff; text-align: center; display: flex; justify-content: center; align-items: center; z-index: 9999;">
         <img src="./IndexImage/logo.png" alt="logo" style="width: 50px; height: auto; margin-right: 7px;">
         <h1>PropicGram</h1>
+    </div>    
+
+    <div class="area1"> <!-- propicgram header -->
+        <div class="background_image1">
+            <div class="propicgram">PropicGram</div>
+            <div class="main_title_1">Your Ultimate Source<br>for SNS Profile Pictures</div>
+            <div class="sub_title_1">Looking to elevate your social media presence? Look no further!<br>PropicGram is here to revolutionize the way you showcase yourself online!</div>
+            <dic class="btn" onclick="redirectToImage()">Explore now ></dic>
+        </div>
+    </div>
+
+    <div class="main-area">
+        <div class="column" onclick="redirectToImage()">Image gallery</div>
+        <div class="column">Curated Free SNS Profile Pictures</div>
+        <div class="column">Why PropicGram?</div>
+        <div class="column">About us</div>
+    </div>
+
+    <div class="area2"> <!-- about us -->
+        <div class="background_image2">
+            <div class="main_title_2">Curated Free SNS Profile Pictures</div>
+            <div class="sub_title_2">Propicgram curates and provides high-quality photos. Try using our SNS profile pictures for free. A variety of themed and styled images await you!
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="main-area">
+        <div class="column">Discover PropicGram on Instagram now!</div>
+        <div class="column">PropicGram Now Available on Android!</div>
+        <div class="column">Discover PropicGram on Instagram now!</div>
+        <div class="column">Discover PropicGram on X now!</div>
     </div>
     
-
-    <header class="hd">
-        <img src="./IndexImage/logo.png" alt="logo" style="width: 55px; height: auto; margin-right: 7px;">
-        <h1 class="gradient-text">PropicGram</h1>
-    </header>
-
-    <div class="intro element">
-        <span id="main-text" class="gradient-text" data-lang='{"en": "Your Ultimate Source for SNS Profile Pictures",
-        "ko": "SNS 프로필 사진을 위한 최고의 소스",
-        "ja": "SNSプロフィール写真の最高のソース"}'></span>
-
-        <span id="sub-text" data-lang='{"en": "Looking to elevate your social media presence? Look no further! PropicGram is here to revolutionize the way you showcase yourself online!",
-        "ko": "소셜 미디어 프로필을 높이고 싶나요? PropicGram이 온라인에서 자신을 보여주는 방식을 혁신할 것입니다!",
-        "ja": "SNSプロフィールを向上させたいですか？PropicGramはオンラインで自分自身を表現する方法を革新します！"}'></span>
-
-        <button class="btn" onclick="redirectToImage()" data-lang='{"en": "Explore now",
-        "ko": "탐색하기",
-        "ja": "探索する"}'></button>
-    </div>
-
-    <div class="image-container element">
-        <div class="image-box" style="grid-row: span 2;">
-            <img src="./IndexImage/4.jpg" alt="image">
-        </div>
-        <div class="image-box">
-            <img src="./IndexImage/6.jpg" alt="image">
-        </div>
-        <div class="image-box">
-            <img src="./IndexImage/3.jpg" alt="image">
-        </div>
-        <div class="image-box" style="grid-row: span 2;">
-            <img src="./IndexImage/5.jpg" alt="image">
-        </div>
-        <div class="image-box">
-            <img src="./IndexImage/1.jpg" alt="image">
-        </div>
-        <div class="image-box">
-            <img src="./IndexImage/2.jpg" alt="image">
-        </div>
-    </div>
-
-    <div class="announcement element">
-        <div class="announcement-content">
-            <div class="announcement-text">
-                <h2 class="announcement-heading gradient-text" data-lang='{"en": "PropicGram Now Available on Android!",
-                "ko": "「PropicGram」 이제 안드로이드에서 이용 가능합니다!",
-                "ja": "「PropicGram」がAndroidで利用可能になりました！"}'></h2>
-                
-                <p data-lang='{"en": "We are thrilled to share the exciting news that PropicGram is officially live on the Android platform! Elevate your profile picture game with our brand new app, meticulously crafted to provide you with the most exceptional profile picture experience",
-                "ko": "「PropicGram」이 공식적으로 안드로이드 플랫폼에서 사용 가능하다는 흥분되는 소식을 전해드립니다! 우리의 새로운 앱으로 프로필 사진을 한 단계 높여보세요. 이 앱은 가장 우수한 프로필 사진 경험을 제공하기 위해 세심하게 제작되었습니다.",
-                "ja": "「PropicGram」が正式にAndroidプラットフォームで利用可能となったことをお知らせいたします！私たちの新しいアプリを使ってプロフィール写真をグレードアップしましょう。このアプリは、最高のプロフィール写真体験を提供するために細心の注意を払って作成されました。"}'></p>
-                <button class="btn" onclick="redirectToDownload()">Download Now</button>
-            </div>
-            <div class="announcement-image">
-                <img src="./IndexImage/applogo.png" alt="PropicGram Logo">
+    <div class="area3"> <!-- why propicgram -->
+        <div class="background_image3">
+            <div class="main_title_3">Why Propicgram?</div>
+            <div class="sub_title_3">Propicgram meticulously curates high-quality photos that specifically complement your profile.
+                We offer them for free to make your profile shine.
+                We go the extra mile to select the perfect images for your profile picture, ensuring it stands out
             </div>
         </div>
     </div>
 
-    <div class="announcement element">
-        <div class="announcement-content">
-            <div class="announcement-text">
-                <h2 class="announcement-heading gradient-text" data-lang='{"en": "Discover PropicGram on Instagram now!",
-                "ko": "Instagram에서 PropicGram을 만나보세요!",
-                "ja": "InstagramでPropicGramを見つけてください！"}'></h2>
-                
-                <p data-lang='{"en": "Stay tuned with PropicGram on Instagram for the freshest updates and be the first to see our breathtaking new images! Stay ahead of the curve with the latest profile picture trends. 🔥📸",
-                "ko": "PropicGram의 인스타그램을 팔로우하고 새로운 이미지들을 가장 먼저 만나보세요! 프로필 사진 트렌드를 놓치지 마세요. 🔥📸",
-                "ja": "PropicGramのInstagramをフォローして最新情報をチェックし、驚くべき新しい画像を最初に見逃さないでください！プロフィール写真の最新トレンドを見逃さないでください。🔥📸"}'></p>
+    <div class="main-area">
+        <div class="column">About us</div>
+        <div class="column">PropicGram Now Available on Android!</div>
+        <div class="column">Discover PropicGram on Instagram now!</div>
+        <div class="column">Discover PropicGram on X now!</div>
+    </div>
 
-
-                <button class="btn" onclick="redirectToInstagram()">Follow Now</button>
-            </div>
-            <div class="announcement-image">
-                <img src="./IndexImage/Instagram_Glyph_Gradient.png" alt="PropicGram Logo">
+    <div class="area4"> <!-- about us -->
+        <div class="background_image4">
+            <div class="main_title_4">About us</div>
+            <div class="sub_title_4">Propicgram is a one-person development team active in Korea.
+                We enjoy designing the web beautifully. Please watch as Propicgram grows!
             </div>
         </div>
     </div>
 
-    <div class="announcement element">
-        <div class="announcement-content">
-            <div class="announcement-text">
-                <h2 class="announcement-heading gradient-text" data-lang='{"en": "Discover PropicGram on X now!",
-                "ko": "지금 X에서 PropicGram을 발견하세요!",
-                "ja": "XでPropicGramを発見しましょう！"}'></h2>
-                
-                <p data-lang='{"en": "Stay updated with PropicGram on X for the latest news and be the first to see our stunning new images! 🔥📸",
-                "ko": "최신 소식을 계속해서 확인하고 PropicGram의 새로운 이미지를 가장 먼저 만나보세요! 🔥📸",
-                "ja": "最新情報をいち早くチェックし、驚くべき新しい画像を最初に見てください！🔥📸"}'></p>
-
-
-                <button class="btn" onclick="redirectToX()">Follow Now</button>
-            </div>
-            <div class="announcement-image">
-                <img src="./IndexImage/logo-white.png" alt="PropicGram Logo">
-            </div>
+    <div class="social-section">
+        <div class="social-icon" id="instagramIcon">
+            <img src="./IndexImage/Instagram_Glyph_Gradient.png" alt="Instagram">
         </div>
-    </div>
-    
-    <div class="language-buttons">
-        <button onclick="changeLanguageAndShowLoading('en'), changeFont('LINESeedSans_W_Bd')">EN</button>
-        <button onclick="changeLanguageAndShowLoading('ko'), changeFont('LINESeedKR-Bd')">KR</button>
-        <button onclick="changeLanguageAndShowLoading('ja'), changeFont('LINESeedJP_OTF_Bd')">JP</button>
-        <button onclick="toggleDarkMode()">Dark Mode</button>
+          
+        <div class="social-icon" id="twitterIcon">
+            <img src="./IndexImage/logo-white.png" alt="Twitter">
+        </div>
     </div>
     
 
     <footer>
-        <p class="footer-text" data-lang='{"en": "PropicGram does not collect personal information or generate revenue.",
-                                          "ko": "PropicGram은 개인 정보를 수집하지 않으며 수익을 창출하지 않습니다.",
-                                          "ja": "PropicGramは個人情報を収集せず、収益を上げません。"}'></p><br>
-                                          © 2023 PropicGram / PropicGram@gmail.com
-        
-        </p>
+                © 2023 PropicGram / propicgram@gmail.com
     </footer>
     
-
     <script>
         function showLoadingScreen() {
             var loadingScreen = document.getElementById('loading-screen');
@@ -503,70 +442,22 @@
             }, 1000);
         }
 
-        function changeLanguageAndShowLoading(language) {
-            window.scrollTo(0, 0);
-            showLoadingScreen();
-
-            setTimeout(function() {
-                changeLanguage(language);
-                hideLoadingScreen();
-            }, 1000);
-        }
-
         function redirectToImage() {
-            changeLanguageAndShowLoading('en');
             window.location.href = "./image_gallery.html";
         }
 
-        function redirectToDownload() {
-            changeLanguageAndShowLoading('en');
-            window.location.href = "https://play.google.com/store/apps/details?id=com.propicgram&pcampaignid=web_share";
-        }
+        document.getElementById('instagramIcon').addEventListener('click', function() {
+            window.location.href = 'https://www.instagram.com/propicgram/';
+        });
 
-        function redirectToInstagram() {
-            changeLanguageAndShowLoading('en');
-            window.location.href = "https://www.instagram.com/propicgram/";
-        }
-
-        function redirectToX() {
-            changeLanguageAndShowLoading('en');
-            window.location.href = "https://twitter.com/propicgram";
-        }
-
-        function changeLanguage(language) {
-            var elementsToTranslate = document.querySelectorAll('[data-lang]');
-
-            elementsToTranslate.forEach(function(element) {
-                var translations = JSON.parse(element.dataset.lang);
-                element.textContent = translations[language];
-            });
-        }
+        document.getElementById('twitterIcon').addEventListener('click', function() {
+            window.location.href = 'https://twitter.com/propicgram';
+        });
 
         window.onload = function() {
-            setTimeout(hideLoadingScreen, 2000);
-            changeLanguage('en');
+            setTimeout(hideLoadingScreen, 1500);
         };
 
-        function changeFont(fontFamily) {
-            var elementsToChangeFont = document.querySelectorAll('*');
-            
-            elementsToChangeFont.forEach(function(element) {
-                element.style.fontFamily = fontFamily;
-            });
-        }
-
-        function toggleDarkMode() {
-            var body = document.body;
-            document.body.style.background = "initial";
-            document.body.style.backgroundColor = "#000a16";
-
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                document.body.style.background = "linear-gradient(to bottom, #0a0613, #120f39, #241a4d, #12062a)";
-            } else {
-                body.classList.add('dark-mode');
-            }
-        }
     </script>
 </body>
 </html>

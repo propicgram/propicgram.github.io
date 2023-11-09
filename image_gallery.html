@@ -41,7 +41,7 @@
       .grid-container {
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        grid-template-columns: repeat(3, minmax(30px, 1fr));
         gap: 10px;
         max-width: 1000px;
         padding-top: 10px;
@@ -459,8 +459,9 @@
 
         .grid-container {
           gap: 5px;
-          padding: 7px;
+          padding: 0px;
           border-radius: 0px;
+          max-width: 95%;
         }
 
         img {
@@ -784,7 +785,7 @@
       var gridContainer = document.getElementById("gridContainer");
       var loadMoreButton = document.querySelector(".btn-custom");
       var startIndex = 0;
-      var itemsToShow = 8;
+      var itemsToShow = 9;
 
       function loadMoreImages() {
         var loadingAnimation = document.getElementById("loadingAnimation");
