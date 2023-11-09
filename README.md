@@ -27,5 +27,4 @@ We may update this privacy policy from time to time to reflect changes in our pr
 ## Contact Us
 
 If you have any questions or concerns about this Privacy Policy, please contact us at:
-
-[Insert Contact Information Here]
+[propicgram@gmail.com]
