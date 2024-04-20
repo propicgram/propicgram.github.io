@@ -1,471 +1,1959 @@
+<!-- 
+웹 사이트의 정보, 폰트 콘텐츠를 제외한 모든 콘텐츠는 [propicgram@gmail.com]에 의해 소유되며, 무단 복제 및 배포를 금지합니다.
+
+이 웹 사이트의 소스 코드 및 디자인에 대한 모든 권리는 [propicgram@gmail.com]에 속하며, 라이선스에 따라 사용이 허가됩니다.
+라이선스를 위반하는 경우 저작권법 및 민형사상의 처벌을 받을 수 있습니다.
+
+본 웹 사이트 정보 출처 [동서울대학교](https://www.du.ac.kr)
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PropicGram</title>
-    <link rel="icon" href="./IndexImage/favicon.png" type="image/x-icon">
-    <meta name="description" content="Your Ultimate Source for SNS Profile Pictures">
-    <meta name="keywords" content="PropicGram, propicgram, profile, Pictures, sns, profilepic">
-    <meta property="og:title" content="PropicGram" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://PropicGram.com/" />
-    <meta property="og:image" content="https://github.com/PropicGram/PropicGram.github.io/blob/main/IndexImage/OpenGraph_img.png" />
-    <meta property="og:description" content="Your Ultimate Source for SNS Profile Pictures!">
-    <style>
-        @font-face {
-            font-family: 'LINESeedSans_W_Bd';
-            src: url('./LINESeedSans_W_Bd.woff2') format('woff2');
-            font-weight: 700;
-            font-style: normal;
-        }
-
-        *{
-            font-family: 'LINESeedSans_W_Bd', sans-serif;
-            user-select: none;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .area1 {
-            position: relative;
-        }
-
-        .main-area {
-            position: relative;
-        }
-
-        .background_image1 {
-            background-image: url('./IndexImage/sample1.png');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 110vh;
-        }
-
-        .main_title_1{
-            font-size: 75px;
-            max-width: 80%;
-            margin-bottom: 30px;
-        }
-
-        .sub_title_1{
-            font-size: 20px;
-            max-width: 55%;
-            margin-bottom: 30px;
-        }
-
-        .background_image2 {
-            background-image: url('./IndexImage/sample2.png');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-            height: 110vh;
-        }
-        
-        .main_title_2{
-            text-align: left;
-            font-size: 50px;
-            max-width: 1000px;
-            margin-left: 60px;
-        }
-
-        .sub_title_2{
-            text-align: left;
-            font-size: 20px;
-            max-width: 1000px;
-            margin-bottom: 80px;
-            margin-left: 60px;
-        }
-
-        .background_image3 {
-            background-image: url('./IndexImage/sample3.png');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-            height: 110vh;
-        }
-        
-        .main_title_3{
-            text-align: left;
-            font-size: 50px;
-            max-width: 1000px;
-            margin-left: 60px;
-        }
-
-        .sub_title_3{
-            text-align: left;
-            font-size: 20px;
-            max-width: 1000px;
-            margin-bottom: 80px;
-            margin-left: 60px;
-        }
-
-        .background_image4 {
-            background-image: url('./IndexImage/sample4.png');
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-            height: 110vh;
-        }
-        
-        .main_title_4{
-            text-align: left;
-            font-size: 50px;
-            max-width: 1000px;
-            margin-left: 60px;
-        }
-
-        .sub_title_4{
-            text-align: left;
-            font-size: 20px;
-            max-width: 1000px;
-            margin-bottom: 80px;
-            margin-left: 60px;
-        }
-
-        .propicgram {
-            position: absolute;
-            top: 35px;
-            left: 35px;
-            font-size: 27px;
-        }
-
-        .black_section{
-            display: flex;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-        .main-area {
-            background-color: rgb(12, 12, 12);
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 100%;
-            font-size: 20px;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .column {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 200px;
-            color: #ececec;
-            width: 25%;
-            box-sizing: border-box;
-            margin: 0;
-            background-color: rgb(12, 12, 12);
-            transition: background-color 0.3s;
-            text-align: center;
-        }
-
-        .column:hover {
-            background-color: rgb(85, 85, 85);
-            text-decoration: underline;
-        }
+  <link rel="icon" href="./web_img/favicon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="./web_img/appleicon.png">
+  <meta name="description" content="동서울대학교 학생을 위한 동서울대 정보 플랫폼 동캠퍼스">
+  <meta name="keywords" content="동서울대학교, 동캠퍼스, 동캠, 동서울대학교학식, 동서울대학교버스">
+  <meta property="og:title" content="동캠퍼스" />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:url" content="http:// .com/" /> -->
+  <!-- <meta property="og:image" content="" />
+  <meta property="og:description" content=""> -->
 
 
-        .btn {
-            background-color: rgba(43, 39, 102, 0.1);
-            border: 4px solid #ffffff; 
-            color: #ffffff;
-            padding: 10px 20px;
-            margin: 10px 10px 10px 0;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 25px; 
-            transition: background-color 0.3s, color 0.3s;
-            width: 160px;
-            margin-bottom: 40px;
-        }
+  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./web_img/favicon.png">
+  <title>동캠퍼스</title>
+  <style>
 
-        .btn:hover {
-            background-color:#ffffff; 
-            color: rgb(0, 90, 117);
-        }
-
-        footer {
-            text-align: center;
-            font-size: 15px;
-            background-color: rgb(12, 12, 12);
-            color: #ffffff;
-            bottom: 0;
-            width: 100%;
-            margin: 0 auto;
-            padding: 7px 0 7px 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-        }
-
-        .text-section {
-            font-size: 15px;
-            color: #ffffff;
-        }
-        
-        .social-section{
-            text-align: center;
-            padding: 10px 20px 0px 20px;
-            background-color: rgb(12, 12, 12);
-        }
-
-        .social-icon {
-            cursor: pointer;
-            display: inline-block;
-            margin: 10px;
-        }
-
-        .social-icon img {
-            width: 30px; /* 이미지의 크기를 조절할 수 있습니다. */
-            height: 30px; /* 이미지의 크기를 조절할 수 있습니다. */
-        }
-
-        #loading-screen img {
-            vertical-align: middle;
-        }
-
-        #loading-screen h1 {
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0;
-        }
-
-        #loading-screen {
-            transition: opacity 1s;
-        }
-
-
-        @media (max-width: 1100px) {
-            .main_title_1{
-                font-size: 50px;
-                margin-bottom: 10px;
-                max-width: 90%;
-            }
-            .sub_title_1{
-                font-size: 16px;
-                max-width: 90%;
-                margin-bottom: 10px;
-            }
-        }
-
-        @media (max-width: 700px) {
-        .main_title_1{
-            font-size: 25px;
-            margin-bottom: 10px;
-            max-width: 90%;
-        }
-        .sub_title_1{
-            font-size: 16px;
-            max-width: 90%;
-            margin-bottom: 10px;
-        }
-        .main_title_2{
-            font-size: 25px;
-            margin-bottom: 10px;
-            max-width: 90%;
-            margin-left: 20px;
-        }
-        .sub_title_2{
-            font-size: 14px;
-            max-width: 90%;
-            margin-bottom: 30px;
-            margin-left: 20px;
-        }
-        .sub_title_3{
-            font-size: 14px;
-            max-width: 90%;
-            margin-bottom: 30px;
-            margin-left: 20px;
-        }
-        .main_title_3{
-            font-size: 25px;
-            margin-bottom: 10px;
-            max-width: 90%;
-            margin-left: 20px;
-        }
-        .main_title_4{
-            font-size: 25px;
-            margin-bottom: 10px;
-            max-width: 90%;
-            margin-left: 20px;
-        }
-        .sub_title_4 {
-            font-size: 14px;
-            max-width: 90%;
-            margin-bottom: 30px;
-            margin-left: 20px;
-        }
-
-        .background_image1, .background_image2, .background_image3 {
-            height: 100vh;
-        }
-
-        .propicgram {
-            top: 15px;
-            left: 15px;
-            font-size: 20px;
-        }
-
-        .btn {
-            font-size: 14px;
-            width: 120px;
-            margin-bottom: 20px;
-        }
-
-        .column {
-            width: 100%;
-        }
-
-        .main-area {
-            height: auto;
-            font-size: 15px;
-        }
-
-        footer {
-            font-size: 12px;
-        }
+    html{
+      -webkit-touch-callout:none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
 
-    </style>
+    button:focus{
+      outline: none;
+    }
+
+    @font-face {
+        font-family: 'LINESeedKR-Bd';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+    }
+
+    * {
+      font-family: 'LINESeedKR-Bd';
+    }
+
+    body {
+      background: linear-gradient(to bottom, #0a0613, #120f39, #241a4d, #12062a);
+      margin: 0;
+      padding: 0;
+    }
+
+    .no-drag {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        opacity: 0;
+        animation: fadeIn 1s ease; 
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      font-family: 'TTHakgyoansimSamulhamR';
+      border: none;
+      padding: 20px 0px 10px 0px;
+      text-align: center;
+      width: 600px; 
+      margin: 0 auto; 
+      display: flex;
+      justify-content: space-between; 
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-content img {
+      width: 40px;
+      margin-left: 10px;
+      margin-right: 5px; 
+      user-select: none; 
+      -webkit-user-drag: none;
+    }
+
+    .other-elements {
+      margin-right: 7px;
+      color: white;
+    }
+
+    .gradient-text {
+      margin-top: 8px;
+      margin-bottom: 5px;
+        background: linear-gradient(to right, #a47dfb, #c19af4, #e6cbfc, #f9eac6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .container {
+      width: 500px; 
+      margin: 0 auto; 
+      padding: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; 
+    }
+
+    .container > div {
+      padding: 0px;
+      border: 0px solid #ddd;
+    }
+
+    h2 {
+      color: #e9e9e9;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .Categoryarea ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content:center;
+    }
+
+    .Categoryarea li {
+      margin-right: 7px;
+      
+    }
+
+    .Categoryarea li:last-child {
+      margin-right: 0;
+    }
+
+    .Categoryarea li button {
+      font-size: 17px;
+      color: white;
+      background-color: rgba(43, 39, 102, 0.2);
+      border: 1px solid #a47dfb; 
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
+      padding: 8px 12px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+
+    .Categoryarea li button:hover {
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+      background-color:#a47dfb; 
+      color: rgb(255, 255, 255);
+    }
+
+    .link_button{
+      font-size: 17px;
+      color: white;
+      background-color: rgba(43, 39, 102, 0.2);
+      border: 1px solid #a47dfb; 
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
+      padding: 8px 12px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+
+    .link_button:hover {
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+      background-color:#a47dfb; 
+      color: rgb(255, 255, 255);
+    }
+
+
+    .sectionarea1, .sectionarea2 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+
+    .sectionarea1, .sectionarea2 {
+      width: 100%; 
+    }
+
+    .sectionarea3 {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center; 
+    }
+
+    .sectionarea3 p {
+      margin: 3px;
+    }
+
+    .sectionarea3 > .busarea {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px; 
+    }
+
+    .sectionarea3 > .busarea > div {
+      padding: 15px; 
+    }
+
+    .sectionarea3 > div:nth-child(3n) {
+      margin-right: 0; 
+    }
+
+    .webreload img{
+      width: 25px;
+    }
+
+    .station_name {
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .busarea{
+      padding-left: 0px;
+      height: 90px;
+      background-color: rgba(43, 39, 102, 0.2);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
+      color: #e9e9e9;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .busicon {
+      padding: none;
+      font-size: 35px;
+    }
+
+    .Bokjeong_time1{
+      width: 100%;
+    }
+
+    .Bokjeong_time2{
+      font-size: 21px;
+      font-weight: bold;
+      width: 100%;
+      text-align: right;
+    }
+
+    .Namyangju_time1{
+      width: 100%;
+    }
+
+    .Namyangju_time2{
+      font-size: 21px;
+      font-weight: bold;
+      width: 100%;
+      text-align: right;
+    }
+
+
+    .Guri_time1{
+      width: 100%;
+    }
+
+    .Guri_time2{
+      font-size: 21px;
+      font-weight: bold;
+      width: 100%;
+      text-align: right;
+    }
+
+
+    .Hanam_time1{
+      width: 100%;
+    }
+
+    .Hanam_time2{
+      font-size: 21px;
+      font-weight: bold;
+      width: 100%;
+      text-align: right;
+    }
+
+
+
+    .content-box {
+      font-size: 17px;
+      height: 190px;
+      width: 190px;
+      border: none;
+      background-color: rgba(43, 39, 102, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
+      padding: 20px; 
+      color: #e9e9e9;
+    }
+
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      background-color: none;
+      color: #e9e9e9;
+      bottom: 0;
+      width: 100%;
+      margin: 0 auto;
+      padding: 7px 0 7px 0;
+
+    }
+
+
+
+.modal {
+    display: none;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #0a0613, #120f39, #12062a);
+    z-index: 9999;
+}
+
+.modal-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    background-color: none;
+}
+
+#closeBtn {
+    color: #ffffff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 50px;
+    color: white;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+#menuTable {
+    margin: 0 auto;
+}
+
+.menuname{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+.hak_container {
+  display: flex;
+  justify-content: center; 
+}
+
+.hak_info {
+  width: 600px;
+  padding: 20px;
+  max-width: 600px; 
+  text-align: left; 
+}
+
+img.rotate {
+  margin-top: 6px;
+  margin-left: 5px;
+    width: 20px;
+    transition: transform 1s ease-in-out;
+}
+
+
+
+.calendar_modal_title{
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  padding: 20px;
+}
+
+
+#calendarModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #0a0613, #120f39, #12062a);
+    z-index: 9999;
+}
+
+#closeCalendarBtn {
+    color: #ffffff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff00;
+    padding: 0;
+}
+
+.calendar_content {
+    padding: 20px;
+}
+
+
+.cmap-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(to bottom, #0a0613, #120f39, #12062a);
+    padding: 0px;
+}
+
+
+.cmap-modal-content {
+  text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+
+
+.cmap-close {
+  color: #ffffff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cmap-close:hover,
+.cmap-close:focus {
+    color: rgb(177, 177, 177);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.cmap-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #ddd;
+    color: white;
+}
+
+.cmap-table th, .cmap-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.cmap-table th {
+    background-color: #ffffff00;
+    color: white;
+}
+
+
+
+
+
+.bread_modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #933F00
+}
+
+.bread_modal-content {
+  background-color: #933F00;
+  color: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.bread_close {
+    color: #ffffff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.bread_close:hover,
+.bread_close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+.info_modal {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(to bottom, #0a0613, #120f39, #12062a);
+    padding: 0px;
+  }
+  
+
+  .info_modal_content {
+    color: white;
+    text-align: left;
+    padding-top: 30px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+
+.close_button {
+    color: #ffffff;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.bus_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info_section2{
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+
+
+  .attendance-modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+
+  .attendance-modal-content {
+      border-radius: 15px;
+      background: linear-gradient(to bottom, #0a0613, #12062a);
+      color: white;
+      margin: auto; 
+      padding: 20px;
+      border: 1px solid #a47dfb;
+      width: 80%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .attendance-close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .attendance-close:hover,
+  .attendance-close:focus {
+      color: rgb(136, 136, 136);
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+  .attendance-button{
+      font-size: 17px;
+      color: white;
+      background-color: rgba(43, 39, 102, 0.2);
+      border: 1px solid #a47dfb; 
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); 
+      padding: 8px 12px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .attendance-button:hover {
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+    background-color:#a47dfb; 
+    color: rgb(255, 255, 255);
+  }
+
+
+
+@media only screen and (max-width: 600px) {
+  body{
+    padding: 9px;
+  }
+
+  header{
+    font-size: 15px;
+    width: 100%;
+  }
+
+  header img {
+    width: 35px;
+    margin-left: 10px;
+    margin-right: 7px; 
+  }
+
+  .Categoryarea{
+    align-items: center;
+  }
+
+  .Categoryarea li button {
+    align-items: center;
+    font-size: 17px;
+    padding: 7px 11px;
+    margin-top: 3px;
+  }
+
+  .container {
+    width: 100%;
+    align-items: center;
+  }
+
+  .container > div {
+    align-items: center;
+  }
+
+  .sectionarea1{
+    width: 100%;
+    align-items: center;
+  }
+  .sectionarea2{
+    width: 100%;
+    align-items: center;
+  }
+
+  .section1{
+    text-align: center;
+    align-items: center;
+    width: 50%;
+  }
+  .section2{
+    text-align: center;
+    width: 50%;
+  }
+
+  .sectionarea3{
+    margin: 10px;
+  }
+
+  .sectionarea3 > .busarea {
+    height: auto;
+  }
+
+  .content-box {
+    width: 90%;
+    height: 175px;
+    font-size: 15px;
+    padding: 0px;
+    margin: 0 auto;
+    align-items: center;
+    padding-top: 10px;
+  }
+
+  .busicon{
+    font-size: 25px;
+  }
+
+  .Bokjeong_time1{
+    width: 100%;
+  }
+
+  .Bokjeong_time2{
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+  }
+
+  .Namyangju_time1{
+    width: 100%;
+  }
+
+  .Namyangju_time2{
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+  }
+
+
+  .Guri_time1{
+    width: 100%;
+  }
+
+  .Guri_time2{
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+  }
+
+
+  .Hanam_time1{
+    width: 100%;
+  }
+
+  .Hanam_time2{
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 0px;
+  }
+
+  table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+  }
+
+  .hak_info {
+    width: 100%;
+    padding: 0px;
+    text-align: left; 
+  }
+
+  .hak_container {
+    padding: 0px;
+  }
+
+  .calendar_content {
+      padding: 0px;
+  }
+
+
+
+
+
+
+
+
+
+  #closeBtn {
+    color: #ffffff;
+    position: absolute;
+    top: 18px;
+    left: auto;
+    right: 10px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  #closeCalendarBtn {
+    color: #ffffff;
+    position: absolute;
+    top: 18px;
+    left: auto;
+    right: 10px;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close_button {
+      color: #ffffff;
+      position: absolute;
+      top: 20px;
+      left: auto;
+      right: 25px;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .bread_close {
+      color: #ffffff;
+      position: absolute;
+      top: 20px;
+      left: auto;
+      right: 27px;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .cmap-close {
+      color: #ffffff;
+      position: absolute;
+      top: 20px;
+      left: auto;
+      right: 25px;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .info_modal_content{
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .Categoryarea li button {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .Categoryarea li button {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .Categoryarea li button {
+    font-size: 14px;
+  }
+}
+
+
+  </style>
 </head>
-<body>
-    <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background-color: #000; color: #fff; text-align: center; display: flex; justify-content: center; align-items: center; z-index: 9999;">
-        <img src="./IndexImage/logo.png" alt="logo" style="width: 50px; height: auto; margin-right: 7px;">
-        <h1>PropicGram</h1>
-    </div>    
-
-    <div class="area1"> <!-- propicgram header -->
-        <div class="background_image1">
-            <div class="propicgram">PropicGram</div>
-            <div class="main_title_1">Your Ultimate Source<br>for SNS Profile Pictures</div>
-            <div class="sub_title_1">Looking to elevate your social media presence? Look no further!<br>PropicGram is here to revolutionize the way you showcase yourself online!</div>
-            <dic class="btn" onclick="redirectToImage()">Explore now ></dic>
-        </div>
+<body class="no-drag">
+  <header>
+    <div class="header-content">
+        <img id="logo" src="./web_img/logo.png" alt="동캠퍼스">
+        <h1 class="gradient-text">동캠퍼스</h1>
     </div>
-
-    <div class="main-area">
-        <div class="column" onclick="redirectToImage()">Image gallery</div>
-        <div class="column">Curated Free SNS Profile Pictures</div>
-        <div class="column">Why PropicGram?</div>
-        <div class="column">About us</div>
+    <div class="other-elements">
+        <p id="weather-info"></p>
     </div>
+</header>
 
-    <div class="area2"> <!-- about us -->
-        <div class="background_image2">
-            <div class="main_title_2">Curated Free SNS Profile Pictures</div>
-            <div class="sub_title_2">Propicgram curates and provides high-quality photos. Try using our SNS profile pictures for free. A variety of themed and styled images await you!
-            </div>
-        </div>
+  <div class="container">
+
+    <div class="Categoryarea">
+      <ul>
+        <li><button class="btn1">#학식</button></li>
+        <li><button class="btn2">#버스</button></li>
+        <li><button class="btn3">#학사일정</button></li>
+        <li><button class="btn4">#강의실</button></li>
+        <li><button class="btn6">#출결조회</button></li>
+        <li><button class="btn7">#정보</button></li>
+      </ul>
     </div>
 
     
-    <div class="main-area">
-        <div class="column">Discover PropicGram on Instagram now!</div>
-        <div class="column">PropicGram Now Available on Android!</div>
-        <div class="column">Discover PropicGram on Instagram now!</div>
-        <div class="column">Discover PropicGram on X now!</div>
-    </div>
-    
-    <div class="area3"> <!-- why propicgram -->
-        <div class="background_image3">
-            <div class="main_title_3">Why Propicgram?</div>
-            <div class="sub_title_3">Propicgram meticulously curates high-quality photos that specifically complement your profile.
-                We offer them for free to make your profile shine.
-                We go the extra mile to select the perfect images for your profile picture, ensuring it stands out
-            </div>
+    <div class="sectionarea1">
+      <div class="section1">
+        <h2>🍱오늘학식</h2>
+        <div class="content-box box1">
+          <p class="hak_title">학식 정보가 없습니다.</p>
         </div>
-    </div>
-
-    <div class="main-area">
-        <div class="column">About us</div>
-        <div class="column">PropicGram Now Available on Android!</div>
-        <div class="column">Discover PropicGram on Instagram now!</div>
-        <div class="column">Discover PropicGram on X now!</div>
-    </div>
-
-    <div class="area4"> <!-- about us -->
-        <div class="background_image4">
-            <div class="main_title_4">About us</div>
-            <div class="sub_title_4">Propicgram is a one-person development team active in Korea.
-                We enjoy designing the web beautifully. Please watch as Propicgram grows!
-            </div>
+      </div>
+      <div class="section2">
+        <h2>📆학사일정</h2>
+        <div class="content-box box2">
+          <p class="calendar_title">일정 정보가 없습니다.</p>
         </div>
-    </div>
-
-    <div class="social-section">
-        <div class="social-icon" id="instagramIcon">
-            <img src="./IndexImage/Instagram_Glyph_Gradient.png" alt="Instagram">
-        </div>
-          
-        <div class="social-icon" id="twitterIcon">
-            <img src="./IndexImage/logo-white.png" alt="Twitter">
-        </div>
+      </div>
     </div>
     
 
-    <footer>
-                © 2023 PropicGram / propicgram@gmail.com
-    </footer>
+    <div class="bus_container">
+      <div>
+        <h2 class="webreload">🚍통학버스</h2>
+      </div>
+      <div>
+        <img class="rotate" src="./web_img/reicon.gif" onclick="rotateImage(this)">
+      </div>
+    </div>
+
+    <div class="sectionarea3">
+
+      <div class="busarea">
+        <div class ="busicon">
+          <p>🚌</p>
+        </div>
+        <div class="Bokjeong_time1">
+          <p class="station_name">복정역</p>
+          <p>00:00</p>
+        </div>
+        <div class="Bokjeong_time2">
+          <p>정보없음</p>
+        </div>
+      </div>
+
+      <div class="busarea">
+        <div class ="busicon">
+          <p>🚌</p>
+        </div>
+        <div class="Namyangju_time1">
+          <p class="station_name">남양주</p>
+          <p>08:00</p>
+        </div>
+        <div class="Namyangju_time2">
+          <p>정보없음</p>
+        </div>
+      </div>
+
+      <div class="busarea">
+        <div class ="busicon">
+          <p>🚌</p>
+        </div>
+        <div class="Guri_time1">
+          <p class="station_name">구리</p>
+          <p>08:30</p>
+        </div>
+        <div class="Guri_time2">
+          <p>정보없음</p>
+        </div>
+      </div>
+
+      <div class="busarea">
+        <div class ="busicon">
+          <p>🚌</p>
+        </div>
+        <div class="Hanam_time1">
+          <p class="station_name">하남</p>
+          <p>09:00</p>
+        </div>
+        <div class="Hanam_time2">
+          <p>정보없음</p>
+        </div>
+      </div>
+    </div>
+    <footer>© 2024 DONG_CAMPUS</footer>
+  </div>
+
+
+
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <div class="menuname">🍱학식</div>
+        <span id="closeBtn">&times;</span>
+        <div id="menuTable"></div>
+        <div class="hak_container">
+          <div class="hak_info">
+            <p>학식가격: 5000원</p>
+            <p>식당위치: 2호관 1층</p>
+            <p>운영시간: 11:00~14:00(학기중)</p>
+            <p>전화번호: (031) 720 - 2188</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div id="calendarModal" class="modal">
+    <div class="modal-content">
+        <div class="calendar_modal_title">📅학사일정</div>
+        <span id="closeCalendarBtn" class="close">&times;</span>
+        <div class="calendar_content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>일정</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="cmap-myModal" class="cmap-modal">
+
+  <div class="cmap-modal-content">
+
+    <span class="cmap-close">&times;</span>
+
+    <h2>🗺️강의실</h2>
+
+    <table class="cmap-table">
+      <tr>
+        <th>호관</th>
+        <th>층</th>
+        <th>강의실</th>
+      </tr>
+      <tr>
+        <td rowspan="4">1호관</td>
+        <td>1층</td>
+        <td>1101 ~ 1113</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>1201 ~ 1217</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>1301 ~ 1313</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>1401 ~ 1410</td>
+      </tr>
+      <tr>
+        <td rowspan="4">2호관</td>
+        <td>1층</td>
+        <td>학생식당</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>2201 ~ 2213</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>2301 ~ 2312</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>2401 ~ 2413</td>
+      </tr>
+      <tr>
+        <td rowspan="3">3호관</td>
+        <td>1층</td>
+        <td>3101 ~ 3110</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>3201 ~ 3210</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>3301 ~ 3311</td>
+      </tr>
+      <tr>
+        <td rowspan="4">5호관</td>
+        <td>1층</td>
+        <td>업데이트 예정</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>5201 ~ 5212</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>5301 ~ 5314</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>5401 ~ 5416</td>
+      </tr>
+      <tr>
+        <td rowspan="4">6호관</td>
+        <td>1층</td>
+        <td>6101 ~ 6102</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>6200 ~ 6210</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>6301 ~ 6308</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>6401 ~ 6409</td>
+      </tr>
+      <tr>
+        <td rowspan="4">학생회관(7호관)</td>
+        <td>지하 1층</td>
+        <td>업데이트 예정</td>
+      </tr>
+      <tr>
+        <td>1층</td>
+        <td>7101 ~ 7109</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>7202 ~ 7211</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>7302 ~ 7310</td>
+      </tr>
+      <tr>
+        <td rowspan="4">8호관</td>
+        <td>1층</td>
+        <td>8100 ~ 8106</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>8201 ~ 8219</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>8301 ~ 8321</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>8400 ~ 8420</td>
+      </tr>
+      <tr>
+        <td rowspan="4">9호관</td>
+        <td>2층</td>
+        <td>9201 ~ 9215</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>9301 ~ 9313</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>9401 ~ 9416</td>
+      </tr>
+      <tr>
+        <td>5층</td>
+        <td>9501 ~ 9514</td>
+      </tr>
+      <tr>
+        <td rowspan="4">10호관</td>
+        <td>지하 1층</td>
+        <td>10B101 ~ 10B106</td>
+      </tr>
+      <tr>
+        <td>1층</td>
+        <td>10101 ~ 10108</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>10201 ~ 10211</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>10301 ~ 10308</td>
+      </tr>
+      <tr>
+        <td rowspan="4">9호관</td>
+        <td>2층</td>
+        <td>9201 ~ 9215</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>9301 ~ 9313</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>9401 ~ 9416</td>
+      </tr>
+      <tr>
+        <td>5층</td>
+        <td>9501 ~ 9514</td>
+      </tr>
+      <tr>
+        <td rowspan="11">국제교류센터</td>
+        <td>지하 1층</td>
+        <td>주차장</td>
+      </tr>
+      <tr>
+        <td>1층</td>
+        <td>연회장1</td>
+      </tr>
+      <tr>
+        <td>2층</td>
+        <td>연회장2</td>
+      </tr>
+      <tr>
+        <td>3층</td>
+        <td>130301 ~ 130304</td>
+      </tr>
+      <tr>
+        <td>4층</td>
+        <td>130401 ~ 130411</td>
+      </tr>
+      <tr>
+        <td>5층</td>
+        <td>130501 ~ 130513</td>
+      </tr>
+      <tr>
+        <td>6층</td>
+        <td>130601 ~ 130613</td>
+      </tr>
+      <tr>
+        <td>7층</td>
+        <td>기숙사(남)</td>
+      </tr>
+      <tr>
+        <td>8층</td>
+        <td>기숙사(여)</td>
+      </tr>
+      <tr>
+        <td>9층</td>
+        <td>기숙사(남)</td>
+      </tr>
+      <tr>
+        <td>10층</td>
+        <td>기숙사(여)</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+<div id="attendanceModal" class="attendance-modal">
+  <div class="attendance-modal-content">
+    <span class="attendance-close" onclick="closeAttendanceModal()">&times;</span>
+    <p>포털시스템(portal.du.ac.kr) 접속하여 학번/비밀번호를 입력하여 로그인</p>
+    <p>출석조회 메뉴 선택 [ 좌측상단 메뉴바 ⇒ 대학모바일 ⇒ 출석조회 ]</p>
+    <button class="attendance-button">포털시스템 바로가기</button>
+  </div>
+</div>
+
+  
+  <script src="./str.js"></script>
+  <script src="./scripts.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/@vercel/analytics"></script>
+  <script>
+    window.analytics = window.analytics || function() { (window.analytics.q = window.analytics.q || []).push(arguments) };
+    window.analytics('init', 'prj_QVYT5faSWHUmWgo9DbTjlGYDjjuq');
+  </script>
+  <script>
+
+
+  var hak_modal = document.getElementById("myModal");
+
+
+  var hak_btn1 = document.querySelector(".box1");
+  hak_btn1.onclick = function() {
+    hak_modal.style.display = "block";
+  }
+
+
+  var hak_btn2 = document.querySelector(".btn1");
+  hak_btn2.onclick = function() {
+    hak_modal.style.display = "block";
+  }
+
+  var closeBtn = document.getElementById("closeBtn");
+
+  closeBtn.onclick = function() {
+    hak_modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+      if (event.target == hak_modal) {
+        hak_modal.style.display = "none";
+      }
+  }
+
+
+
+
+var calendarModal = document.getElementById("calendarModal");
+
+var calendarTitle = document.querySelector(".box2");
+calendarTitle.onclick = function() {
+  calendarModal.style.display = "block";
+}
+
+
+var btn2 = document.querySelector(".btn3");
+btn2.onclick = function() {
+  calendarModal.style.display = "block";
+}
+
+
+var closeCalendarBtn = document.getElementById("closeCalendarBtn");
+closeCalendarBtn.onclick = function() {
+  calendarModal.style.display = "none";
+}
+
+
+window.onclick = function(event) {
+  if (event.target == calendarModal) {
+    calendarModal.style.display = "none";
+  }
+}
+
+
+
+function getCurrentTime() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  return hours * 60 + minutes; 
+}
+
+
+function isWeekend() {
+  var now = new Date();
+  var day = now.getDay(); 
+  return day === 0 || day === 6; 
+}
+
+
+function calculateBusTime() {
+  var currentTime = getCurrentTime();
+  var busTimes = []; 
+
+  for (var i = 510; i <= 630; i += 10) {
+    busTimes.push(i);
+  }
+
+
+  var nextBusIndex = busTimes.findIndex(time => time > currentTime);
+  var closestBusTime = busTimes[nextBusIndex];
+
+
+  var hours = Math.floor(closestBusTime / 60);
+  var minutes = closestBusTime % 60;
+
+
+  var busTime1 = document.querySelector('.Bokjeong_time1 p:last-child');
+  var busTime2 = document.querySelector('.Bokjeong_time2 p:last-child');
+
+
+  if (nextBusIndex === -1 || closestBusTime > 630 || isWeekend()) {
+    busTime1.textContent = '08:30';
+    busTime2.textContent = '운행 종료';
+  } else {
+    busTime1.textContent = ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2);
     
-    <script>
-        function showLoadingScreen() {
-            var loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.style.display = 'flex';
-            loadingScreen.style.opacity = '1';
+
+    if (currentTime > closestBusTime) {
+        busTime2.textContent = '운행 종료';
+    } else {
+
+        var remainingTime = closestBusTime - currentTime;
+        if (remainingTime > 0) {
+            var hours = Math.floor(remainingTime / 60);
+            var minutes = remainingTime % 60;
+            var remainingTimeString = '';
+
+            if (hours > 0) {
+                remainingTimeString += hours + '시간 ';
+            }
+            if (minutes > 0) {
+                remainingTimeString += minutes + '분 ';
+            }
+
+            busTime2.textContent = remainingTimeString + '';
+        } else {
+            busTime2.textContent = '곧 도착';
         }
+    }
+  }
+}
 
-        function hideLoadingScreen() {
-            var loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.style.opacity = '0';
-            setTimeout(function() {
-                loadingScreen.style.display = 'none';
-            }, 1000);
+
+calculateBusTime();
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var now = new Date();
+    var dayOfWeek = now.getDay();
+    var isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+
+
+    if (isWeekend) {
+        document.querySelector('.Namyangju_time1 p:nth-child(2)').textContent = '08:00';
+        document.querySelector('.Guri_time1 p:nth-child(2)').textContent = '08:30';
+        document.querySelector('.Hanam_time1 p:nth-child(2)').textContent = '09:00';
+
+
+        document.querySelector('.Namyangju_time2 p').textContent = '운행 종료';
+        document.querySelector('.Guri_time2 p').textContent = '운행 종료';
+        document.querySelector('.Hanam_time2 p').textContent = '운행 종료';
+        return;
+    }
+
+
+    var nowHours = now.getHours();
+    var nowMinutes = now.getMinutes();
+    var nowTime = nowHours * 60 + nowMinutes;
+
+
+    var namyangjuTime1 = document.querySelector('.Namyangju_time1 p:nth-child(2)').textContent.split(':');
+    var namyangjuHours = parseInt(namyangjuTime1[0]);
+    var namyangjuMinutes = parseInt(namyangjuTime1[1]);
+    var namyangjuTime = namyangjuHours * 60 + namyangjuMinutes;
+
+    var guriTime1 = document.querySelector('.Guri_time1 p:nth-child(2)').textContent.split(':');
+    var guriHours = parseInt(guriTime1[0]);
+    var guriMinutes = parseInt(guriTime1[1]);
+    var guriTime = guriHours * 60 + guriMinutes;
+
+    var hanamTime1 = document.querySelector('.Hanam_time1 p:nth-child(2)').textContent.split(':');
+    var hanamHours = parseInt(hanamTime1[0]);
+    var hanamMinutes = parseInt(hanamTime1[1]);
+    var hanamTime = hanamHours * 60 + hanamMinutes;
+
+
+    if (nowTime < namyangjuTime) {
+        var remainingTime = namyangjuTime - nowTime;
+        var remainingHours = Math.floor(remainingTime / 60);
+        var remainingMinutes = remainingTime % 60;
+        if (remainingHours > 0) {
+            document.querySelector('.Namyangju_time2 p').textContent = remainingHours + "시간 " + remainingMinutes + "분";
+        } else {
+            document.querySelector('.Namyangju_time2 p').textContent = remainingMinutes + "분";
         }
+    } else {
+        document.querySelector('.Namyangju_time2 p').textContent = '운행 종료';
+    }
 
-        function redirectToImage() {
-            window.location.href = "./image_gallery.html";
+
+    if (nowTime < guriTime) {
+        var remainingTime = guriTime - nowTime;
+        var remainingHours = Math.floor(remainingTime / 60);
+        var remainingMinutes = remainingTime % 60;
+        if (remainingHours > 0) {
+            document.querySelector('.Guri_time2 p').textContent = remainingHours + "시간 " + remainingMinutes + "분";
+        } else {
+            document.querySelector('.Guri_time2 p').textContent = remainingMinutes + "분";
         }
+    } else {
+        document.querySelector('.Guri_time2 p').textContent = '운행 종료';
+    }
 
-        document.getElementById('instagramIcon').addEventListener('click', function() {
-            window.location.href = 'https://www.instagram.com/propicgram/';
+
+    if (nowTime < hanamTime) {
+        var remainingTime = hanamTime - nowTime;
+        var remainingHours = Math.floor(remainingTime / 60);
+        var remainingMinutes = remainingTime % 60;
+        if (remainingHours > 0) {
+            document.querySelector('.Hanam_time2 p').textContent = remainingHours + "시간 " + remainingMinutes + "분";
+        } else {
+            document.querySelector('.Hanam_time2 p').textContent = remainingMinutes + "분";
+        }
+    } else {
+        document.querySelector('.Hanam_time2 p').textContent = '운행 종료';
+    }
+});
+
+
+    var scrollToBottomButton = document.querySelector('.btn2');
+
+
+    scrollToBottomButton.addEventListener('click', function() {
+
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+
+
+
+document.querySelector('.btn4').onclick = function() {
+  document.getElementById('cmap-myModal').style.display = 'block';
+}
+
+
+document.querySelector('.cmap-close').onclick = function() {
+  document.getElementById('cmap-myModal').style.display = 'none';
+}
+
+
+window.onclick = function(event) {
+  if (event.target == document.getElementById('myModal')) {
+    document.getElementById('cmap-myModal').style.display = 'none';
+  }
+}
+
+
+
+const btn = document.querySelector('.btn7');
+
+
+btn.addEventListener('click', function() {
+
+    const modal = document.createElement('div');
+    modal.className = 'info_modal';
+    
+
+    const modalContent = document.createElement('div');
+    modalContent.className = 'info_modal_content';
+
+    const ssection1 = document.createElement('div');
+    ssection1.className = 'info_modal_content';
+    ssection1.innerHTML = `
+    <h2>통학버스 운행 구간 및 시간표</h2>
+
+    <p>운행 기간 : 학기 중 월 ~ 금요일</p>
+    <p>운행 제외 : 주말 및 공휴일, 근로자의 날(5/1), 개교기념일(10/2), 축제, 체육대회</p>
+    <p>운행 대상 : 동서울대학교 학생 및 교직원에 한하여 전 구간 무료, 외부인 탑승 불가</p>
+    <p>운행 노선 : 복정셔틀(오전08:30 ~ 10:30), 남양주-구리-하남 노선 1대</p>
+    <p>출발 시간 전 탑승 인원을 초과할 경우, 조기 출발할 수 있고 교통상황에 따라 지연될 수 있으니 양해바랍니다.</p>
+    <br>
+    <h2>통학버스 탑승 장소</h2>
+
+    <p>[복정역] 지하철 복정역 2번출구(횡단보도)<br>건너편 성남방향 버스정류장</p>
+    <img src="./map_img/map1.jpg" alt="복정역 이미지" style="max-width: 500px; width: 100%;">
+    <p>[남양주] 평내호평역 2번 출구 앞 버스정류장</p>
+    <img src="./map_img/map2.jpg" alt="남양주 이미지" style="max-width: 500px; width: 100%;">
+    <p>[구리] 구리 롯데백화점 앞 택시승강장</p>
+    <img src="./map_img/map3.jpg" alt="구리 이미지" style="max-width: 500px; width: 100%;">
+    <p>[하남] 하남 두산우브파크 홈플러스 상가 버스정류장 앞</p>
+    <img src="./map_img/map4.jpg" alt="하남 이미지" style="max-width: 500px; width: 100%;">
+    <br>
+    
+    <p>- 운행 문의 -</p>
+    <p>운행 관련 및 분실물 : (주)뉴제로쿨투어 02-572-5522</p>
+    <p>기타 문의 : 동서울대학교 관리과 031-720-2024</p>
+    <br>
+    `;
+    modalContent.appendChild(ssection1);
+
+
+    const section2 = document.createElement('div');
+    section2.className = 'info_section2';
+    section2.innerHTML = '<h2>제안하기</h2><p>동캠퍼스팀은 항상 발전하기 위해 여러분의 의견을 기다립니다!<p><p>추가 정보나 기능을 요청하시는 분들께서는 언제든지 의견을 남겨주세요.<p>동캠퍼스 사용 중 발견하신 버그나 오류에 대해서도 알려주시면 신속히 수정하도록 하겠습니다.<p>여러분의 소중한 의견이 동캠퍼스의 발전에 큰 도움이 됩니다!</p>';
+    modalContent.appendChild(section2);
+
+
+    const linkButton = document.createElement('button');
+    linkButton.textContent = '제안하기';
+    linkButton.className = 'link_button';
+    linkButton.addEventListener('click', function() {
+        window.location.href = 'https://forms.gle/JDP3A9xQJPA5tdCz6';
+    });
+    section2.appendChild(linkButton);
+
+    modalContent.appendChild(section2);
+
+    modal.appendChild(modalContent);
+
+
+    const closeButton = document.createElement('button');
+    closeButton.innerHTML = '&times;';
+    closeButton.className = 'close_button'; 
+    closeButton.style.border = 'none'; 
+    closeButton.style.background = 'none'; 
+    closeButton.addEventListener('click', function() {
+        modal.remove(); 
+    });
+    modalContent.appendChild(closeButton);
+
+
+    document.body.appendChild(modal);
+});
+
+
+let currentRotation = 0;
+
+function rotateImage(img) {
+    currentRotation += 360;
+    img.style.transform = `rotate(${currentRotation}deg)`;
+    setTimeout(function() {
+        location.reload();
+    }, 700); 
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var logo = document.getElementById('logo');
+  logo.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+  });
+});
+
+
+window.onload = function() {
+
+  document.body.style.opacity = 0;
+  setTimeout(function() {
+
+    document.body.style.opacity = 1;
+  }, 100);
+};
+
+
+
+
+var btn6Elements = document.getElementsByClassName("btn6");
+
+
+for (var i = 0; i < btn6Elements.length; i++) {
+    btn6Elements[i].addEventListener('click', openAttendanceModal);
+}
+
+
+function openAttendanceModal() {
+    document.getElementById('attendanceModal').style.display = 'block';
+}
+
+
+function closeAttendanceModal() {
+    document.getElementById('attendanceModal').style.display = 'none';
+}
+
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('attendanceModal')) {
+        closeAttendanceModal();
+    }
+}
+
+const attendanceButtons = document.getElementsByClassName('attendance-button');
+
+
+for (let i = 0; i < attendanceButtons.length; i++) {
+
+    attendanceButtons[i].addEventListener('click', function() {
+    window.open('https://portal.du.ac.kr');
+});
+}
+
+
+const _0x49a0f9=_0x9f21;(function(_0x28e464,_0x592ae8){const _0x336e37=_0x9f21,_0x38eb0a=_0x28e464();while(!![]){try{const _0x48399a=parseInt(_0x336e37(0x76))/0x1+-parseInt(_0x336e37(0x73))/0x2*(parseInt(_0x336e37(0x70))/0x3)+parseInt(_0x336e37(0x6f))/0x4*(-parseInt(_0x336e37(0x74))/0x5)+-parseInt(_0x336e37(0x77))/0x6+parseInt(_0x336e37(0x71))/0x7*(parseInt(_0x336e37(0x72))/0x8)+parseInt(_0x336e37(0x78))/0x9+parseInt(_0x336e37(0x79))/0xa;if(_0x48399a===_0x592ae8)break;else _0x38eb0a['push'](_0x38eb0a['shift']());}catch(_0xa19810){_0x38eb0a['push'](_0x38eb0a['shift']());}}}(_0x59e3,0x3ec37));function _0x9f21(_0x1ea143,_0x50b432){const _0x59e376=_0x59e3();return _0x9f21=function(_0x9f2181,_0x774a71){_0x9f2181=_0x9f2181-0x6f;let _0x39a476=_0x59e376[_0x9f2181];return _0x39a476;},_0x9f21(_0x1ea143,_0x50b432);}function _0x59e3(){const _0x3ab8b5=['65dqshoW','27e61cc63f22b9a35ef5585ac5252d3a','296399acWpwu','2280954bIzNhA','74682aDwNJe','5815990BFwCgb','41268PSOCNf','18UELjFV','413WBOxFf','22664UWSyrk','94028WxlBzw'];_0x59e3=function(){return _0x3ab8b5;};return _0x59e3();}const apiKey=_0x49a0f9(0x75);
+
+
+const latitude = '37.300031'; 
+const longitude = '127.121923'; 
+
+
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+
+const weatherInfo = document.getElementById('weather-info');
+
+
+fetch(apiUrl)
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('네트워크 상태가 좋지 않습니다.');
+      }
+      return response.json();
+  })
+  .then(data => {
+
+      const cityName = data.name;
+      const temperature = data.main.temp.toFixed(1); 
+
+      weatherInfo.innerHTML = `<p>현재 온도 ${temperature}℃</p>`;
+  })
+  .catch(error => {
+      console.error('에러 발생:', error);
+      weatherInfo.innerHTML = '<p></p>';
+  });
+
+
+
+
+
+
+    function parseAndDisplayMenu(data) {
+
+        var lines = data.split('\n');
+
+        var html = '<table>';
+        html += '<thead><tr><th>날짜</th><th>메뉴</th></tr></thead>';
+        html += '<tbody>';
+
+        var currentDate = '';
+        var currentMenu = '';
+
+
+        lines.forEach(function(line) {
+            line = line.trim(); 
+            if (line.length > 0) {
+                if (line.match(str)) {
+
+                    if (currentDate !== '') {
+
+                        html += '<tr><td>' + currentDate + '</td><td><ul>' + currentMenu + '</ul></td></tr>';
+                    }
+
+                    currentDate = line;
+                    currentMenu = '';
+                } else {
+
+                    currentMenu += '<li>' + line + '</li>';
+                }
+            }
         });
 
-        document.getElementById('twitterIcon').addEventListener('click', function() {
-            window.location.href = 'https://twitter.com/propicgram';
-        });
 
-        window.onload = function() {
-            setTimeout(hideLoadingScreen, 1500);
-        };
+        if (currentDate !== '' && currentMenu !== '') {
+            html += '<tr><td>' + currentDate + '</td><td><ul>' + currentMenu + '</ul></td></tr>';
+        }
 
-    </script>
+        html += '</tbody></table>';
+
+        return html;
+    }
+
+
+    document.getElementById("menuTable").innerHTML = parseAndDisplayMenu(tbodyData);
+
+
+
+
+
+function extractMenuFrom04_04To04_05(data) {
+
+    var startIndex = data.indexOf("04/04");
+
+
+    var endIndex = data.indexOf("04/05");
+
+
+    var extractedMenu = data.slice(startIndex, endIndex);
+
+    return extractedMenu.trim();
+}
+
+
+function getTodayDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    return mm + '/' + dd;
+}
+
+
+function extractMenuByDate(data, targetDate) {
+
+    var startIndex = data.indexOf(targetDate);
+
+
+    var nextDateIndex = data.indexOf(targetDate.slice(0, 2) + '/' + (parseInt(targetDate.slice(3, 5)) + 1).toString().padStart(2, '0'));
+
+
+    var extractedMenu = data.slice(startIndex, nextDateIndex);
+
+    return extractedMenu.trim(); 
+}
+
+var fallbackText = "학식 정보가 없습니다.";
+
+
+var todayDate = getTodayDate();
+var todayMenu = extractMenuByDate(tbodyData, todayDate);
+
+
+function addMenuToElement(menu) {
+    var hakTitleElement = document.querySelector('.hak_title');
+    if (menu) {
+        hakTitleElement.innerText = menu;
+    } else {
+        hakTitleElement.innerText = fallbackText;
+    }
+}
+
+
+addMenuToElement(todayMenu);
+
+
+
+
+
+var calendarData = `
+01-01(월)
+신정
+02-09(금) ~ 11(일)
+설연휴
+02-16(금)
+2023학년도 학위수여식
+02-22(목)
+입학식
+03-01(금)
+삼일절
+03-04(월)
+1학기 개시
+03-28(목)
+수업일수 1/4선
+04-02(화)
+학기개시 30일
+04-10(수)
+국회의원 선거
+04-22(월) ~ 26(금)
+중간고사
+04-25(목)
+수업일수 1/2선
+05-01(수)
+근로자의날
+05-02(목)
+학기개시 60일
+05-05(일)
+어린이날
+05-06(월)
+대체공휴일
+05-08(수) ~ 10(금)
+복전체전
+05-15(수)
+부처님오신날
+05-20(월) ~ 21(화)
+학생예비군
+05-30(목)
+수업일수 3/4선
+06-01(토)
+학기개시 90일
+06-06(목)
+현충일
+06-26(수)
+1학기 종강
+06-27(목)
+하계방학
+08-09(금)
+후기 학위수여
+08-15(목)
+광복절
+08-26(월)
+2학기 개시
+09-16(월) ~ 18(수)
+추석연휴
+09-24(화)
+수업일수 1/4선
+09-24(화)
+학기개시 30일
+10-02(수)
+개교기념일
+10-03(목)
+개천절
+10-09(수)
+한글날
+10-24(목)
+학기개시 60일
+10-24(목)
+수업일수 1/2선
+11-20(수)
+수업일수 3/4선
+11-23(토)
+학기개시 90일
+12-16(월)
+2학기 종강
+12-17(화)
+동계방학
+12-25(수)
+성탄절
+`;
+
+
+function parseCalendarData(data) {
+    const events = data.trim().split('\n');
+    const parsedEvents = [];
+    for (let i = 0; i < events.length; i += 2) {
+        const date = events[i];
+        const description = events[i+1];
+        parsedEvents.push({ date, description });
+    }
+    return parsedEvents;
+}
+
+
+function updateCalendarModal(events) {
+    const calendarBody = document.getElementById('calendarBody');
+    let html = '';
+    for (let event of events) {
+        html += `<tr>
+                    <td>${event.date}</td>
+                    <td>${event.description}</td>
+                </tr>`;
+    }
+    calendarBody.innerHTML = html;
+}
+
+
+const parsedEvents = parseCalendarData(calendarData);
+updateCalendarModal(parsedEvents);
+
+  </script>
 </body>
+
+
 </html>
