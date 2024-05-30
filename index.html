@@ -262,31 +262,6 @@
             transition: opacity 1s;
         }
 
-        #btn-back-to-top {
-            display: none;
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            z-index: 9999;
-            outline: none;
-            background-color: #f9f9f9ee;
-            color: white;
-            cursor: pointer;
-            border: 1px solid #cacaca00; 
-            border-radius: 15px;
-            width: 35px;    
-            height: 35px;
-            margin: 0 auto;
-        }
-
-        #btn-back-to-top:hover {
-            background-color: #333;
-        }
-
-        .upperimg{
-            width: 18px;
-        }
-
 
         @media (max-width: 1100px) {
             .main_title_1{
@@ -382,9 +357,6 @@
     </style>
 </head>
 <body>
-    <button onclick="backToTop()" id="btn-back-to-top">
-        <img class="upperimg" src="./IndexImage/upper.png">
-    </button>
 
     <div id="loading-screen" style="position: fixed; width: 100%; height: 100%; background-color: #000; color: #fff; text-align: center; display: flex; justify-content: center; align-items: center; z-index: 9999;">
         <img src="./IndexImage/logo.png" alt="logo" style="width: 50px; height: auto; margin-right: 7px;">
@@ -493,32 +465,6 @@
         window.onload = function() {
             setTimeout(hideLoadingScreen, 1500);
         };
-
-
-        // 스크롤 이벤트 리스너
-        window.addEventListener('scroll', () => {
-        // 스크롤 위치가 100px 이상일 때 위로 가기 버튼을 보이게 함
-        if (
-            document.body.scrollTop > 100 ||
-            document.documentElement.scrollTop > 20
-        ) {
-            document.getElementById('btn-back-to-top').style.display = 'block';
-        } else {
-            document.getElementById('btn-back-to-top').style.display = 'none';
-        }
-        });
-
-        // 클릭 시 페이지 맨 위로 스크롤 (애니메이션 효과 추가)
-        function backToTop() {
-        const position =
-            document.documentElement.scrollTop || document.body.scrollTop;
-        if (position) {
-            window.requestAnimationFrame(() => {
-            window.scrollTo(0, position - position / 10);
-            backToTop();
-            });
-        }
-        }
 
     </script>
 </body>
