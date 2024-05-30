@@ -244,8 +244,8 @@
         }
 
         .social-icon img {
-            width: 30px; /* 이미지의 크기를 조절할 수 있습니다. */
-            height: 30px; /* 이미지의 크기를 조절할 수 있습니다. */
+            width: 23px; /* 이미지의 크기를 조절할 수 있습니다. */
+            height: 23px; /* 이미지의 크기를 조절할 수 있습니다. */
         }
 
         #loading-screen img {
@@ -260,6 +260,30 @@
 
         #loading-screen {
             transition: opacity 1s;
+        }
+
+        #btn-back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            border: none;
+            outline: none;
+            background-color: #f9f9f9ee;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 35px;
+            height: 35px;
+        }
+
+        #btn-back-to-top:hover {
+            background-color: #333;
+        }
+
+        .upperimg{
+            width: 18px;
         }
 
 
@@ -429,10 +453,14 @@
             <img src="./IndexImage/logo-white.png" alt="Twitter">
         </div>
     </div>
+
+    <button onclick="backToTop()" id="btn-back-to-top">
+        <img class="upperimg" src="./IndexImage/upper.png">
+    </button>
     
 
     <footer>
-                © 2023 PropicGram / propicgram@gmail.com
+                © 2024 PropicGram
     </footer>
     
     <script>
@@ -465,6 +493,32 @@
         window.onload = function() {
             setTimeout(hideLoadingScreen, 1500);
         };
+
+
+        // 스크롤 이벤트 리스너
+        window.addEventListener('scroll', () => {
+        // 스크롤 위치가 100px 이상일 때 위로 가기 버튼을 보이게 함
+        if (
+            document.body.scrollTop > 100 ||
+            document.documentElement.scrollTop > 20
+        ) {
+            document.getElementById('btn-back-to-top').style.display = 'block';
+        } else {
+            document.getElementById('btn-back-to-top').style.display = 'none';
+        }
+        });
+
+        // 클릭 시 페이지 맨 위로 스크롤 (애니메이션 효과 추가)
+        function backToTop() {
+        const position =
+            document.documentElement.scrollTop || document.body.scrollTop;
+        if (position) {
+            window.requestAnimationFrame(() => {
+            window.scrollTo(0, position - position / 10);
+            backToTop();
+            });
+        }
+        }
 
     </script>
 </body>
