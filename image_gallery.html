@@ -449,6 +449,126 @@
             width: 18px;
         }
 
+
+
+
+        /* banner slide */
+        .slide {
+          display: flex;
+          flex-wrap: nowrap;
+          margin: 0 auto;
+          overflow: hidden;
+          max-width: 1000px;
+          position: relative;
+          width: 100%;
+          user-select: none;
+          margin: 0 auto;
+        }
+        .slide_item {
+          font-family: 'Freesentation-9Black';
+          color: white;
+          display: flex;
+          align-items:end;
+          justify-content: center;
+          position: relative;
+          left: 0px;
+          width: 100%;
+          height: 400px;
+          flex-shrink: 0;
+          transition: left 0.15s;
+        }
+
+        .slide_item > h3 {
+          color: #ffffff;
+          width: 100%;
+          padding-left: 30px;
+          z-index: 99;
+        }
+        .slide_button {
+          /* layout */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          /* position */
+          position: absolute;
+          /* 버튼이 중앙에 위치하게 하기위해 계산 */
+          top: calc(50% - 16px);
+
+          /* style */
+          font-weight: bold;
+          color: rgb(32, 32, 32);
+          cursor: pointer;
+        }
+
+        .slide_prev_button {
+          left: 10px;
+        }
+        .slide_next_button {
+          right: 10px;
+        }
+
+
+        .slide_item:nth-child(1) {
+          background-image: url(./IndexImage/banner1.jpg);
+          background-size: cover; 
+        }
+        .slide_item:nth-child(2) {
+          background-image: url(./IndexImage/banner2.jpg);
+          background-size: cover; 
+        }
+        .slide_item:nth-child(3) {
+          background-image: url(./IndexImage/banner3.jpg);
+          background-size: cover; 
+        }
+        .slide_item:nth-child(4) {
+          background-image: url(./IndexImage/banner4.jpg);
+          background-size: cover; 
+        }
+
+        .slide_item {
+          position: relative;
+          background-size: cover;
+        }
+
+        .slide_item::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0));
+        }
+
+        ul,
+        li {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+        }
+        .slide_pagination {
+
+          display: flex;
+          gap: 5px;
+          position: absolute;
+          bottom: 0;
+          left: 85%;
+          transform: translateX(-50%);
+        }
+        .slide_pagination > li {
+          color: rgba(0, 195, 230, 0.664);
+          cursor: pointer;
+          font-size: 35px;
+        }
+        .slide_pagination > li.active {
+          color: #006476;
+        }
+
+        .ghktkfvy{
+          font-size: 14px;
+        }
+
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -557,6 +677,20 @@
           font-size: 22px;
         }
 
+        .slide_item {
+          font-family: 'Freesentation-9Black';
+          color: white;
+          display: flex;
+          align-items:end;
+          justify-content: center;
+          position: relative;
+          left: 0px;
+          width: 100%;
+          height: 200px;
+          flex-shrink: 0;
+          transition: left 0.15s;
+        }
+
       }
     </style>
   </head>
@@ -571,6 +705,24 @@
     <img src="./IndexImage/logo.png" alt="logo" style="width: 55px; height: auto; margin-right: 7px;">
     <h1 class="gradient-text">PropicGram</h1>
   </header>
+
+  <div class="slide slide_wrap">
+    <div class="slide_item">
+      <h3><span class="touch_slide1">This is Propicgram<span class="ghktkfvy"> > </span></span></h3>
+    </div>
+    <div class="slide_item">
+      <h3><span class="touch_slide2">#Travel<span class="ghktkfvy"> > </span></span></h3>
+    </div>
+    <div class="slide_item">
+      <h3><span class="touch_slide3">#Character<span class="ghktkfvy"> > </span></span></h3>
+    </div>
+    <div class="slide_item">
+      <h3><span class="touch_slide4">#Aesthetic<span class="ghktkfvy"> > </span></span></h3>
+    </div>
+    <div class="slide_prev_button slide_button">&#60;</div>
+    <div class="slide_next_button slide_button">&#62;</div>
+    <ul class="slide_pagination"></ul>
+  </div>
 
     <div class="tagName">#All</div>
     
@@ -994,6 +1146,135 @@
             });
         }
         }
+
+
+        const slide = document.querySelector(".slide");
+let slideWidth = slide.clientWidth;
+const prevBtn = document.querySelector(".slide_prev_button");
+const nextBtn = document.querySelector(".slide_next_button");
+const slideItems = document.querySelectorAll(".slide_item");
+const maxSlide = slideItems.length;
+let currSlide = 1;
+const pagination = document.querySelector(".slide_pagination");
+for (let i = 0; i < maxSlide; i++) {
+  if (i === 0) pagination.innerHTML += `<li class="active">•</li>`;
+  else pagination.innerHTML += `<li>•</li>`;
+}
+const paginationItems = document.querySelectorAll(".slide_pagination > li");
+
+function nextMove() {
+  currSlide++;
+  if (currSlide <= maxSlide) {
+    const offset = slideWidth * (currSlide - 1);
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[currSlide - 1].classList.add("active");
+  } else {
+    currSlide = 1;
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: 0px`);
+    });
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[currSlide - 1].classList.add("active");
+  }
+  clearInterval(autoSlideInterval);
+  startAutoSlide();
+}
+
+
+function prevMove() {
+  currSlide--;
+  if (currSlide > 0) {
+    const offset = slideWidth * (currSlide - 1);
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[currSlide - 1].classList.add("active");
+  } else {
+    currSlide = maxSlide;
+    const offset = slideWidth * (currSlide - 1);
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[currSlide - 1].classList.add("active");
+  }
+}
+
+nextBtn.addEventListener("click", () => {
+  nextMove();
+});
+
+prevBtn.addEventListener("click", () => {
+  prevMove();
+});
+
+window.addEventListener("resize", () => {
+  slideWidth = slide.clientWidth;
+});
+
+for (let i = 0; i < maxSlide; i++) {
+  paginationItems[i].addEventListener("click", () => {
+    currSlide = i + 1;
+    const offset = slideWidth * (currSlide - 1);
+    slideItems.forEach((i) => {
+      i.setAttribute("style", `left: ${-offset}px`);
+    });
+    paginationItems.forEach((i) => i.classList.remove("active"));
+    paginationItems[currSlide - 1].classList.add("active");
+  });
+}
+
+let autoSlideInterval;
+
+function startAutoSlide() {
+  autoSlideInterval = setInterval(() => {
+    nextMove();
+  }, 3000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+}
+
+startAutoSlide();
+
+slide.addEventListener("mouseenter", () => {
+  stopAutoSlide();
+});
+
+slide.addEventListener("mouseleave", () => {
+  startAutoSlide();
+});
+
+let touchStartX;
+let touchEndX;
+let touchTimer;
+
+slide.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  stopAutoSlide();
+});
+
+slide.addEventListener("touchmove", (e) => {
+  touchEndX = e.touches[0].clientX;
+});
+
+slide.addEventListener("touchend", () => {
+  clearTimeout(touchTimer);
+  const touchDifference = touchStartX - touchEndX;
+  if (touchDifference > 50) {
+    nextMove();
+  } else if (touchDifference < -50) {
+    prevMove();
+  }
+  touchTimer = setTimeout(() => {
+    startAutoSlide();
+  }, 2000);
+});
 
     </script>
   </body>
